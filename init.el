@@ -5,6 +5,18 @@
 ;;; Code:
 (eval-when-compile (require 'cl))
 
+;; ;; load-path を追加する関数を定義
+;; (defun add-to-load-path (&rest paths)
+;;   (let (path)
+;;     (dolist (path paths paths)
+;;       (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
+;; 	(add-to-list 'load-path default-directory)
+;; 	(if (fboundp 'normal-top-level-add-subdir-to-load-path)
+;; 	    (normal-top-level-add-subdirs-to-load-path))))))
+;; ;; load-pathに追加
+;; (add-to-load-path "elisp")
+;; ;(add-to-list 'load-path "~/.emacs.d/elisp/")
+
 ;;package.elの設定
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
@@ -17,18 +29,19 @@
   '(anzu
     auto-complete
     anything
-    ac-python
     async
     auto-dictionary
-    auto-highlight-symbol
     auto-indent-mode
     auto-install
     auto-yasnippet
     autopair
     coffee-mode
     color-theme
+    color-moccur
     csv-mode
     dash
+    dired-toggle
+    dired-details
     epl
     expand-region
     git
@@ -92,28 +105,16 @@
     (dolist (package not-installed)
       (package-install package))))
 
-;; load-path を追加する関数を定義
-(defun add-to-load-path (&rest paths)
-  (let (path)
-    (dolist (path paths paths)
-      (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
-	(add-to-list 'load-path default-directory)
-	(if (fboundp 'normal-top-level-add-subdir-to-load-path)
-	    (normal-top-level-add-subdirs-to-load-path))))))
+;; ;; auto-install.el
+;; (require 'auto-install)
+;; ;; インストールディレクトリを設定
+;; (setq auto-install-directory "~/.emacs.d/elisp")
+;; ;; EmacsWikiに登録されているelispの名前を取得
+;; (auto-install-update-emacswiki-package-name t)
+;; ;; install-elispの関数を利用可能にする
+;; (auto-install-compatibility-setup)
 
-;; load-pathに追加
-(add-to-load-path "elisp")
-;; auto-install.el
-(when (require 'auto-install nil t)
-  ;; インストールディレクトリを設定
-  ;;(setq auto-install-directory "~/.emacs.d/elisp")
-  ;; EmacsWikiに登録されているelispの名前を取得
-  ;;(auto-install-update-emacswiki-package-name t)
-  ;; install-elispの関数を利用可能にする
-  ;;(auto-install-compatibility-setup)
-)
-
-;;(add-to-list 'load-path "~/.emacs.d/elisp/")
+;;auto-complete
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/dict")
 (ac-config-default)
@@ -123,11 +124,19 @@
 ;;起動時フレームの大きさ
  (setq initial-frame-alist
           '((top . 1) (left . 65) (width . 147) (height . 45)))
+
 ;; 問い合わせを簡略化 yes/no を y/n
 (fset 'yes-or-no-p 'y-or-n-p)
+
+;;point-undo
+(require 'point-undo)
+(global-set-key (kbd "M-[") 'point-undo)
+(global-set-key (kbd "M-]") 'point-redo)
+
 ;; meta -> command
 (when (eq system-type 'darwin)
- (setq ns-command-modifier (quote meta)))
+  (setq ns-command-modifier (quote meta))
+  (setq ns-alternate-modifier (quote super)))
 
 ;; 言語を日本語にする
 (set-language-environment 'Japanese)
@@ -163,6 +172,18 @@
 ;;auto-indent-mode
 ;; (require 'auto-indent-mode)
 ;; (auto-indent-global-mode)
+
+;;dired-details
+(require 'dired-details)
+(dired-details-install)
+(setq dired-details-hidden-string "")
+(setq dired-details-hide-link-targets nil)
+(defadvice find-dired-sentinel (after dired-details (proc state) activate)
+  (ignore-errors
+    (with-current-buffer (process-buffer proc)
+      (dired-details-activate))))
+(global-set-key (kbd "s-f") 'auto-fill-mode)
+
 
  ;;js3-mode
 (custom-set-variables
@@ -223,6 +244,16 @@
 ;; (show-smartparens-global-mode t)
 ;; (sp-pair "<%" "%>")
 
+;;color-moccur
+(require 'color-moccur)
+(global-set-key (kbd "M-o") 'occur-by-moccur)
+(setq moccur-split-word t)
+(add-to-list 'dmoccur-exclusion-mask "\\.DS_Store")
+(add-to-list 'dmoccur-exclusion-mask "^#.+#$")
+;;moccur-edit
+;(require 'moccur-edit nil t)
+
+
 (require 'powerline)
 (powerline-default-theme)
 ;; (set-face-attribute 'mode-line nil
@@ -241,6 +272,7 @@
 ;; タイトルバーにファイルのフルパス表示
 (setq frame-title-format
       (format "%%f - Emacs@%s" (system-name)))
+
 ;; 最近使ったファイルをメニューに表示
 (require 'recentf)
 (recentf-mode t)
@@ -277,8 +309,8 @@
 (setq ido-everywhere t)
 
 ;; undohistの設定
-(when (require 'undohist nil t)
-  (undohist-initialize))
+(require 'undohist)
+(undohist-initialize)
 ;undotree M-(C-)/    C-x u :show tree   d:details
 (require 'undo-tree)
 (global-undo-tree-mode t)
@@ -358,9 +390,16 @@
 ;max-specpdl
 (setq max-specpdl-size 6000)
 (setq max-lisp-eval-depth 5000)
+;;cua-mode
+(cua-mode t)
+(setq cua-enable-cua-keys nil)
+
 ;;;keybind
 (global-set-key [(C h)] 'delete-backward-char)
-
+(global-set-key [(C x)(k)] 'kill-this-buffer)
+(global-set-key [(s &)] 'kill-buffer)
+(global-set-key [(C x)(t)] 'transpose-chars)
+(global-set-key [(C t)] 'other-window)
 ;;; c ;;;
 ;;cc-modeの設定（プログラムを書くときのモーdo)
 (add-hook 'c-mode-common-hook
@@ -431,10 +470,8 @@
 (global-auto-highlight-symbol-mode t)
 (require 'highlight-symbol)
 (setq highlight-symbol-colors '("DarkOrange" "DodgerBlue1" "DeepPink1")) ;; 使いたい色を設定、repeatしてくれる
-;; 適宜keybindの設定
 (global-set-key (kbd "C-3") 'highlight-symbol-at-point)
 (global-set-key (kbd "C-M-3") 'highlight-symbol-remove-all)
-
 
 (require 'key-combo)
 ;; (key-combo-load-default)
