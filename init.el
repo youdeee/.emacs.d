@@ -5,17 +5,17 @@
 ;;; Code:
 (eval-when-compile (require 'cl))
 
-;; ;; load-path を追加する関数を定義
-;; (defun add-to-load-path (&rest paths)
-;;   (let (path)
-;;     (dolist (path paths paths)
-;;       (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
-;; 	(add-to-list 'load-path default-directory)
-;; 	(if (fboundp 'normal-top-level-add-subdir-to-load-path)
-;; 	    (normal-top-level-add-subdirs-to-load-path))))))
-;; ;; load-pathに追加
-;; (add-to-load-path "elisp")
-;; ;(add-to-list 'load-path "~/.emacs.d/elisp/")
+;; load-path を追加する関数を定義
+(defun add-to-load-path (&rest paths)
+  (let (path)
+    (dolist (path paths paths)
+      (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
+	(add-to-list 'load-path default-directory)
+	(if (fboundp 'normal-top-level-add-subdir-to-load-path)
+	    (normal-top-level-add-subdirs-to-load-path))))))
+;; load-pathに追加
+(add-to-load-path "elisp")
+;(add-to-list 'load-path "~/.emacs.d/elisp/")
 
 ;;package.elの設定
 (require 'package)
@@ -26,7 +26,8 @@
 (package-initialize)
 ;; install if not installed
 (defvar my-package-list
-  '(anzu
+  '(ac-ispell
+    anzu
     auto-complete
     anything
     async
@@ -51,6 +52,7 @@
     haml-mode
     helm
     highlight
+    indent-guide
     ido-select-window
     ido-ubiquitous
     ido-vertical-mode
@@ -95,7 +97,8 @@
     vline
     web-mode
     yaml-mode
-    yasnippet))
+    yasnippet
+    yasnippet-bundle))
 (let ((not-installed
        (loop for package in my-package-list
              when (not (package-installed-p package))
@@ -120,10 +123,13 @@
 (ac-config-default)
 (setq ac-modes (append ac-modes '(objc-mode)))
 (auto-complete '(ac-persist-help))
+(setq ac-use-menu-map t)
+(define-key ac-menu-map "\C-n" 'ac-next)
+(define-key ac-menu-map "\C-p" 'ac-previous)
 
 ;;起動時フレームの大きさ
  (setq initial-frame-alist
-          '((top . 1) (left . 65) (width . 147) (height . 45)))
+          '((top . 1) (left . 65) (width . 147) (height . 45)));;115/32
 
 ;; 問い合わせを簡略化 yes/no を y/n
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -169,9 +175,11 @@
   (server-start))
 (defalias 'exit 'save-buffers-kill-emacs)
 
-;;auto-indent-mode
-;; (require 'auto-indent-mode)
-;; (auto-indent-global-mode)
+;;indent-guide
+(require 'indent-guide)
+(indent-guide-global-mode)
+;(set-face-background 'indent-guide-face "dimgray")
+;(setq indent-guide-recursive t)
 
 ;;dired-details
 (require 'dired-details)
@@ -184,6 +192,21 @@
       (dired-details-activate))))
 (global-set-key (kbd "s-f") 'auto-fill-mode)
 
+;; (require 'ac-cider)
+;; (add-hook 'cider-mode-hook 'ac-flyspell-workaround)
+;; (add-hook 'cider-mode-hook 'ac-cider-setup)
+;; (add-hook 'cider-repl-mode-hook 'ac-cider-setup)
+;; (eval-after-load "auto-complete"
+;;   '(add-to-list 'ac-modes 'cider-mode))
+
+;;ac-ispell
+(eval-after-load "auto-complete"
+  '(progn
+      (ac-ispell-setup)))
+(add-hook 'git-commit-mode-hook 'ac-ispell-ac-setup)
+(add-hook 'mail-mode-hook 'ac-ispell-ac-setup)
+(add-hook 'text-mode-hook 'ac-ispell-ac-setup)
+(add-hook 'markdown-mode-hook 'ac-ispell-ac-setup)
 
  ;;js3-mode
 (custom-set-variables
@@ -289,9 +312,6 @@
 (add-hook 'python-mode-hook 'flycheck-mode)
 ;; Ruby
 (add-hook 'ruby-mode-hook 'flycheck-mode)
-;; flymake
-;; (global-set-key (kbd "M-g M-n") 'flymake-goto-next-error)
-;; (global-set-key (kbd "M-g M-p") 'flymake-goto-prev-error)
 
 ;; transient-mark-mode on
 (setq-default transient-mark-mode t)
@@ -465,7 +485,7 @@
 ;;     ("o"        . 'mc/sort-regions)
 ;;     ("O"        . 'mc/reverse-regions)))
 
-;autohighlight
+;;autohighlight
 (require 'auto-highlight-symbol)
 (global-auto-highlight-symbol-mode t)
 (require 'highlight-symbol)
@@ -490,21 +510,36 @@
              (setq tab-width 2)
              (setq ruby-indent-level tab-width)
              (setq ruby-deep-indent-paren-style nil)
-             ;;(define-key ruby-mode-map [return] 'ruby-reindent-then-newline-and-indent)
+	     (defadvice ruby-indent-line (after unindent-closing-paren activate)
+	       (let ((column (current-column))
+		     indent offset)
+		 (save-excursion
+		   (back-to-indentation)
+		   (let ((state (syntax-ppss)))
+		     (setq offset (- column (current-column)))
+		     (when (and (eq (char-after) ?\))
+				(not (zerop (car state))))
+		       (goto-char (cadr state))
+		       (setq indent (current-indentation)))))
+		 (when indent
+		   (indent-line-to indent)
+		   (when (> offset 0) (forward-char offset)))))
 ))
-(defun ruby-insert-end ()
-  (interactive)
-  (insert "end")
-  (ruby-indent-line t)
-  (end-of-line))
 
 (require 'ruby-block)
 (ruby-block-mode t)
 (setq ruby-block-highlight-toggle t)
 
-(require 'ruby-electric)
-(add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
-(setq ruby-electric-expand-delimiters-list nil)
+(require 'ruby-end)
+(add-hook 'ruby-mode-hook
+  '(lambda ()
+    (abbrev-mode 1)
+;;    (electric-pair-mode t)
+;;    (electric-indent-mode t)
+    (electric-layout-mode t)))
+
+;; ;;rinari
+;; (require 'rinari)
 
 ;; ;; rcodetools
 ;; (require 'rcodetools)
@@ -514,6 +549,15 @@
 ;;   (define-key ruby-mode-map "\C-c\C-t" 'ruby-toggle-buffer)
 ;;   (define-key ruby-mode-map "\C-c\C-f" 'rct-ri))
 ;; (add-hook 'ruby-mode-hook 'ruby-mode-hook-rcodetools)
+
+;; (require 'ruby-electric)
+;; (add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
+;; (setq ruby-electric-expand-delimiters-list nil)
+;; (defun ruby-insert-end ()
+;;   (interactive)
+;;   (insert "end")
+;;   (ruby-indent-line t)
+;;   (end-of-line))
 
 ;; smart-compile
 (require 'smarter-compile)
