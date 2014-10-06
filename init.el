@@ -27,9 +27,9 @@
 ;; install if not installed
 (defvar my-package-list
   '(ac-ispell
+    ac-helm
     anzu
     auto-complete
-    anything
     async
     auto-dictionary
     auto-indent-mode
@@ -46,11 +46,16 @@
     epl
     expand-region
     git
+    fill-column-indicator
     flex-autopair
     flycheck
     goto-chg
     haml-mode
     helm
+    helm-ag
+    helm-descbinds
+    helm-css-scss
+    helm-c-yasnippet
     highlight
     indent-guide
     ido-select-window
@@ -89,7 +94,6 @@
     smart-indent-rigidly
     smarter-compile
     smartparens
-    smartrep
     sticky
     tabbar
     undo-tree
@@ -97,8 +101,7 @@
     vline
     web-mode
     yaml-mode
-    yasnippet
-    yasnippet-bundle))
+    yasnippet))
 (let ((not-installed
        (loop for package in my-package-list
              when (not (package-installed-p package))
@@ -127,9 +130,23 @@
 (define-key ac-menu-map "\C-n" 'ac-next)
 (define-key ac-menu-map "\C-p" 'ac-previous)
 
+;;ac-ispell
+(eval-after-load "auto-complete"
+  '(progn
+     (ac-ispell-setup)))
+(add-hook 'git-commit-mode-hook 'ac-ispell-ac-setup)
+(add-hook 'mail-mode-hook 'ac-ispell-ac-setup)
+(add-hook 'text-mode-hook 'ac-ispell-ac-setup)
+(add-hook 'markdown-mode-hook 'ac-ispell-ac-setup)
+
 ;;起動時フレームの大きさ
  (setq initial-frame-alist
           '((top . 1) (left . 65) (width . 147) (height . 45)));;115/32
+;;miniとかを横に表示
+(setq split-height-threshold nil)
+(setq split-width-threshold 0)
+(global-set-key (kbd "C-c f") 'fci-mode)
+
 
 ;; 問い合わせを簡略化 yes/no を y/n
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -192,21 +209,41 @@
       (dired-details-activate))))
 (global-set-key (kbd "s-f") 'auto-fill-mode)
 
-;; (require 'ac-cider)
-;; (add-hook 'cider-mode-hook 'ac-flyspell-workaround)
-;; (add-hook 'cider-mode-hook 'ac-cider-setup)
-;; (add-hook 'cider-repl-mode-hook 'ac-cider-setup)
-;; (eval-after-load "auto-complete"
-;;   '(add-to-list 'ac-modes 'cider-mode))
+;;yasnippet
+(yas-global-mode 1)
+(global-set-key (kbd "C-x j j") 'yas-insert-snippet)
+(global-set-key (kbd "C-x j n") 'yas-new-snippet)
+(global-set-key (kbd "C-x j v") 'yas-visit-snippet-file)
+(define-key yas-minor-mode-map (kbd "TAB") nil)
+(define-key yas-minor-mode-map (kbd "<tab>") nil)
 
-;;ac-ispell
-(eval-after-load "auto-complete"
-  '(progn
-      (ac-ispell-setup)))
-(add-hook 'git-commit-mode-hook 'ac-ispell-ac-setup)
-(add-hook 'mail-mode-hook 'ac-ispell-ac-setup)
-(add-hook 'text-mode-hook 'ac-ispell-ac-setup)
-(add-hook 'markdown-mode-hook 'ac-ispell-ac-setup)
+;;helm
+(helm-mode 1)
+(helm-descbinds-mode 1)
+(setq helm-split-window-default-side 'right)
+(require 'helm-ag)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x f") 'helm-mini)
+(global-set-key (kbd "C-c C-f") 'helm-find-files)
+(global-set-key (kbd "C-c s") 'helm-ag)
+(global-set-key (kbd "M-y")     'helm-show-kill-ring)
+(global-set-key (kbd "C-c i")   'helm-imenu)
+(global-set-key (kbd "C-x b")   'helm-buffers-list)
+(define-key helm-map (kbd "C-h") 'delete-backward-char)
+(global-set-key (kbd "C-c o") 'helm-occur)
+(define-key isearch-mode-map (kbd "C-o") 'helm-occur-from-isearch)
+(define-key helm-map (kbd "C-c C-a") 'all-from-helm-occur)
+(setq helm-css-scss-split-direction 'split-window-horizontally)
+(global-set-key (kbd "C-c C-;") 'ac-complete-with-helm)
+(define-key ac-complete-mode-map (kbd "C-c C-;") 'ac-complete-with-helm)
+
+;; Disable helm in some functions
+(setq helm-delete-minibuffer-contents-from-point t)
+(add-to-list 'helm-completing-read-handlers-alist '(find-alternate-file . nil))
+(defadvice helm-delete-minibuffer-contents (before helm-emulate-kill-line activate)
+  (kill-new (buffer-substring (point) (field-end))))
+(define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
+(define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
 
  ;;js3-mode
 (custom-set-variables
@@ -301,7 +338,6 @@
 (recentf-mode t)
 (setq recentf-max-menu-items 50)
 (setq recentf-max-saved-items 3000)
-(global-set-key (kbd "C-x f") 'recentf-open-files)
 
 ;;flycheck
 (require 'flycheck)
@@ -336,9 +372,6 @@
 (global-undo-tree-mode t)
 ;;(global-set-key (kbd "M-/") 'undo-tree-redo)
 
-;; ;色づけは最大限に
-;; (setq font-lock-maximum-decoration t)
-
 ;; デフォルトの色づけを変える
 (add-hook 'font-lock-mode-hook '(lambda ()
   (set-face-foreground 'font-lock-builtin-face "spring green")
@@ -368,8 +401,6 @@
 ;; (setq kill-whole-line t)
 ;; カーソル位置の桁数をモードライン行に表示する
 (column-number-mode 1)
-;; 指定行にジャンプする
-(global-set-key "\C-xj" 'goto-line)
 ;最初のメッセージを消す;
 (setq inhibit-startup-message t)
 ;選択した領域に色をつける;
@@ -379,9 +410,7 @@
 (when window-system
 ;アクティブウィンドウと非アクティブウィンドウの透明度;
 (add-to-list 'default-frame-alist '(alpha . (100 70)))
-;文字の色;
 (add-to-list 'default-frame-alist '(foreground-color . "white"))
-;背景の色;
 (add-to-list 'default-frame-alist '(background-color . "black")))
 ;１行ずつスクロール;
 (setq scroll-step 1)
@@ -389,11 +418,12 @@
 ;ファイルの最後で改行しない;
 (setq next-line-add-newlines nil)
 ;画面が光る;
-(setq visible-bell t)
+;(setq visible-bell t)
 ;タブの幅;
 (setq tab-width 2)
 ;前の行とインデントをあわせる;
 (setq indent-line-function 'indent-relative-maybe)
+(global-set-key (kbd "C-@") 'indent-region)
 ;行番号を表示;
 (global-linum-mode t)
 ;対応する括弧をハイライト表示させる;
@@ -457,11 +487,11 @@
 (global-set-key (kbd "C-c r") 'anzu-query-replace)
 (global-set-key (kbd "C-c R") 'anzu-query-replace-regexp)
 
+;;(require 'smartrep)
 ;; ;http://shibayu36.hatenablog.com/entry/2013/12/30/190354
 ;; ;multiple-cursor.elの設定を調整してみた
 ;; (require 'expand-region)
 ;; (require 'multiple-cursors)
-;; (require 'smartrep)
 ;; (global-set-key (kbd "C-,") 'er/expand-region)
 ;; (global-set-key (kbd "C-M-,") 'er/contract-region)
 ;; (declare-function smartrep-define-key "smartrep")
@@ -469,7 +499,6 @@
 ;; (global-set-key (kbd "C-M-r") 'mc/mark-all-in-region)
 ;; (global-unset-key "\C-t")
 ;; (global-unset-key "\C-i")
-
 ;; (smartrep-define-key global-map "C-i"
 ;;   '(("C-i"      . 'mc/mark-next-like-this)
 ;;     ("n"        . 'mc/mark-next-like-this)
@@ -485,9 +514,7 @@
 ;;     ("o"        . 'mc/sort-regions)
 ;;     ("O"        . 'mc/reverse-regions)))
 
-;;autohighlight
-(require 'auto-highlight-symbol)
-(global-auto-highlight-symbol-mode t)
+;;highlight
 (require 'highlight-symbol)
 (setq highlight-symbol-colors '("DarkOrange" "DodgerBlue1" "DeepPink1")) ;; 使いたい色を設定、repeatしてくれる
 (global-set-key (kbd "C-3") 'highlight-symbol-at-point)
@@ -538,9 +565,6 @@
 ;;    (electric-indent-mode t)
     (electric-layout-mode t)))
 
-;; ;;rinari
-;; (require 'rinari)
-
 ;; ;; rcodetools
 ;; (require 'rcodetools)
 ;; (setq rct-find-tag-if-available nil)
@@ -549,15 +573,6 @@
 ;;   (define-key ruby-mode-map "\C-c\C-t" 'ruby-toggle-buffer)
 ;;   (define-key ruby-mode-map "\C-c\C-f" 'rct-ri))
 ;; (add-hook 'ruby-mode-hook 'ruby-mode-hook-rcodetools)
-
-;; (require 'ruby-electric)
-;; (add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
-;; (setq ruby-electric-expand-delimiters-list nil)
-;; (defun ruby-insert-end ()
-;;   (interactive)
-;;   (insert "end")
-;;   (ruby-indent-line t)
-;;   (end-of-line))
 
 ;; smart-compile
 (require 'smarter-compile)
