@@ -263,12 +263,27 @@
  '(js3-square-indent-offset 2))
 (autoload 'js3-mode "js3-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
+
 ;;coffee-mode tab
 (custom-set-variables '(coffee-tab-width 2))
+;; auto-complete
+(add-to-list 'ac-modes 'coffee-mode) ;; coffee-modeでACを使えるようにする
+(add-hook 'coffee-mode-hook
+  '(lambda ()
+    (add-to-list 'ac-dictionary-files "~/.emacs.d/dict/javascript-mode")
+))
+
 ;;slim-mode
 (require 'slim-mode)
+(add-to-list 'ac-modes 'slim-mode) ;; coffee-modeでACを使えるようにする
+(add-hook 'slim-mode-hook
+  '(lambda ()
+    (add-to-list 'ac-dictionary-files "~/.emacs.d/dict/ruby-mode")
+))
+
 ;;sass-mode
 (require 'sass-mode)
+(add-to-list 'ac-modes 'sass-mode) ;; coffee-modeでACを使えるようにする
 ;;yaml-mode
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
