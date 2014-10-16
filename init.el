@@ -147,9 +147,9 @@
 (setq split-width-threshold 0)
 (global-set-key (kbd "C-c f") 'fci-mode)
 
-
 ;; 問い合わせを簡略化 yes/no を y/n
 (fset 'yes-or-no-p 'y-or-n-p)
+(ido-yes-or-no-mode)
 
 ;;point-undo
 (require 'point-undo)
@@ -251,6 +251,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(anzu-deactivate-region t)
+ '(anzu-mode-lighter "")
+ '(anzu-search-threshold 1000)
+ '(coffee-tab-width 2)
+ '(fill-column 80)
  '(js3-auto-indent-p t)
  '(js3-curly-indent-offset 0)
  '(js3-enter-indents-newline t)
@@ -265,7 +270,7 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
 
 ;;coffee-mode tab
-(custom-set-variables '(coffee-tab-width 2))
+
 ;; auto-complete
 (add-to-list 'ac-modes 'coffee-mode) ;; coffee-modeでACを使えるようにする
 (add-hook 'coffee-mode-hook
@@ -292,6 +297,7 @@
  ;;       (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 ;;scss-mode
 (require 'scss-mode)
+(add-to-list 'ac-modes 'scss-mode) ;; coffee-modeでACを使えるようにする
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
 (defun scss-custom ()
   "scss-mode-hook"
@@ -493,10 +499,7 @@
 
 ;anzu
 (global-anzu-mode +1)
-(custom-set-variables
- '(anzu-mode-lighter "")
- '(anzu-deactivate-region t)
- '(anzu-search-threshold 1000))
+
 ;(setq anzu-use-migemo t)
 (setq anzu-minimum-input-length 3)
 (global-set-key (kbd "C-c r") 'anzu-query-replace)
@@ -638,25 +641,19 @@
 (add-hook 'web-mode-hook  'web-mode-hook)
 ;; 色の設定
 (custom-set-faces
- '(web-mode-doctype-face
-   ((t (:foreground "#82AE46"))))                          ; doctype
- '(web-mode-html-tag-face
-   ((t (:foreground "#E6B422" :weight bold))))             ; 要素名
- '(web-mode-html-attr-name-face
-   ((t (:foreground "#C97586"))))                          ; 属性名など
- '(web-mode-html-attr-value-face
-   ((t (:foreground "#82AE46"))))                          ; 属性値
- '(web-mode-comment-face
-   ((t (:foreground "#D9333F"))))                          ; コメント
- '(web-mode-server-comment-face
-   ((t (:foreground "#D9333F"))))                          ; コメント
- '(web-mode-css-rule-face
-   ((t (:foreground "#A0D8EF"))))                          ; cssのタグ
- '(web-mode-css-pseudo-class-face
-   ((t (:foreground "#FF7F00"))))                          ; css 疑似クラス
- '(web-mode-css-at-rule-face
-   ((t (:foreground "#FF7F00"))))                          ; cssのタグ
-)
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(web-mode-comment-face ((t (:foreground "#D9333F"))))
+ '(web-mode-css-at-rule-face ((t (:foreground "#FF7F00"))))
+ '(web-mode-css-pseudo-class-face ((t (:foreground "#FF7F00"))))
+ '(web-mode-css-rule-face ((t (:foreground "#A0D8EF"))))
+ '(web-mode-doctype-face ((t (:foreground "#82AE46"))))
+ '(web-mode-html-attr-name-face ((t (:foreground "#C97586"))))
+ '(web-mode-html-attr-value-face ((t (:foreground "#82AE46"))))
+ '(web-mode-html-tag-face ((t (:foreground "#E6B422" :weight bold))))
+ '(web-mode-server-comment-face ((t (:foreground "#D9333F")))))
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ;; 7.2 Flymakeによる文法チェック                          ;;
