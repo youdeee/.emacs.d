@@ -57,6 +57,7 @@
     helm-css-scss
     helm-c-yasnippet
     highlight
+    highlight-symbol
     indent-guide
     ido-select-window
     ido-ubiquitous
@@ -69,10 +70,12 @@
     json-mode
     jump
     key-combo
+    lispxmp
     markdown-mode
     markdown-mode+
     multi
     multiple-cursors
+    open-junk-file
     php-mode
     php+-mode
     pkg-info
@@ -89,6 +92,7 @@
     ruby-electric
     ruby-end
     ruby-mode
+    sass-mode
     scss-mode
     slim-mode
     smart-indent-rigidly
@@ -129,6 +133,8 @@
 (setq ac-use-menu-map t)
 (define-key ac-menu-map "\C-n" 'ac-next)
 (define-key ac-menu-map "\C-p" 'ac-previous)
+(setq ac-auto-show-menu 0.8)
+(define-key ac-completing-map "\M-/" 'ac-stop)
 
 ;;ac-ispell
 (eval-after-load "auto-complete"
@@ -200,15 +206,25 @@
 
 ;;dired-details
 (require 'dired-details)
-(dired-details-install)
-(setq dired-details-hidden-string "")
-(setq dired-details-hide-link-targets nil)
-(defadvice find-dired-sentinel (after dired-details (proc state) activate)
-  (ignore-errors
-    (with-current-buffer (process-buffer proc)
-      (dired-details-activate))))
+;; (dired-details-install)
+;; (setq dired-details-hidden-string "")
+;; (setq dired-details-hide-link-targets nil)
+;; (defadvice find-dired-sentinel (after dired-details (proc state) activate)
+;;   (ignore-errors
+;;     (with-current-buffer (process-buffer proc)
+;;       (dired-details-activate))))
+
+;;auto-fill-mode
 (global-set-key (kbd "s-f") 'auto-fill-mode)
 
+;;open-junk-file
+(require 'open-junk-file)
+(global-set-key (kbd "C-z") 'open-junk-file)
+(setq open-junk-file-format "~/workspace/junk/%Y/%m/%Y-%m-%d-%H%M%S.")
+
+;;lispxmp
+(require 'lispxmp)
+(define-key emacs-lisp-mode-map (kbd "C-c C-d") 'lispxmp)
 ;;yasnippet
 (yas-global-mode 1)
 (global-set-key (kbd "C-x j j") 'yas-insert-snippet)
@@ -230,7 +246,7 @@
 (global-set-key (kbd "C-c i")   'helm-imenu)
 (global-set-key (kbd "C-x b")   'helm-buffers-list)
 (define-key helm-map (kbd "C-h") 'delete-backward-char)
-(global-set-key (kbd "C-c o") 'helm-occur)
+(global-set-key (kbd "M-o") 'helm-occur)
 (define-key isearch-mode-map (kbd "C-o") 'helm-occur-from-isearch)
 (define-key helm-map (kbd "C-c C-a") 'all-from-helm-occur)
 (setq helm-css-scss-split-direction 'split-window-horizontally)
@@ -270,8 +286,6 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
 
 ;;coffee-mode tab
-
-;; auto-complete
 (add-to-list 'ac-modes 'coffee-mode) ;; coffee-modeでACを使えるようにする
 (add-hook 'coffee-mode-hook
   '(lambda ()
@@ -327,7 +341,7 @@
 
 ;;color-moccur
 (require 'color-moccur)
-(global-set-key (kbd "M-o") 'occur-by-moccur)
+;;(global-set-key (kbd "M-o") 'occur-by-moccur)
 (setq moccur-split-word t)
 (add-to-list 'dmoccur-exclusion-mask "\\.DS_Store")
 (add-to-list 'dmoccur-exclusion-mask "^#.+#$")
@@ -418,8 +432,6 @@
 ;;; バックアップファイルを作らない
 (setq backup-inhibited t)
 (display-time)
-;; C-k １回で行全体を削除する
-;; (setq kill-whole-line t)
 ;; カーソル位置の桁数をモードライン行に表示する
 (column-number-mode 1)
 ;最初のメッセージを消す;
@@ -447,12 +459,9 @@
 (global-set-key (kbd "C-@") 'indent-region)
 ;行番号を表示;
 (global-linum-mode t)
+(global-set-key [(C c) (n)] 'linum-mode)
 ;対応する括弧をハイライト表示させる;
 (show-paren-mode 1)
-;行番号の表示
-(global-set-key "\M-n" 'linum-mode)
-;スクロールダウン
-(global-set-key [(C S v)] 'scroll-down-command)
 ;; 括弧
 (show-paren-mode t)
 (setq show-paren-delay 0)
@@ -464,13 +473,23 @@
 ;;cua-mode
 (cua-mode t)
 (setq cua-enable-cua-keys nil)
-
+;;backward-kill-line
+(defun backward-kill-line (arg)
+  "Kill ARG lines backward."
+  (interactive "p")
+  (kill-line (- 1 arg)))
+(global-set-key (kbd "C-,") 'backward-kill-line)
 ;;;keybind
 (global-set-key [(C h)] 'delete-backward-char)
 (global-set-key [(C x)(k)] 'kill-this-buffer)
 (global-set-key [(s &)] 'kill-buffer)
 (global-set-key [(C x)(t)] 'transpose-chars)
 (global-set-key [(C t)] 'other-window)
+(global-set-key [(C S v)] 'scroll-down-command)
+(global-set-key [(M p)] 'backward-paragraph)
+(global-set-key [(M n)] 'forward-paragraph)
+(global-set-key [(M h)] 'backward-kill-word)
+
 ;;; c ;;;
 ;;cc-modeの設定（プログラムを書くときのモーdo)
 (add-hook 'c-mode-common-hook
@@ -654,203 +673,6 @@
  '(web-mode-html-attr-value-face ((t (:foreground "#82AE46"))))
  '(web-mode-html-tag-face ((t (:foreground "#E6B422" :weight bold))))
  '(web-mode-server-comment-face ((t (:foreground "#D9333F")))))
-
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ;; 7.2 Flymakeによる文法チェック                          ;;
-;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ;;; P182-183 Makefileがあれば利用し、なければ直接コマンドを実行する
-;; ;; Makefileの種類を定義
-;; (defvar flymake-makefile-filenames
-;;   '("Makefile" "makefile" "GNUmakefile")
-;;   "File names for make.")
-
-;; ;; Makefileがなければコマンドを直接利用するコマンドラインを生成
-;; (defun flymake-get-make-gcc-cmdline (source base-dir)
-;;   (let (found)
-;;     (dolist (makefile flymake-makefile-filenames)
-;;       (if (file-readable-p (concat base-dir "/" makefile))
-;;           (setq found t)))
-;;     (if found
-;;         (list "make"
-;;               (list "-s"
-;;                     "-C"
-;;                     base-dir
-;;                     (concat "CHK_SOURCES=" source)
-;;                     "SYNTAX_CHECK_MODE=1"
-;;                     "check-syntax"))
-;;       (list (if (string= (file-name-extension source) "c") "gcc" "g++")
-;;             (list "-o"
-;;                   "/dev/null"
-;;                   "-fsyntax-only"
-;;                   "-Wall"
-;;                   source)))))
-
-;; ;; Flymake初期化関数の生成
-;; (defun flymake-simple-make-gcc-init-impl
-;;   (create-temp-f use-relative-base-dir
-;;                  use-relative-source build-file-name get-cmdline-f)
-;;   "Create syntax check command line for a directly checked source file.
-;; Use CREATE-TEMP-F for creating temp copy."
-;;   (let* ((args nil)
-;;          (source-file-name buffer-file-name)
-;;          (buildfile-dir (file-name-directory source-file-name)))
-;;     (if buildfile-dir
-;;         (let* ((temp-source-file-name
-;;                 (flymake-init-create-temp-buffer-copy create-temp-f)))
-;;           (setq args
-;;                 (flymake-get-syntax-check-program-args
-;;                  temp-source-file-name
-;;                  buildfile-dir
-;;                  use-relative-base-dir
-;;                  use-relative-source
-;;                  get-cmdline-f))))
-;;     args))
-
-;; ;; 初期化関数を定義
-;; (defun flymake-simple-make-gcc-init ()
-;;   (message "%s" (flymake-simple-make-gcc-init-impl
-;;                  'flymake-create-temp-inplace t t "Makefile"
-;;                  'flymake-get-make-gcc-cmdline))
-;;   (flymake-simple-make-gcc-init-impl
-;;    'flymake-create-temp-inplace t t "Makefile"
-;;    'flymake-get-make-gcc-cmdline))
-
-;; ;; 拡張子 .c, .cpp, c++などのときに上記の関数を利用する
-;; (add-to-list 'flymake-allowed-file-name-masks
-;;              '("\\.\\(?:c\\(?:pp\\|xx\\|\\+\\+\\)?\\|CC\\)\\'"
-;;                flymake-simple-make-gcc-init))
-
-;; ;;; P184 XMLとHTML
-;; ;; XML用Flymakeの設定
-;; (defun flymake-xml-init ()
-;;   (list "xmllint" (list "--valid"
-;;                         (flymake-init-create-temp-buffer-copy
-;;                          'flymake-create-temp-inplace))))
-
-;; ;; HTML用Flymakeの設定
-;; (defun flymake-html-init ()
-;;   (list "tidy" (list (flymake-init-create-temp-buffer-copy
-;;                       'flymake-create-temp-inplace))))
-
-;; (add-to-list 'flymake-allowed-file-name-masks
-;;              '("\\.html\\'" flymake-html-init))
-
-;; ;; tidy error pattern
-;; (add-to-list 'flymake-err-line-patterns
-;; '("line \\([0-9]+\\) column \\([0-9]+\\) - \\(Warning\\|Error\\): \\(.*\\)"
-;;   nil 1 2 4))
-
-;; ;;; P185-186 JavaScript
-;; ;; JS用Flymakeの初期化関数の定義
-;; (defun flymake-jsl-init ()
-;;   (list "jsl" (list "-process" (flymake-init-create-temp-buffer-copy
-;;                                 'flymake-create-temp-inplace))))
-;; ;; JavaScript編集でFlymakeを起動する
-;; (add-to-list 'flymake-allowed-file-name-masks
-;;              '("\\.js\\'" flymake-jsl-init))
-
-;; (add-to-list 'flymake-err-line-patterns
-;;  '("^\\(.+\\)(\\([0-9]+\\)): \\(.*warning\\|SyntaxError\\): \\(.*\\)"
-;;    1 2 nil 4))
-
-;; ;;; P186 Ruby
-;; ;; Ruby用Flymakeの設定
-;; (defun flymake-ruby-init ()
-;;   (list "ruby" (list "-c" (flymake-init-create-temp-buffer-copy
-;;                            'flymake-create-temp-inplace))))
-
-;; (add-to-list 'flymake-allowed-file-name-masks
-;;              '("\\.rb\\'" flymake-ruby-init))
-
-;; (add-to-list 'flymake-err-line-patterns
-;;              '("\\(.*\\):(\\([0-9]+\\)): \\(.*\\)" 1 2 nil 3))
-
-;; ;; ▼要拡張機能インストール▼
-;; ;;; P187 Python
-;; ;; Python用Flymakeの設定
-;; ;; (install-elisp "https://raw.github.com/seanfisk/emacs/sean/src/flymake-python.el")
-;; (when (require 'flymake-python nil t)
-;;   ;; flake8を利用する
-;;   (when (executable-find "flake8")
-;;     (setq flymake-python-syntax-checker "flake8"))
-;;   ;; pep8を利用する
-;;   ;; (setq flymake-python-syntax-checker "pep8")
-;;   )
-
-;; ;;php-mode
-;;     (load-library "php-mode")
-;;     (require 'php-mode)
-
-
-;; ;; @ flymake.el
-
-;; (when (require 'flymake nil t)
-;;   ;; 下の一行はflymakeモードでエラー行に飛べるコマンドをキーに割り当ててるコードですが、
-;;   ;; 個人的な理由でコメントアウトしてます。必要でしたらこのコメント削除して、アンコメントしてください
-;;   ;;(define-key global-map (kbd "C-cd") 'flymake-display-err-menu-for-current-line)
-
-;;   ;; C
-;;   ;; http://d.hatena.ne.jp/nyaasan/20071216/p1
-;;   (defun flymake-c-init ()
-;;     (let* ((temp-file   (flymake-init-create-temp-buffer-copy
-;;                          'flymake-create-temp-inplace))
-;;            (local-file  (file-relative-name
-;;                          temp-file
-;;                          (file-name-directory buffer-file-name))))
-;;       (list "gcc" (list "-Wall" "-Wextra" "-fsyntax-only" local-file))))
-;;   (add-to-list 'flymake-allowed-file-name-masks
-;;                '("\\.\\(c\\|h\\|y\\l\\)$" flymake-c-init))
-;;   ;; C++
-;;   (defun flymake-cc-init ()
-;;     (let* ((temp-file   (flymake-init-create-temp-buffer-copy
-;;                          'flymake-create-temp-inplace))
-;;            (local-file  (file-relative-name
-;;                          temp-file
-;;                          (file-name-directory buffer-file-name))))
-;;       (list "g++" (list "-Wall" "-Wextra" "-fsyntax-only" local-file))))
-;;   (add-to-list 'flymake-allowed-file-name-masks
-;;                '("\\.cpp$" flymake-cc-init))
-
-;;   ;; Emacs Lisp
-;;   ;; http://www.emacswiki.org/emacs/FlymakeElisp
-;;   (defun flymake-elisp-init ()
-;;     (unless (string-match "^ " (buffer-name))
-;;       (let* ((temp-file   (flymake-init-create-temp-buffer-copy
-;;                            'flymake-create-temp-inplace))
-;;              (local-file  (file-relative-name
-;;                            temp-file
-;;                            (file-name-directory buffer-file-name))))
-;;         (list
-;;          (expand-file-name invocation-name invocation-directory)
-;;          (list
-;;           "-Q" "--batch" "--eval"
-;;           (prin1-to-string
-;;            (quote
-;;             (dolist (file command-line-args-left)
-;;               (with-temp-buffer
-;;                 (insert-file-contents file)
-;;                 (condition-case data
-;;                     (scan-sexps (point-min) (point-max))
-;;                   (scan-error
-;;                    (goto-char(nth 2 data))
-;;                    (princ (format "%s:%s: error: Unmatched bracket or quote\n"
-;;                                   file (line-number-at-pos)))))))
-;;             )
-;;            )
-;;           local-file)))))
-;;   (add-to-list 'flymake-allowed-file-name-masks
-;;                '("\\.el$" flymake-elisp-init))
-  
-;;   (add-hook 'emacs-lisp-mode-hook
-;;             ;; workaround for (eq buffer-file-name nil)
-;;             (function (lambda () (if buffer-file-name (flymake-mode)))))
-;;   (add-hook 'c-mode-common-hook
-;;             (lambda () (flymake-mode t)))
-;;   (add-hook 'php-mode-hook
-;;             (lambda () (flymake-mode t)))
-;;   )
-
-
 
 (provide 'init)
 ;;; init.el ends here
