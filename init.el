@@ -1,11 +1,11 @@
 ;;; package --- Summary
 ;;; Commentary:
-;; Author: yudai takahashi
+;;; Author: YOUDEEE
 
 ;;; Code:
 (eval-when-compile (require 'cl))
 
-;; load-path を追加する関数を定義
+;; load-path
 (defun add-to-load-path (&rest paths)
   (let (path)
     (dolist (path paths paths)
@@ -13,11 +13,9 @@
 	(add-to-list 'load-path default-directory)
 	(if (fboundp 'normal-top-level-add-subdir-to-load-path)
 	    (normal-top-level-add-subdirs-to-load-path))))))
-;; load-pathに追加
 (add-to-load-path "elisp")
 ;(add-to-list 'load-path "~/.emacs.d/elisp/")
 
-;;package.elの設定
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
@@ -115,6 +113,8 @@
     (dolist (package not-installed)
       (package-install package))))
 
+(setq load-prefer-newer t)
+
 ;; ;; auto-install.el
 ;; (require 'auto-install)
 ;; ;; インストールディレクトリを設定
@@ -124,7 +124,6 @@
 ;; ;; install-elispの関数を利用可能にする
 ;; (auto-install-compatibility-setup)
 
-;;auto-complete
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/dict")
 (ac-config-default)
@@ -157,7 +156,6 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (ido-yes-or-no-mode)
 
-;;point-undo
 (require 'point-undo)
 (global-set-key (kbd "M-[") 'point-undo)
 (global-set-key (kbd "M-]") 'point-redo)
@@ -188,23 +186,19 @@
 ;; (setq default-input-method "MacOSX")
 ;; (mac-set-input-method-parameter "com.google.inputmethod.Japanese.base" `title "あ")
 
-;; バッファの同一ファイル名を区別する
 (require 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets) ;バッファの同一ファイル名を区別
 
-;; server start for emacs-client
 (require 'server)
 (unless (server-running-p)
   (server-start))
 (defalias 'exit 'save-buffers-kill-emacs)
 
-;;indent-guide
 (require 'indent-guide)
 (indent-guide-global-mode)
 ;(set-face-background 'indent-guide-face "dimgray")
 ;(setq indent-guide-recursive t)
 
-;;dired-details
 (require 'dired-details)
 ;; (dired-details-install)
 ;; (setq dired-details-hidden-string "")
@@ -214,18 +208,15 @@
 ;;     (with-current-buffer (process-buffer proc)
 ;;       (dired-details-activate))))
 
-;;auto-fill-mode
 (global-set-key (kbd "s-f") 'auto-fill-mode)
 
-;;open-junk-file
 (require 'open-junk-file)
 (global-set-key (kbd "C-z") 'open-junk-file)
 (setq open-junk-file-format "~/workspace/junk/%Y/%m/%Y-%m-%d-%H%M%S.")
 
-;;lispxmp
 (require 'lispxmp)
 (define-key emacs-lisp-mode-map (kbd "C-c C-d") 'lispxmp)
-;;yasnippet
+
 (yas-global-mode 1)
 (global-set-key (kbd "C-x j j") 'yas-insert-snippet)
 (global-set-key (kbd "C-x j n") 'yas-new-snippet)
@@ -233,7 +224,6 @@
 (define-key yas-minor-mode-map (kbd "TAB") nil)
 (define-key yas-minor-mode-map (kbd "<tab>") nil)
 
-;;helm
 (helm-mode 1)
 (helm-descbinds-mode 1)
 (setq helm-split-window-default-side 'right)
@@ -292,7 +282,6 @@
     (add-to-list 'ac-dictionary-files "~/.emacs.d/dict/javascript-mode")
 ))
 
-;;slim-mode
 (require 'slim-mode)
 (add-to-list 'ac-modes 'slim-mode) ;; coffee-modeでACを使えるようにする
 (add-hook 'slim-mode-hook
@@ -300,16 +289,15 @@
     (add-to-list 'ac-dictionary-files "~/.emacs.d/dict/ruby-mode")
 ))
 
-;;sass-mode
 (require 'sass-mode)
 (add-to-list 'ac-modes 'sass-mode) ;; coffee-modeでACを使えるようにする
-;;yaml-mode
+
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
  ;; (add-hook 'yaml-mode-hook
  ;;    '(lambda ()
  ;;       (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
-;;scss-mode
+
 (require 'scss-mode)
 (add-to-list 'ac-modes 'scss-mode) ;; coffee-modeでACを使えるようにする
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
@@ -327,7 +315,6 @@
 (add-hook 'coffee-mode-hook 'smart-indent-rigidly-mode)
 (add-hook 'sass-mode-hook 'smart-indent-rigidly-mode)
 
-;autopair
 (require 'flex-autopair)
 (flex-autopair-mode 1)
 
@@ -339,7 +326,6 @@
 ;; (show-smartparens-global-mode t)
 ;; (sp-pair "<%" "%>")
 
-;;color-moccur
 (require 'color-moccur)
 ;;(global-set-key (kbd "M-o") 'occur-by-moccur)
 (setq moccur-split-word t)
@@ -347,7 +333,6 @@
 (add-to-list 'dmoccur-exclusion-mask "^#.+#$")
 ;;moccur-edit
 ;(require 'moccur-edit nil t)
-
 
 (require 'powerline)
 (powerline-default-theme)
@@ -374,7 +359,6 @@
 (setq recentf-max-menu-items 50)
 (setq recentf-max-saved-items 3000)
 
-;;flycheck
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 ;; (flycheck-add-next-checker 'javascript-jshint
@@ -393,18 +377,16 @@
 (global-hl-line-mode t)
 (set-face-background 'hl-line "#333333");;333333
 
-;;idomode
 (require 'ido)
 (ido-mode t)
 (ido-everywhere 1)
 (setq ido-everywhere t)
 
-;; undohistの設定
 (require 'undohist)
 (undohist-initialize)
-;undotree M-(C-)/    C-x u :show tree   d:details
+
 (require 'undo-tree)
-(global-undo-tree-mode t)
+(global-undo-tree-mode t)	  ;M-(C-)/    C-x u :show tree   d:details
 ;;(global-set-key (kbd "M-/") 'undo-tree-redo)
 
 ;; デフォルトの色づけを変える
@@ -551,11 +533,11 @@
 ;;     ("o"        . 'mc/sort-regions)
 ;;     ("O"        . 'mc/reverse-regions)))
 
-;;highlight
-(require 'highlight-symbol)
-(setq highlight-symbol-colors '("DarkOrange" "DodgerBlue1" "DeepPink1")) ;; 使いたい色を設定、repeatしてくれる
-(global-set-key (kbd "C-3") 'highlight-symbol-at-point)
-(global-set-key (kbd "C-M-3") 'highlight-symbol-remove-all)
+;; ;;highlight
+;; (require 'highlight-symbol)
+;; (setq highlight-symbol-colors '("DarkOrange" "DodgerBlue1" "DeepPink1")) ;; 使いたい色を設定、repeatしてくれる
+;; (global-set-key (kbd "C-3") 'highlight-symbol-at-point)
+;; (global-set-key (kbd "C-M-3") 'highlight-symbol-remove-all)
 
 (require 'key-combo)
 ;; (key-combo-load-default)
