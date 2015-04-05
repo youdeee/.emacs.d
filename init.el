@@ -5,113 +5,115 @@
 ;;; Code:
 (eval-when-compile (require 'cl))
 
-;; load-path
-(defun add-to-load-path (&rest paths)
-  (let (path)
-    (dolist (path paths paths)
-      (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
-	(add-to-list 'load-path default-directory)
-	(if (fboundp 'normal-top-level-add-subdir-to-load-path)
-	    (normal-top-level-add-subdirs-to-load-path))))))
-(add-to-load-path "elisp")
-;(add-to-list 'load-path "~/.emacs.d/elisp/")
+(require 'cask)
+(cask-initialize)
+;; ;; load-path
+;; (defun add-to-load-path (&rest paths)
+;;   (let (path)
+;;     (dolist (path paths paths)
+;;       (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
+;; 	(add-to-list 'load-path default-directory)
+;; 	(if (fboundp 'normal-top-level-add-subdir-to-load-path)
+;; 	    (normal-top-level-add-subdirs-to-load-path))))))
+;; (add-to-load-path "elisp")
+;;(add-to-list 'load-path "~/.emacs.d/elisp/")
 
-(require 'package)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-;;インストールするディレクトリを指定
-;;(setq package-user-dir(concat user-emacs-directory "elpa"))
-(package-initialize)
-;; install if not installed
-(defvar my-package-list
-  '(ac-ispell
-    ac-helm
-    anzu
-    auto-complete
-    async
-    auto-dictionary
-    auto-indent-mode
-    auto-install
-    auto-yasnippet
-    autopair
-    coffee-mode
-    color-theme
-    color-moccur
-    csv-mode
-    dash
-    dired-toggle
-    dired-details
-    epl
-    expand-region
-    git
-    fill-column-indicator
-    flex-autopair
-    flycheck
-    goto-chg
-    haml-mode
-    helm
-    helm-ag
-    helm-descbinds
-    helm-css-scss
-    helm-c-yasnippet
-    highlight
-    highlight-symbol
-    indent-guide
-    ido-select-window
-    ido-ubiquitous
-    ido-vertical-mode
-    ido-yes-or-no
-    inf-ruby
-    inflections
-    js3-mode
-    json
-    json-mode
-    jump
-    key-combo
-    lispxmp
-    markdown-mode
-    markdown-mode+
-    multi
-    multiple-cursors
-    open-junk-file
-    php-mode
-    php+-mode
-    pkg-info
-    pod-mode
-    point-undo
-    popup
-    powerline
-    python-mode
-    recentf-ext
-    rinari
-    rspec-mode
-    ruby-block
-    ruby-compilation
-    ruby-electric
-    ruby-end
-    ruby-mode
-    sass-mode
-    scss-mode
-    slim-mode
-    smart-indent-rigidly
-    smarter-compile
-    smartparens
-    sticky
-    tabbar
-    undo-tree
-    undohist
-    vline
-    web-mode
-    yaml-mode
-    yasnippet))
-(let ((not-installed
-       (loop for package in my-package-list
-             when (not (package-installed-p package))
-             collect package)))
-  (when not-installed
-    (package-refresh-contents)
-    (dolist (package not-installed)
-      (package-install package))))
+;; (require 'package)
+;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+;; (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+;; ;;インストールするディレクトリを指定
+;; ;;(setq package-user-dir(concat user-emacs-directory "elpa"))
+;; (package-initialize)
+;; ;; install if not installed
+;; (defvar my-package-list
+;;   '(ac-ispell
+;;     ac-helm
+;;     anzu
+;;     auto-complete
+;;     async
+;;     auto-dictionary
+;;     auto-indent-mode
+;;     auto-install
+;;     auto-yasnippet
+;;     autopair
+;;     coffee-mode
+;;     color-theme
+;;     color-moccur
+;;     csv-mode
+;;     dash
+;;     dired-toggle
+;;     dired-details
+;;     epl
+;;     expand-region
+;;     git
+;;     fill-column-indicator
+;;     flex-autopair
+;;     flycheck;
+;;     goto-chg
+;;     haml-mode
+;;     helm
+;;     helm-ag
+;;     helm-descbinds
+;;     helm-css-scss
+;;     helm-c-yasnippet
+;;     highlight
+;;     highlight-symbol
+;;     indent-guide
+;;     ido-select-window
+;;     ido-ubiquitous
+;;     ido-vertical-mode
+;;     ido-yes-or-no
+;;     inf-ruby
+;;     inflections
+;;     js3-mode
+;;     json
+;;     json-mode
+;;     jump
+;;     key-combo
+;;     lispxmp
+;;     markdown-mode
+;;     markdown-mode+
+;;     multi
+;;     multiple-cursors
+;;     open-junk-file
+;;     php-mode
+;;     php+-mode
+;;     pkg-info
+;;     pod-mode
+;;     point-undo
+;;     popup
+;;     powerline
+;;     python-mode
+;;     recentf-ext
+;;     rinari
+;;     rspec-mode
+;;     ruby-block
+;;     ruby-compilation
+;;     ruby-electric
+;;     ruby-end
+;;     ruby-mode
+;;     sass-mode
+;;     scss-mode
+;;     slim-mode
+;;     smart-indent-rigidly
+;;     smarter-compile
+;;     smartparens
+;;     sticky
+;;     tabbar
+;;     undo-tree
+;;     undohist
+;;     vline
+;;     web-mode
+;;     yaml-mode
+;;     yasnippet))
+;; (let ((not-installed
+;;        (loop for package in my-package-list
+;;              when (not (package-installed-p package))
+;;              collect package)))
+;;   (when not-installed
+;;     (package-refresh-contents)
+;;     (dolist (package not-installed)
+;;       (package-install package))))
 
 (setq load-prefer-newer t)
 
@@ -135,14 +137,14 @@
 (setq ac-auto-show-menu 0.8)
 (define-key ac-completing-map "\M-/" 'ac-stop)
 
-;;ac-ispell
-(eval-after-load "auto-complete"
-  '(progn
-     (ac-ispell-setup)))
-(add-hook 'git-commit-mode-hook 'ac-ispell-ac-setup)
-(add-hook 'mail-mode-hook 'ac-ispell-ac-setup)
-(add-hook 'text-mode-hook 'ac-ispell-ac-setup)
-(add-hook 'markdown-mode-hook 'ac-ispell-ac-setup)
+;; ;;ac-ispell
+;; (eval-after-load "auto-complete"
+;;   '(progn
+;;      (ac-ispell-setup)))
+;; (add-hook 'git-commit-mode-hook 'ac-ispell-ac-setup)
+;; (add-hook 'mail-mode-hook 'ac-ispell-ac-setup)
+;; (add-hook 'text-mode-hook 'ac-ispell-ac-setup)
+;; (add-hook 'markdown-mode-hook 'ac-ispell-ac-setup)
 
 ;;起動時フレームの大きさ
  (setq initial-frame-alist
@@ -153,8 +155,8 @@
 (global-set-key (kbd "C-c f") 'fci-mode)
 
 ;; 問い合わせを簡略化 yes/no を y/n
-(fset 'yes-or-no-p 'y-or-n-p)
-(ido-yes-or-no-mode)
+;;(fset 'yes-or-no-p 'y-or-n-p)
+;;(ido-yes-or-no-mode)
 
 (require 'point-undo)
 (global-set-key (kbd "M-[") 'point-undo)
@@ -211,8 +213,9 @@
 (global-set-key (kbd "s-f") 'auto-fill-mode)
 
 (require 'open-junk-file)
-(global-set-key (kbd "C-z") 'open-junk-file)
-(setq open-junk-file-format "~/workspace/junk/%Y/%m/%Y-%m-%d-%H%M%S.")
+(global-set-key (kbd "C-x C-z") 'open-junk-file)
+(setq open-junk-file-format "~/Dropbox/junk/%Y/%m/%Y-%m-%d-%H%M%S.")
+(setq open-junk-file-find-file-function 'find-file)
 
 (require 'lispxmp)
 (define-key emacs-lisp-mode-map (kbd "C-c C-d") 'lispxmp)
@@ -240,8 +243,8 @@
 (define-key isearch-mode-map (kbd "C-o") 'helm-occur-from-isearch)
 (define-key helm-map (kbd "C-c C-a") 'all-from-helm-occur)
 (setq helm-css-scss-split-direction 'split-window-horizontally)
-(global-set-key (kbd "C-c C-;") 'ac-complete-with-helm)
-(define-key ac-complete-mode-map (kbd "C-c C-;") 'ac-complete-with-helm)
+;;(global-set-key (kbd "C-c C-;") 'ac-complete-with-helm)
+;;(define-key ac-complete-mode-map (kbd "C-c C-;") 'ac-complete-with-helm)
 
 ;; Disable helm in some functions
 (setq helm-delete-minibuffer-contents-from-point t)
@@ -276,44 +279,44 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
 
 ;;coffee-mode tab
-(add-to-list 'ac-modes 'coffee-mode) ;; coffee-modeでACを使えるようにする
-(add-hook 'coffee-mode-hook
-  '(lambda ()
-    (add-to-list 'ac-dictionary-files "~/.emacs.d/dict/javascript-mode")
-))
+;; (add-to-list 'ac-modes 'coffee-mode) ;; coffee-modeでACを使えるようにする
+;; (add-hook 'coffee-mode-hook
+;;   '(lambda ()
+;;     (add-to-list 'ac-dictionary-files "~/.emacs.d/dict/javascript-mode")
+;; ))
 
-(require 'slim-mode)
-(add-to-list 'ac-modes 'slim-mode) ;; coffee-modeでACを使えるようにする
-(add-hook 'slim-mode-hook
-  '(lambda ()
-    (add-to-list 'ac-dictionary-files "~/.emacs.d/dict/ruby-mode")
-))
+;; (require 'slim-mode)
+;; (add-to-list 'ac-modes 'slim-mode) ;; coffee-modeでACを使えるようにする
+;; (add-hook 'slim-mode-hook
+;;   '(lambda ()
+;;     (add-to-list 'ac-dictionary-files "~/.emacs.d/dict/ruby-mode")
+;; ))
 
-(require 'sass-mode)
-(add-to-list 'ac-modes 'sass-mode) ;; coffee-modeでACを使えるようにする
+;; (require 'sass-mode)
+;; (add-to-list 'ac-modes 'sass-mode) ;; coffee-modeでACを使えるようにする
 
-(require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
- ;; (add-hook 'yaml-mode-hook
- ;;    '(lambda ()
- ;;       (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+;; (require 'yaml-mode)
+;; (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+;;  ;; (add-hook 'yaml-mode-hook
+;;  ;;    '(lambda ()
+;;  ;;       (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
-(require 'scss-mode)
-(add-to-list 'ac-modes 'scss-mode) ;; coffee-modeでACを使えるようにする
-(add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
-(defun scss-custom ()
-  "scss-mode-hook"
-  (and
-   (set (make-local-variable 'css-indent-offset) 2)
-   (set (make-local-variable 'scss-compile-at-save) nil)
-   )
-  )
-(add-hook 'scss-mode-hook
-  '(lambda() (scss-custom)))
-;;smart-indent-rigid
-(add-hook 'haml-mode-hook 'smart-indent-rigidly-mode)
-(add-hook 'coffee-mode-hook 'smart-indent-rigidly-mode)
-(add-hook 'sass-mode-hook 'smart-indent-rigidly-mode)
+;; (require 'scss-mode)
+;; (add-to-list 'ac-modes 'scss-mode) ;; coffee-modeでACを使えるようにする
+;; (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
+;; (defun scss-custom ()
+;;   "scss-mode-hook"
+;;   (and
+;;    (set (make-local-variable 'css-indent-offset) 2)
+;;    (set (make-local-variable 'scss-compile-at-save) nil)
+;;    )
+;;   )
+;; (add-hook 'scss-mode-hook
+;;   '(lambda() (scss-custom)))
+;; ;;smart-indent-rigid
+;; (add-hook 'haml-mode-hook 'smart-indent-rigidly-mode)
+;; (add-hook 'coffee-mode-hook 'smart-indent-rigidly-mode)
+;; (add-hook 'sass-mode-hook 'smart-indent-rigidly-mode)
 
 (require 'flex-autopair)
 (flex-autopair-mode 1)
@@ -359,14 +362,14 @@
 (setq recentf-max-menu-items 50)
 (setq recentf-max-saved-items 3000)
 
-(require 'flycheck)
-(add-hook 'after-init-hook #'global-flycheck-mode)
-;; (flycheck-add-next-checker 'javascript-jshint
-;;                            'javascript-gjslint)
-;; Python
-(add-hook 'python-mode-hook 'flycheck-mode)
-;; Ruby
-(add-hook 'ruby-mode-hook 'flycheck-mode)
+;; (require 'flycheck)
+;; (add-hook 'after-init-hook #'global-flycheck-mode)
+;; ;; (flycheck-add-next-checker 'javascript-jshint
+;; ;;                            'javascript-gjslint)
+;; ;; Python
+;; (add-hook 'python-mode-hook 'flycheck-mode)
+;; ;; Ruby
+;; (add-hook 'ruby-mode-hook 'flycheck-mode)
 
 ;; transient-mark-mode on
 (setq-default transient-mark-mode t)
@@ -465,24 +468,19 @@
 (global-set-key [(C h)] 'delete-backward-char)
 (global-set-key [(C x)(k)] 'kill-this-buffer)
 (global-set-key [(s &)] 'kill-buffer)
-(global-set-key [(C x)(t)] 'transpose-chars)
-(global-set-key [(C t)] 'other-window)
 (global-set-key [(C S v)] 'scroll-down-command)
 (global-set-key [(M p)] 'backward-paragraph)
 (global-set-key [(M n)] 'forward-paragraph)
 (global-set-key [(M h)] 'backward-kill-word)
-
-;;; c ;;;
-;;cc-modeの設定（プログラムを書くときのモーdo)
-(add-hook 'c-mode-common-hook
-(lambda()
-;行末の不要なスペースを強調する;
-(setq show-trailing-whitespace t)))
-
-;;c++ mode for .cu file ;
-(setq auto-mode-alist
-      (cons ( cons "\\.cu$" 'c++-mode)
-	    auto-mode-alist))
+(global-set-key (kbd "C-x 5 o") 'transpose-chars)
+(global-set-key [(C x) (t)] 'other-frame)
+(defun make-window-when-unsplit ()
+  (interactive)
+  (if (one-window-p)
+    (split-window-right)
+    (other-window 1)
+    ))
+(global-set-key [(C t)] 'make-window-when-unsplit)
 
 ;;tab mode
 (when (require 'tabbar nil t)
@@ -543,46 +541,46 @@
 ;; (key-combo-load-default)
 (key-combo-define-global (kbd "<") '("<"))
 
-;; ruby
-(require 'ruby-mode)
-(autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
-(add-to-list 'auto-mode-alist '("\\.rb" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
-(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+;; ;; ruby
+;; (require 'ruby-mode)
+;; (autoload 'ruby-mode "ruby-mode" "Major mode for ruby files" t)
+;; (add-to-list 'auto-mode-alist '("\\.rb" . ruby-mode))
+;; (add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
+;; (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
+;; (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
 
-(add-hook 'ruby-mode-hook
-          '(lambda ()
-             (setq tab-width 2)
-             (setq ruby-indent-level tab-width)
-             (setq ruby-deep-indent-paren-style nil)
-	     (defadvice ruby-indent-line (after unindent-closing-paren activate)
-	       (let ((column (current-column))
-		     indent offset)
-		 (save-excursion
-		   (back-to-indentation)
-		   (let ((state (syntax-ppss)))
-		     (setq offset (- column (current-column)))
-		     (when (and (eq (char-after) ?\))
-				(not (zerop (car state))))
-		       (goto-char (cadr state))
-		       (setq indent (current-indentation)))))
-		 (when indent
-		   (indent-line-to indent)
-		   (when (> offset 0) (forward-char offset)))))
-))
+;; (add-hook 'ruby-mode-hook
+;;           '(lambda ()
+;;              (setq tab-width 2)
+;;              (setq ruby-indent-level tab-width)
+;;              (setq ruby-deep-indent-paren-style nil)
+;; 	     (defadvice ruby-indent-line (after unindent-closing-paren activate)
+;; 	       (let ((column (current-column))
+;; 		     indent offset)
+;; 		 (save-excursion
+;; 		   (back-to-indentation)
+;; 		   (let ((state (syntax-ppss)))
+;; 		     (setq offset (- column (current-column)))
+;; 		     (when (and (eq (char-after) ?\))
+;; 				(not (zerop (car state))))
+;; 		       (goto-char (cadr state))
+;; 		       (setq indent (current-indentation)))))
+;; 		 (when indent
+;; 		   (indent-line-to indent)
+;; 		   (when (> offset 0) (forward-char offset)))))
+;; ))
 
-(require 'ruby-block)
-(ruby-block-mode t)
-(setq ruby-block-highlight-toggle t)
+;; (require 'ruby-block)
+;; (ruby-block-mode t)
+;; (setq ruby-block-highlight-toggle t)
 
-(require 'ruby-end)
-(add-hook 'ruby-mode-hook
-  '(lambda ()
-    (abbrev-mode 1)
-;;    (electric-pair-mode t)
-;;    (electric-indent-mode t)
-    (electric-layout-mode t)))
+;; (require 'ruby-end)
+;; (add-hook 'ruby-mode-hook
+;;   '(lambda ()
+;;     (abbrev-mode 1)
+;; ;;    (electric-pair-mode t)
+;; ;;    (electric-indent-mode t)
+;;     (electric-layout-mode t)))
 
 ;; ;; rcodetools
 ;; (require 'rcodetools)
@@ -657,4 +655,5 @@
  '(web-mode-server-comment-face ((t (:foreground "#D9333F")))))
 
 (provide 'init)
+
 ;;; init.el ends here
