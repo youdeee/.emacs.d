@@ -11,7 +11,7 @@
 (global-set-key [(C x) (t)] 'other-frame)
 (global-set-key (kbd "s-u") 'browse-url-of-file)
 (global-set-key (kbd "M-SPC") 'delete-trailing-whitespace)
-(global-set-key (kbd "C-c f") 'fci-mode)
+(global-set-key (kbd "C-c C-f") 'fci-mode)
 (global-set-key (kbd "s-f") 'auto-fill-mode)
 ;;(global-set-key (kbd "C-@") 'indent-region)
 ;;s-f findfile
@@ -30,3 +30,56 @@
   (interactive "p")
   (kill-line (- 1 arg)))
 (global-set-key (kbd "C-,") 'backward-kill-line)
+
+(defun start-and-end-macro (arg)
+  (interactive "p")
+ (if (or defining-kbd-macro executing-kbd-macro)
+     (kmacro-end-macro arg)
+   (kmacro-start-macro arg)))
+(global-set-key (kbd "C-x m") 'start-and-end-macro)
+
+(defun my/filter (condp lst)
+  (delq nil
+        (mapcar (lambda (x) (and (funcall condp x) x)) lst)))
+(defun kill-other-buffers ()
+  "Kill all other buffers."
+  (interactive)
+  (let* ((no-kill-buffer-names
+          ;; 消さないバッファ名を指定
+          (list (buffer-name (current-buffer))
+;;                "*Messages*" "*Compile-Log*" "*Help*"
+                "*init log*" "*Ibuffer*" "*scratch*"
+                "*MULTI-TERM-DEDICATED*"))
+         (interested-buffers
+          (my/filter
+           '(lambda (buffer)
+              (and
+               ;; donk kill buffers who has the windows displayed in
+               (not (get-buffer-window (buffer-name buffer)))
+               ;; dont kill hidden buffers (hidden buffers' name starts with SPACE)
+               (not (string-match "^ " (buffer-name buffer)))
+               ;; dont kill buffers who have running processes
+               (let ((proc (get-buffer-process buffer)))
+                 (if proc
+                     (equal 'exit
+                            (process-status
+                             (get-buffer-process buffer)))
+                   t))))
+           (buffer-list)))
+         (buffers-to-kill
+          (set-difference interested-buffers
+                          (mapcar '(lambda (buffer-name)
+                                     (get-buffer buffer-name))
+                                  no-kill-buffer-names))))
+    (mapc 'kill-buffer buffers-to-kill)))
+(global-set-key (kbd "C-c C-b C-b") 'kill-other-buffers)
+
+(defun kill-*-buffer ()
+  (interactive);;
+  (dolist (buffer (list "*helm mini*" "*helm*" "*helm M-x*" "*helm occur*" "*helm-ag*"
+			"*Compile-Log*" "*Help*"
+                "*init log*" "*Ibuffer*" "*Backtrace*"
+                "*MULTI-TERM-DEDICATED*" "*Messages*"))
+    (if (get-buffer buffer)
+	(kill-buffer buffer))) )
+(global-set-key (kbd "M-k") 'kill-*-buffer)

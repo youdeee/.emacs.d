@@ -12,9 +12,9 @@
   (add-to-list 'default-frame-alist '(background-color . "black"))
   )
 
-;; miniとかを横に表示
-(setq split-height-threshold nil)
-(setq split-width-threshold 0)
+;; ;; miniとかを横に表示
+;; (setq split-height-threshold nil)
+;; (setq split-width-threshold 0)
 
 ;; 時計表示
 (display-time)
