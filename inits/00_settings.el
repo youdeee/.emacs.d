@@ -6,11 +6,6 @@
   (setq ns-command-modifier (quote meta))
   (setq ns-alternate-modifier (quote super)))
 
-;; バックアップファイルを作らない
-(setq backup-inhibited t)
-(setq make-backup-files nil)
-(setq delete-auto-save-files t)
-
 ;; シンボリックリンクを開くときの質問省略
 (setq vc-follow-symlinks t)
 
