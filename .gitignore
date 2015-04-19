@@ -15,7 +15,10 @@ history
 .session
 /inits/.session
 /inits/el-get/
+<<<<<<< HEAD
 el-get/
+=======
+>>>>>>> bb95be962c1720f5b47fc3ea763a5938f6fade5f
 ac-*
 undohist/
 /inits/undohist/
