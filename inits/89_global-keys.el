@@ -76,10 +76,11 @@
 
 (defun kill-*-buffer ()
   (interactive);;
-  (dolist (buffer (list "*helm mini*" "*helm*" "*helm M-x*" "*helm occur*" "*helm-ag*"
+  (dolist (buffer (list "*helm mini*" "*helm*" "*helm M-x*" "*helm occur*"
+			"*helm-ag*" "*Helm Find Files*" "*Helm Help*"
 			"*Compile-Log*" "*Help*"
                 "*init log*" "*Ibuffer*" "*Backtrace*"
-                "*MULTI-TERM-DEDICATED*" "*Messages*"))
+                "*MULTI-TERM-DEDICATED*"))
     (if (get-buffer buffer)
 	(kill-buffer buffer))) )
 (global-set-key (kbd "M-k") 'kill-*-buffer)

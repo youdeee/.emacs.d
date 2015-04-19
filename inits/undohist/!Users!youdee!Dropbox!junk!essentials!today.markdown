@@ -1,5 +1,7 @@
 
-((digest . "ca519dfbc70e136d4d0df7307dd7661e") (undo-list nil ("s" . -159) (t 21807 8547 0 0) nil ("
+((digest . "424a00f38094d1e941c79eea928a0fc2") (undo-list nil ("
+" . -99) ((marker . 99) . -1) ((marker . 99) . -1) nil ("- linux/win emacs対応" . 99) ((marker . 99) . -2) ((marker . 99) . -2) ((marker) . -19) 118 (t 21810 33265 0 0) nil ("
+" . 119) nil ("- ecサイトデータベース" . 119) ((marker . 97) . -10) ((marker . 99) . -10) (t 21808 23452 0 0) nil ("s" . -159) (t 21807 8547 0 0) nil ("
 " . -1565) nil ("
 " . -1566) nil ("## 目玉焼きの作り方(半熟)
 - 割った卵を器に入れる 常温なじませる
