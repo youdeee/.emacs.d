@@ -19,6 +19,11 @@ el-get/
 ac-*
 undohist/
 /inits/undohist/
+/var/
+frame-restore-parameters
+.mc-lists.el
+tutorial/
+
 # Org-mode
 .org-id-locations
 *_archive
