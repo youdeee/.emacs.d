@@ -15,6 +15,7 @@ history
 .session
 /inits/.session
 /inits/el-get/
+/inits/el-get/el-get/
 el-get/
 ac-*
 undohist/
