@@ -1,2 +1,0 @@
-
-((digest . "02b7cba0057848aad2b6ba167995bff5") (undo-list nil ("#" . 1) nil (nil rear-nonsticky nil 88 . 89) (nil fontified nil 80 . 89) (nil fontified nil 79 . 80) (nil fontified nil 64 . 79) (nil fontified nil 63 . 64) (nil fontified nil 39 . 63) (nil fontified nil 38 . 39) (nil fontified nil 18 . 38) (nil fontified nil 17 . 18) (nil fontified nil 16 . 17) (nil fontified nil 4 . 16) (nil fontified nil 3 . 4) (nil fontified nil 1 . 3) (1 . 89) (t . -1)))

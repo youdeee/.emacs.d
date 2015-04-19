@@ -3,7 +3,7 @@
 ;;; Code:
 
 
-;;;### (autoloads nil "el-get/el-get" "el-get/el-get.el" (21805 12180
+;;;### (autoloads nil "el-get/el-get" "el-get/el-get.el" (21811 32467
 ;;;;;;  0 0))
 ;;; Generated autoloads from el-get/el-get.el
 
@@ -104,7 +104,7 @@ already installed packages is considered.
 ;;;***
 
 ;;;### (autoloads nil "el-get/el-get-bundle" "el-get/el-get-bundle.el"
-;;;;;;  (21805 12180 0 0))
+;;;;;;  (21811 32467 0 0))
 ;;; Generated autoloads from el-get/el-get-bundle.el
 
 (autoload 'el-get-bundle-el-get "el-get/el-get-bundle" "\
@@ -154,7 +154,7 @@ required.
 ;;;***
 
 ;;;### (autoloads nil "el-get/el-get-list-packages" "el-get/el-get-list-packages.el"
-;;;;;;  (21805 12180 0 0))
+;;;;;;  (21811 32467 0 0))
 ;;; Generated autoloads from el-get/el-get-list-packages.el
 
 (autoload 'el-get-list-packages "el-get/el-get-list-packages" "\
@@ -165,7 +165,7 @@ Display a list of packages.
 ;;;***
 
 ;;;### (autoloads nil "emacs-jazzradio/jazzradio" "emacs-jazzradio/jazzradio.el"
-;;;;;;  (21805 12191 0 0))
+;;;;;;  (21811 32475 0 0))
 ;;; Generated autoloads from emacs-jazzradio/jazzradio.el
 
 (autoload 'jazzradio "emacs-jazzradio/jazzradio" "\
@@ -184,7 +184,7 @@ Popup channels menu.
 ;;;;;;  "el-get/el-get-byte-compile.el" "el-get/el-get-core.el" "el-get/el-get-custom.el"
 ;;;;;;  "el-get/el-get-dependencies.el" "el-get/el-get-install.el"
 ;;;;;;  "el-get/el-get-methods.el" "el-get/el-get-notify.el" "el-get/el-get-recipes.el"
-;;;;;;  "el-get/el-get-status.el") (21805 12192 370684 0))
+;;;;;;  "el-get/el-get-status.el") (21811 32475 885218 0))
 
 ;;;***
 

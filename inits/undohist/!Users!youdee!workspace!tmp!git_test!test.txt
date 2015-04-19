@@ -1,2 +1,0 @@
-
-((digest . "6f5902ac237024bdd0c176cb93063dc4") (undo-list nil (11 . 12) nil ("s" . -11) nil (6 . 12) (t 21807 9366 0 0) nil (6 . 7) nil (1 . 6) (t . -1)))
