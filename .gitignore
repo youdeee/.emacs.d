@@ -13,6 +13,8 @@ history
 .DS_Store
 /.cask/
 .session
+/inits/.session
+/inits/el-get/
 ac-*
 /undohist/
 /inits/undohist/
