@@ -13,8 +13,11 @@ history
 .DS_Store
 /.cask/
 .session
+/inits/.session
+/inits/el-get/
+el-get/
 ac-*
-/undohist/
+undohist/
 /inits/undohist/
 # Org-mode
 .org-id-locations
