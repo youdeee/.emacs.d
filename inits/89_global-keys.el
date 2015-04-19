@@ -78,7 +78,8 @@
   (interactive);;
   (dolist (buffer (list "*helm mini*" "*helm*" "*helm M-x*" "*helm occur*"
 			"*helm-ag*" "*Helm Find Files*" "*Helm Help*"
-			"*Compile-Log*" "*Help*"
+			"*helm yas/prompt*" "*helm-mode-basic-save-buffer*"
+			"*Compile-Log*" "*Help*" "*el-get bootstrap*"
                 "*init log*" "*Ibuffer*" "*Backtrace*"
                 "*MULTI-TERM-DEDICATED*"))
     (if (get-buffer buffer)
