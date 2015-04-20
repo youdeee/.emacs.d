@@ -77,8 +77,12 @@
 
 ;;最後の変更箇所にジャンプする
 (require 'goto-chg)
-(define-key global-map (kbd "M-[") 'goto-last-change)
-(define-key global-map (kbd "M-]") 'goto-last-change-reverse)
+(global-set-key (kbd "M-{") 'goto-last-change)
+(global-set-key (kbd "M-}") 'goto-last-change-reverse)
+
+(require 'point-undo)
+(global-set-key (kbd "M-[") 'point-undo)
+(global-set-key (kbd "M-]") 'point-redo)
 
 (require 'key-combo)
 ;; (key-combo-load-default)
@@ -113,8 +117,4 @@
 ;;   (ignore-errors
 ;;     (with-current-buffer (process-buffer proc)
 ;;       (dired-details-activate))))
-
-;; (require 'point-undo)
-;; (global-set-key (kbd "M-[") 'point-undo)
-;; (global-set-key (kbd "M-]") 'point-redo)
 

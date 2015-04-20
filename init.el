@@ -77,7 +77,7 @@
     open-junk-file
     php-completion
     php-mode
-;;    point-undo
+    point-undo
     popup
     popwin
     powerline
