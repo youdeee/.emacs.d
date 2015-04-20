@@ -14,6 +14,7 @@
 (global-set-key (kbd "C-c C-f") 'fci-mode)
 (global-set-key (kbd "s-f") 'auto-fill-mode)
 (global-set-key (kbd "s-k") 'kill-this-buffer)
+(global-set-key (kbd "M-m") 'kmacro-end-and-call-macro)
 ;;(global-set-key (kbd "C-@") 'indent-region)
 ;;s-f findfile
 ;;s- whitespace

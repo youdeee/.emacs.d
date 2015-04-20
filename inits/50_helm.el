@@ -16,6 +16,7 @@
 (global-set-key (kbd "M-y")     'helm-show-kill-ring)
 (global-set-key (kbd "C-c i")   'helm-imenu)
 (global-set-key (kbd "C-c a") 'helm-ag)
+(global-set-key (kbd "C-x H-m") 'helm-execute-kmacro)
 ;;(global-set-key (kbd "M-o") 'helm-ag-this-file)
 (global-set-key (kbd "M-o") 'helm-occur)
 (define-key isearch-mode-map (kbd "C-o") 'helm-occur-from-isearch)
