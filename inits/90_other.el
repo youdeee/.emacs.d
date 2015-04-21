@@ -4,7 +4,7 @@
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/dict")
 (ac-config-default)
 (setq ac-modes (append ac-modes '(objc-mode)))
-(auto-complete '(ac-persist-help))
+(auto-complete 'ac-persist-help)
 (setq ac-use-menu-map t)
 (define-key ac-menu-map "\C-n" 'ac-next)
 (define-key ac-menu-map "\C-p" 'ac-previous)
@@ -93,7 +93,16 @@
 (global-set-key (kbd "C-x c") 'smarter-compile)
 (global-set-key (kbd "C-x C-x") (kbd "C-x c C-m"))
 
+(require 'migemo)
+(setq migemo-command "cmigemo")
+(setq migemo-options '("-q" "--emacs"))
 
+;; Set your installed path
+(setq migemo-dictionary "/usr/local/Cellar/cmigemo/HEAD/share/migemo/utf-8/migemo-dict")
+(setq migemo-user-dictionary nil)
+(setq migemo-regex-dictionary nil)
+(setq migemo-coding-system 'utf-8-unix)
+(migemo-init)
 ;; ;;highlight
 ;; (require 'highlight-symbol)
 ;; (setq highlight-symbol-colors '("DarkOrange" "DodgerBlue1" "DeepPink1")) ;; 使いたい色を設定、repeatしてくれる

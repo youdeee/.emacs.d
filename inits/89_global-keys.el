@@ -15,9 +15,13 @@
 (global-set-key (kbd "s-f") 'auto-fill-mode)
 (global-set-key (kbd "s-k") 'kill-this-buffer)
 (global-set-key (kbd "M-m") 'kmacro-end-and-call-macro)
+(global-set-key (kbd "C-x C-n") 'linum-mode)
+(global-set-key (kbd "C-q") 'back-to-indentation)
 ;;(global-set-key (kbd "C-@") 'indent-region)
 ;;s-f findfile
 ;;s- whitespace
+;; C-. C-; C-' C-= C-` C-u C-- C-[ C-]
+;;C-\調べる
 
 (defun make-window-when-unsplit ()
   (interactive)
