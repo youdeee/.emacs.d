@@ -5,6 +5,9 @@
 ;;; Code:
 (eval-when-compile (require 'cl))
 
+;;新しいバイトコンパイルファイルを読み込む
+(setq load-prefer-newer t)
+
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
@@ -95,6 +98,7 @@
     slim-mode
     sql-indent
     smarter-compile
+    smart-newline
     smartparens
     smartrep
     sticky

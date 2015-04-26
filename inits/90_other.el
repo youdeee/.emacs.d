@@ -1,3 +1,6 @@
+(smart-newline-mode 1)
+(global-set-key (kbd "C-j") 'smart-newline)
+
 (setq magit-last-seen-setup-instructions "1.4.0")
 
 (require 'auto-complete-config)
