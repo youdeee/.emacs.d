@@ -184,7 +184,7 @@ Popup channels menu.
 ;;;;;;  "el-get/el-get-byte-compile.el" "el-get/el-get-core.el" "el-get/el-get-custom.el"
 ;;;;;;  "el-get/el-get-dependencies.el" "el-get/el-get-install.el"
 ;;;;;;  "el-get/el-get-methods.el" "el-get/el-get-notify.el" "el-get/el-get-recipes.el"
-;;;;;;  "el-get/el-get-status.el") (21811 32475 885218 0))
+;;;;;;  "el-get/el-get-status.el") (21823 53761 305229 0))
 
 ;;;***
 

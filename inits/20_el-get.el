@@ -9,3 +9,4 @@
     (eval-print-last-sexp)))
 
 (el-get-bundle syohex/emacs-jazzradio)
+(el-get-bundle chriskempson/tomorrow-theme)

@@ -1,3 +1,5 @@
+(require 'tomorrow-night-bright-theme)
+
 ;; 最初のメッセージを消す
 (setq inhibit-startup-message t)
 
@@ -20,19 +22,18 @@
 (display-time)
 
 ;; 色
-(load-theme 'manoj-dark t)
 (add-hook 'font-lock-mode-hook '(lambda ()
-				  (set-face-foreground 'font-lock-builtin-face "spring green")
+;;				  (set-face-foreground 'font-lock-builtin-face "spring green")
 				  (set-face-foreground 'font-lock-comment-face "slate gray")
-				  (set-face-foreground 'font-lock-string-face  "spring green")
-				  (set-face-foreground 'font-lock-keyword-face "khaki")
-				  (set-face-foreground 'font-lock-constant-face "violet")
-				  (set-face-foreground 'font-lock-function-name-face "hot pink")
-				  (set-face-foreground 'font-lock-variable-name-face "hot pink")
-				  (set-face-foreground 'font-lock-type-face "cyan")
-				  (set-face-foreground 'font-lock-warning-face "magenta")
-				  (set-face-bold-p 'font-lock-function-name-face t)
-				  (set-face-bold-p 'font-lock-warning-face nil)
+;;				  (set-face-foreground 'font-lock-string-face  "spring green")
+;;				  (set-face-foreground 'font-lock-keyword-face "khaki")
+;;				  (set-face-foreground 'font-lock-constant-face "violet")
+;;				  (set-face-foreground 'font-lock-function-name-face "hot pink")
+;;				  (set-face-foreground 'font-lock-variable-name-face "hot pink")
+;;				  (set-face-foreground 'font-lock-type-face "cyan")
+;;				  (set-face-foreground 'font-lock-warning-face "magenta")
+;;				  (set-face-bold-p 'font-lock-function-name-face t)
+;;				  (set-face-bold-p 'font-lock-warning-face nil)
 				  ))
 
 
@@ -90,13 +91,14 @@
 
 ;; リージョン強調
 (setq-default transient-mark-mode t)
+(set-face-background 'region "#1565C0")
 
 ;; 行末の空白を表示
 (setq-default show-trailing-whitespace t)
 
 ;;現在行を目立たせる
 (global-hl-line-mode t)
-(set-face-background 'hl-line "#333333")
+(set-face-background 'hl-line "#212121")
 (set-face-foreground 'hl-line nil)
 
 ;; 括弧
@@ -104,5 +106,6 @@
 (setq show-paren-delay 0)
 (setq show-paren-priority 0)
 (setq show-paren-style 'expression)
-(set-face-background 'show-paren-match-face "#500")
+(set-face-foreground 'show-paren-match-face "#FFFFFF")
+(set-face-background 'show-paren-match-face "#B71C1C")
 
