@@ -106,11 +106,7 @@
 (setq migemo-regex-dictionary nil)
 (setq migemo-coding-system 'utf-8-unix)
 (migemo-init)
-;; ;;highlight
-;; (require 'highlight-symbol)
-;; (setq highlight-symbol-colors '("DarkOrange" "DodgerBlue1" "DeepPink1")) ;; 使いたい色を設定、repeatしてくれる
-;; (global-set-key (kbd "C-3") 'highlight-symbol-at-point)
-;; (global-set-key (kbd "C-M-3") 'highlight-symbol-remove-all)
+
 
 ;; ;;ac-ispell
 ;; (eval-after-load "auto-complete"

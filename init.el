@@ -159,6 +159,9 @@
 (setq backup-inhibited t)
 (setq make-backup-files nil)
 (setq delete-auto-save-files t)
+(setq auto-save-default nil)
+(setq auto-save-list-file-prefix nil)
+(setq create-lockfiles nil)
 
 (provide 'init)
 
