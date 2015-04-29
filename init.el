@@ -88,6 +88,9 @@
     rainbow-mode
     recentf-ext
     review-mode
+    ruby-block
+    ruby-end
+    ruby-mode
     rvm
     sass-mode
     scss-mode
@@ -124,11 +127,7 @@
       (package-install package))))
     ;; rinari
     ;; rspec-mode
-    ;; ruby-block
     ;; ruby-compilation
-    ;; ruby-electric
-    ;; ruby-end
-    ;; ruby-mode
 ;; inf-ruby
 
 ;; ;; php-completion

@@ -98,7 +98,7 @@
 
 ;;現在行を目立たせる
 (global-hl-line-mode t)
-(set-face-background 'hl-line "#212121")
+(set-face-background 'hl-line "#424242")
 (set-face-foreground 'hl-line nil)
 
 ;; 括弧
@@ -106,6 +106,14 @@
 (setq show-paren-delay 0)
 (setq show-paren-priority 0)
 (setq show-paren-style 'expression)
-(set-face-foreground 'show-paren-match-face "#FFFFFF")
+(set-face-foreground 'show-paren-match-face nil)
 (set-face-background 'show-paren-match-face "#B71C1C")
 
+;; (require 'auto-highlight-symbol)
+;; (global-auto-highlight-symbol-mode t )
+
+(require 'highlight-symbol)
+(setq highlight-symbol-colors '("#D500F9" "#3D5AFE" "#76FF03" "#FF9100" "#ff1744" "#00E5FF"))
+;;("DarkOrange" "DodgerBlue1" "DeepPink1"))
+(global-set-key (kbd "C-M-8") 'highlight-symbol-at-point)
+(global-set-key (kbd "C-M-*") 'highlight-symbol-remove-all)
