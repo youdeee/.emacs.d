@@ -38,7 +38,7 @@
 		  (require 'el-get))))
  (emacs-jazzradio status "installed" recipe
 		  (:name emacs-jazzradio :type github :pkgname "syohex/emacs-jazzradio" :after nil))
- (package status "installed" recipe
+ (package status "required" recipe
 	  (:name package :description "ELPA implementation (\"package.el\") from Emacs 24" :builtin "24" :type http :url "http://repo.or.cz/w/emacs.git/blob_plain/ba08b24186711eaeb3748f3d1f23e2c2d9ed0d09:/lisp/emacs-lisp/package.el" :shallow nil :features package :post-init
 		 (progn
 		   (let
