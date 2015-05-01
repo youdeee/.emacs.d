@@ -95,6 +95,7 @@
 (global-set-key (kbd "C-x @") '(lambda ()
                            (interactive)
                            (split-window-vertically-n 3)))
+(global-set-key (kbd "C-x #") nil)
 (global-set-key (kbd "C-x #") '(lambda ()
                            (interactive)
                            (split-window-horizontally-n 3)))

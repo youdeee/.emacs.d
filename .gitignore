@@ -14,6 +14,7 @@ history
 .cask/
 .session
 el-get/
+inits/el-get/
 ac-*
 undohist/
 /var/
