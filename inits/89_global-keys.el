@@ -14,7 +14,7 @@
 (global-set-key (kbd "C-c C-f") 'fci-mode)
 (global-set-key (kbd "s-f") 'auto-fill-mode)
 ;;(global-set-key (kbd "s-k") 'kill-this-buffer)
-(global-set-key (kbd "M-m") 'kmacro-end-and-call-macro)
+(global-set-key (kbd "C-x m") 'kmacro-end-and-call-macro)
 (global-set-key (kbd "C-x C-n") 'linum-mode)
 (global-set-key (kbd "C-q") 'back-to-indentation)
 (global-set-key (kbd "s-k") 'kill-whole-line)
@@ -56,7 +56,7 @@
  (if (or defining-kbd-macro executing-kbd-macro)
      (kmacro-end-macro arg)
    (kmacro-start-macro arg)))
-(global-set-key (kbd "C-x m") 'start-and-end-macro)
+(global-set-key (kbd "M-m") 'start-and-end-macro)
 
 (defun kill-*-buffer ()
   (interactive)

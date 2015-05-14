@@ -4,6 +4,7 @@
 (add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+(setq ruby-insert-encoding-magic-comment nil)
 
 ;; ruby-modeのインデントを改良する
 (setq ruby-deep-indent-paren-style nil)
