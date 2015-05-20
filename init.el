@@ -18,13 +18,14 @@
 ;;    ac-ispell
     ac-js2
     ag
+    anzu
     auto-complete
     auto-complete-rst
     auto-dictionary
     auto-indent-mode
     autopair
     auto-yasnippet
-    anzu
+    avy
     coffee-mode
     color-theme
     color-moccur
@@ -166,63 +167,3 @@
 (provide 'init)
 
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default bold shadow italic underline bold bold-italic bold])
- '(ansi-color-names-vector
-   (vector "#4d4d4c" "#c82829" "#718c00" "#eab700" "#4271ae" "#8959a8" "#3e999f" "#ffffff"))
- '(anzu-deactivate-region t)
- '(anzu-mode-lighter " az")
- '(anzu-search-threshold 500)
- '(anzu-use-migemo nil)
- '(custom-enabled-themes (quote (sanityinc-tomorrow-eighties)))
- '(custom-safe-themes
-   (quote
-    ("628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default)))
- '(fci-rule-color "#d6d6d6")
- '(session-use-package t nil (session))
- '(vc-annotate-background nil)
- '(vc-annotate-color-map
-   (quote
-    ((20 . "#c82829")
-     (40 . "#f5871f")
-     (60 . "#eab700")
-     (80 . "#718c00")
-     (100 . "#3e999f")
-     (120 . "#4271ae")
-     (140 . "#8959a8")
-     (160 . "#c82829")
-     (180 . "#f5871f")
-     (200 . "#eab700")
-     (220 . "#718c00")
-     (240 . "#3e999f")
-     (260 . "#4271ae")
-     (280 . "#8959a8")
-     (300 . "#c82829")
-     (320 . "#f5871f")
-     (340 . "#eab700")
-     (360 . "#718c00"))))
- '(vc-annotate-very-old-color nil)
- '(yas-prompt-functions (quote (my-yas/prompt))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(helm-selection ((t (:background "gray50" :distant-foreground "black"))))
- '(web-mode-comment-face ((t (:foreground "#D9333F"))))
- '(web-mode-css-at-rule-face ((t (:foreground "#FF7F00"))))
- '(web-mode-css-face ((t (:background "grey18"))))
- '(web-mode-css-pseudo-class-face ((t (:foreground "#FF7F00"))))
- '(web-mode-css-rule-face ((t (:foreground "#A0D8EF"))))
- '(web-mode-doctype-face ((t (:foreground "#82AE46"))))
- '(web-mode-html-attr-name-face ((t (:foreground "#C97586"))))
- '(web-mode-html-attr-value-face ((t (:foreground "#82AE46"))))
- '(web-mode-html-tag-face ((t (:foreground "#E6B422" :weight bold))))
- '(web-mode-javascript-face ((t (:background "grey36"))))
- '(web-mode-server-comment-face ((t (:foreground "#D9333F"))))
- '(web-mode-server-face ((t (:background "grey")))))

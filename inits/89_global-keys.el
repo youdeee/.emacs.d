@@ -17,7 +17,7 @@
 (global-set-key (kbd "C-x m") 'kmacro-end-and-call-macro)
 (global-set-key (kbd "C-x C-n") 'linum-mode)
 (global-set-key (kbd "C-q") 'back-to-indentation)
-(global-set-key (kbd "s-k") 'kill-whole-line)
+(global-set-key (kbd "M-k") 'kill-whole-line)
 ;;(global-set-key (kbd "C-@") 'indent-region)
 ;;s-f findfile
 ;;s- whitespace
@@ -64,7 +64,7 @@
     (if (string-match "\\`\\*\\(.\\|\n\\)+\\*\\'" (buffer-name buf))
 	(if (not (string= (buffer-name buf) "*scratch*"))
 	    (kill-buffer (buffer-name buf))))))
-(global-set-key (kbd "M-k") 'kill-*-buffer)
+(global-set-key (kbd "s-k") 'kill-*-buffer)
 
 (defun kill-all-buffer ()
   (interactive)
