@@ -81,10 +81,6 @@
 (cua-mode t)
 (setq cua-enable-cua-keys nil)
 
-;; 行番号表示
-(global-linum-mode t)
-
-
 ;;; スペースとか括弧とか色系
 ;;カーソルの色
 (set-cursor-color "white")
