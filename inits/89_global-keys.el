@@ -7,7 +7,7 @@
 (global-set-key (kbd "M-p") 'backward-paragraph)
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-h") 'backward-kill-word)
-(global-set-key (kbd "C-x 5 o") 'transpose-chars)
+(global-set-key (kbd "C-x 5 o") 'transpose-words)
 (global-set-key (kbd "C-x t") 'other-frame)
 (global-set-key (kbd "s-u") 'browse-url-of-file)
 (global-set-key (kbd "M-SPC") 'delete-trailing-whitespace)
@@ -18,6 +18,8 @@
 (global-set-key (kbd "C-x C-n") 'linum-mode)
 (global-set-key (kbd "C-q") 'back-to-indentation)
 (global-set-key (kbd "M-k") 'kill-whole-line)
+(global-set-key (kbd "M-t") 'transpose-lines)
+(global-set-key (kbd "C-x C-t") 'transpose-chars)
 ;;(global-set-key (kbd "C-@") 'indent-region)
 ;;s-f findfile
 ;;s- whitespace
