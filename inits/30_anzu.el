@@ -8,4 +8,4 @@
 
 ;; set-key
 (global-set-key (kbd "C-c r") 'anzu-query-replace-regexp)
-(global-set-key (kbd "C-c R") 'anzu-query-replace-at-cursor-thing)
+(global-set-key (kbd "C-c C-r") 'anzu-query-replace-at-cursor-thing)

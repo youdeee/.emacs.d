@@ -1,9 +1,12 @@
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx$" . js2-mode))
+(autoload 'js2-mode "js2-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-mode))
+(setq js2-basic-offset 2)
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
 (add-hook 'js2-mode-hook 'ac-js2-mode)
+
 ;; (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
 ;; (eval-after-load 'tern
 ;;    '(progn
