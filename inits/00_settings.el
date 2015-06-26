@@ -19,9 +19,9 @@
 (setq max-lisp-eval-depth 5000)
 
 ;; C-i,mをTABから独立
-(define-key input-decode-map (kbd "C-i") (kbd "H-i"))
-(define-key input-decode-map (kbd "C-m") (kbd "H-m"))
-(define-key input-decode-map (kbd "C-S-m") (kbd "H-S-m"))
+;(define-key input-decode-map (kbd "C-i") (kbd "H-i"))
+;(define-key input-decode-map (kbd "C-m") (kbd "H-m"))
+;(define-key input-decode-map (kbd "C-S-m") (kbd "H-S-m"))
 
 ;; 特にtramp時、zshを使わない
 (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))

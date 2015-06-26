@@ -1,5 +1,5 @@
 ;;keybind
-(global-set-key (kbd "H-i") 'indent-for-tab-command)
+;;(global-set-key (kbd "H-i") 'indent-for-tab-command)
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
 (global-set-key (kbd "s-&") 'kill-buffer)
@@ -19,12 +19,12 @@
 (global-set-key (kbd "C-q") 'back-to-indentation)
 (global-set-key (kbd "M-q") 'quoted-insert)
 (global-set-key (kbd "M-k") 'kill-whole-line)
-(global-set-key (kbd "M-t") 'transpose-lines)
-(global-set-key (kbd "C-x C-t") 'transpose-chars)
+(global-set-key (kbd "M-t") 'transpose-chars)
+(global-set-key (kbd "C-x C-t") 'transpose-lines)
 ;;(global-set-key (kbd "C-@") 'indent-region)
 ;;s-f findfile
 ;;s- whitespace
-;; C-. C-; C-' C-= C-` C-u C-- C-[ C-]
+;; C-. C-= C-` C-u C-- C-[ C-]
 ;;C-\調べる
 
 (defun make-window-when-unsplit ()
