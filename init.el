@@ -29,6 +29,7 @@
     coffee-mode
     color-theme
     color-moccur
+    ctags-update
     dash-at-point
     dired-toggle
     dired-details
@@ -40,6 +41,7 @@
     fill-column-indicator
     flex-autopair
     flycheck
+    foreign-regexp
     git
     google-translate
     goto-chg

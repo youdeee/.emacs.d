@@ -7,11 +7,17 @@
 (add-hook 'html-mode-hook 'skewer-html-mode)
 (add-hook 'js2-mode-hook 'ac-js2-mode)
 
-(add-hook 'js2-mode-hook ()
-	  ;; Disable auto newline insertion after input semi colon (;) at javascript-mode
-	  ;; http://insnvlovn.blogspot.jp/2010/04/emacs-php-mode.html
-	  (setq-local electric-layout-rules
-		      '((?\{ . after) (?\} . before))))
+(defun no-line-break ()
+  (setq-local electric-layout-rules
+              '((?\{ . after) (?\} . before))))
+(add-hook 'js2-mode-hook 'no-line-break)
+;; (add-hook 'js2-mode-hook ()
+;; 	  ;; Disable auto newline insertion after input semi colon (;) at javascript-mode
+;; 	  ;; http://insnvlovn.blogspot.jp/2010/04/emacs-php-mode.html
+;; 	  (setq-local electric-layout-rules
+;; 		      '((?\{ . after) (?\} . before))))
+
+
 
 ;;  ;;js3-mode
 ;;  (custom-set-variables

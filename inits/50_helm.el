@@ -26,6 +26,8 @@
 (define-key helm-map (kbd "C-h") 'delete-backward-char)
 (define-key helm-find-files-map (kbd "C-h") 'delete-backward-char)
 
+(setq helm-gtags-auto-update t)
+
 ;;(define-key helm-map (kbd "C-c C-a") 'all-from-helm-occur)
 ;;(global-set-key (kbd "C-x b")   'helm-buffers-list)
 ;;(setq helm-css-scss-split-direction 'split-window-horizontally)
@@ -59,7 +61,7 @@
   (when (file-exists-p candidate)
     ad-do-it))
 
-;; ;; フィルタリフィルタリングふぃるたりんぐふぃるたりんｇふぃるたりんふぃるたりｎふぃるたりふぃるたｒふぃるたふぃるｔふぃるふぃｒふぃｆングのロジックをいい感じ
+;; フィルタリング2のロジックをいい感じ
 ;; (defadvice helm-ff-transform-fname-for-completion (around my-transform activate)
 ;;   "Transform the pattern to reflect my intention"
 ;;   (let* ((pattern (ad-get-arg 0))
