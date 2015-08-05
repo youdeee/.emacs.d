@@ -42,7 +42,8 @@
 (format "%%f @%s" (system-name)))
 
 ;; タブの幅
-(setq tab-width 2)
+;;(setq tab-width 2)
+(setq-default tab-width 2 indent-tabs-mode nil)
 
 ;;前の行とインデントをあわせる
 (setq indent-line-function 'indent-relative-maybe)
@@ -90,7 +91,20 @@
 (set-face-background 'region "#1565C0")
 
 ;; 行末の空白を表示
-(setq-default show-trailing-whitespace t)
+;;(setq-default show-trailing-whitespace t)
+(require 'whitespace)
+(setq whitespace-style '(face           ; faceで可視化
+                         trailing       ; 行末
+                         tabs           ; タブ
+                         empty          ; 先頭/末尾の空行
+                         space-mark     ; 表示のマッピング
+                         tab-mark
+                         ))
+
+(setq whitespace-display-mappings
+      '((tab-mark ?\t [?\u00BB ?\t] [?\\ ?\t])))
+
+(global-whitespace-mode 1)
 
 ;;現在行を目立たせる
 (global-hl-line-mode t)
