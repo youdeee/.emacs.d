@@ -80,6 +80,7 @@
     multi
     multi-term
     multiple-cursors
+    neotree
     open-junk-file
     php-completion
     php-mode
