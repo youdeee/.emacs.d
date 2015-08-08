@@ -15,6 +15,7 @@ history
 .session
 el-get/
 inits/el-get/
+inits/el-get/el-get/
 inits/url/
 inits/eshell/
 inits/idlwave/
