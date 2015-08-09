@@ -43,6 +43,9 @@
     flycheck
     foreign-regexp
     git
+    git-gutter-fringe
+    gitconfig-mode
+    gitignore-mode
     google-translate
     goto-chg
     haml-mode
@@ -54,11 +57,13 @@
     helm-c-yasnippet
     helm-dash
     helm-git
+    helm-git-files
     helm-git-grep
     helm-gtags
     helm-ls-git
     helm-migemo
     helm-package
+    helm-swoop
     highlight
     highlight-symbol
     hive
@@ -89,6 +94,7 @@
     popwin
     powerline
     python-mode
+    rainbow-delimiters
     rainbow-mode
     recentf-ext
     review-mode

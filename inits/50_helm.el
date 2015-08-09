@@ -16,10 +16,11 @@
 (global-set-key (kbd "M-y")     'helm-show-kill-ring)
 (global-set-key (kbd "C-c i")   'helm-imenu)
 (global-set-key (kbd "C-c a") 'helm-ag)
-(global-set-key (kbd "C-x H-m") 'helm-execute-kmacro)
+(global-set-key (kbd "C-c d") 'ag-dired)
+;;(global-set-key (kbd "M-RET") 'helm-execute-kmacro)
 ;;(global-set-key (kbd "M-o") 'helm-ag-this-file)
-(global-set-key (kbd "M-o") 'helm-occur)
-(define-key isearch-mode-map (kbd "C-o") 'helm-occur-from-isearch)
+(global-set-key (kbd "M-o") 'helm-swoop)
+;;(define-key isearch-mode-map (kbd "C-o") 'helm-occur-from-isearch)
 
 (define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
 (define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
@@ -89,3 +90,15 @@
 ;;              pattern)))))
 ;; (add-to-list 'helm-source-buffers-list
 ;;              '(pattern-transformer helm-buffers-list-pattern-transformer))
+
+;; (require 'ag)
+;; (setq default-process-coding-system 'utf-8-unix)  ; ag 検索結果のエンコード指定
+;; (setq ag-highlight-search t)  ; 検索キーワードをハイライト
+;; (setq ag-reuse-buffers t)     ; 検索用バッファを使い回す (検索ごとに新バッファを作らない)
+
+;; ; wgrep
+;; (add-hook 'ag-mode-hook '(lambda ()
+;;                            (require 'wgrep-ag)
+;;                            (setq wgrep-auto-save-buffer t)  ; 編集完了と同時に保存
+;;                            (setq wgrep-enable-key "r")      ; "r" キーで編集モードに
+;;                            (wgrep-ag-setup)))
