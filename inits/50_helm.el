@@ -10,17 +10,17 @@
 (setq helm-locate-fuzzy-match t)
 ;;(setq helm-autoresize-mode 1)
 
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x f") 'helm-mini)
-(global-set-key (kbd "C-c f") 'helm-find-files) ; C-lで上階層 TABで補完
-(global-set-key (kbd "M-y")     'helm-show-kill-ring)
-(global-set-key (kbd "C-c i")   'helm-imenu)
-(global-set-key (kbd "C-c a") 'helm-ag)
-(global-set-key (kbd "C-c d") 'ag-dired)
-;;(global-set-key (kbd "M-RET") 'helm-execute-kmacro)
-;;(global-set-key (kbd "M-o") 'helm-ag-this-file)
-(global-set-key (kbd "M-o") 'helm-swoop)
-;;(define-key isearch-mode-map (kbd "C-o") 'helm-occur-from-isearch)
+;; (global-set-key (kbd "M-x") 'helm-M-x)
+;; (global-set-key (kbd "C-x f") 'helm-mini)
+;; (global-set-key (kbd "C-c f") 'helm-find-files) ; C-lで上階層 TABで補完
+;; (global-set-key (kbd "M-y")     'helm-show-kill-ring)
+;; (global-set-key (kbd "C-c i")   'helm-imenu)
+;; (global-set-key (kbd "C-c a") 'helm-ag)
+;; (global-set-key (kbd "C-c d") 'ag-dired)
+;; ;;(global-set-key (kbd "M-RET") 'helm-execute-kmacro)
+;; ;;(global-set-key (kbd "M-o") 'helm-ag-this-file)
+;; (global-set-key (kbd "M-o") 'helm-swoop)
+;; ;;(define-key isearch-mode-map (kbd "C-o") 'helm-occur-from-isearch)
 
 (define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
 (define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)

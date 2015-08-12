@@ -1,4 +1,5 @@
 ;;keybind
+
 ;;(global-set-key (kbd "H-i") 'indent-for-tab-command)
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
@@ -13,7 +14,6 @@
 (global-set-key (kbd "M-SPC") 'delete-trailing-whitespace)
 (global-set-key (kbd "C-c C-f") 'fci-mode)
 (global-set-key (kbd "s-f") 'auto-fill-mode)
-;;(global-set-key (kbd "s-k") 'kill-this-buffer)
 (global-set-key (kbd "C-x m") 'kmacro-end-and-call-macro)
 (global-set-key (kbd "C-x C-n") 'linum-mode)
 (global-set-key (kbd "C-q") 'back-to-indentation)
@@ -22,11 +22,27 @@
 (global-set-key (kbd "M-t") 'transpose-chars)
 (global-set-key (kbd "C-x C-t") 'transpose-lines)
 (global-set-key (kbd "C-.") 'pop-tag-mark)
+(global-set-key (kbd "M-.") 'find-tag)
 ;;(global-set-key (kbd "C-@") 'indent-region)
 ;;s-f findfile
 ;;s- whitespace
 ;; C-= C-` C--  C-]
 ;;C-\調べる
+
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x f") 'helm-mini)
+(global-set-key (kbd "C-c f") 'helm-find-files)
+(global-set-key (kbd "M-y")     'helm-show-kill-ring)
+(global-set-key (kbd "C-c i")   'helm-imenu)
+(global-set-key (kbd "C-c a") 'helm-ag)
+(global-set-key (kbd "C-c d") 'ag-dired)
+(global-set-key (kbd "M-o") 'helm-swoop)
+
+(defun full-screen ()
+  (interactive)
+  (set-frame-parameter nil 'fullscreen 'maximized)
+  )
+(global-set-key (kbd "M-,") 'full-screen)
 
 (defun make-window-when-unsplit ()
   (interactive)

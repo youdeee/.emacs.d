@@ -4,8 +4,8 @@
 (setq inhibit-startup-message t)
 
 ;; 起動時フレームの大きさ
-(setq initial-frame-alist
-      '((top . 1) (left . 65) (width . 147) (height . 45)));115/32
+;; (setq initial-frame-alist
+;;       '((top . 1) (left . 65) (width . 147) (height . 45)));115/32
 
 ;; アクティブウィンドウと非アクティブウィンドウの透明度
 (when window-system
