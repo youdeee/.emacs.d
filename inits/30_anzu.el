@@ -5,7 +5,3 @@
 (setq anzu-mode-lighter " az")
 (setq anzu-deactivate-region t)
 (setq anzu-search-threshold 500)
-
-;; set-key
-(global-set-key (kbd "C-c r") 'anzu-query-replace-regexp)
-(global-set-key (kbd "C-c C-r") 'anzu-query-replace-at-cursor-thing)

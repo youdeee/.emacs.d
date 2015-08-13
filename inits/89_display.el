@@ -125,5 +125,3 @@
 (require 'highlight-symbol)
 (setq highlight-symbol-colors '("#D500F9" "#3D5AFE" "#76FF03" "#FF9100" "#ff1744" "#00E5FF"))
 ;;("DarkOrange" "DodgerBlue1" "DeepPink1"))
-(global-set-key (kbd "C-M-8") 'highlight-symbol-at-point)
-(global-set-key (kbd "C-M-*") 'highlight-symbol-remove-all)

@@ -26,6 +26,7 @@
     autopair
     auto-yasnippet
     avy
+    bind-key
     coffee-mode
     color-theme
     color-moccur

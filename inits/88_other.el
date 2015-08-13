@@ -1,5 +1,4 @@
 (smart-newline-mode 1)
-(global-set-key (kbd "C-j") 'smart-newline)
 
 (setq magit-last-seen-setup-instructions "1.4.0")
 
@@ -14,6 +13,12 @@
 (setq ac-auto-show-menu 0.8)
 (define-key ac-completing-map "\M-/" 'ac-stop)
 (setq ac-ignore-case nil)
+
+(add-to-list 'ac-modes 'text-mode)         ;; text-modeでも自動的に有効にする
+(add-to-list 'ac-modes 'fundamental-mode)  ;; fundamental-mode
+(add-to-list 'ac-modes 'org-mode)
+(add-to-list 'ac-modes 'yatex-mode)
+(setq ac-use-fuzzy t)          ;; 曖昧マッチ
 
 (require 'server)
 (unless (server-running-p)
@@ -75,17 +80,12 @@
 (when (require 'tabbar nil t)
   (tabbar-mode))
 (setq tabbar-buffer-groups-function nil)
-(global-set-key [(control tab)]       'tabbar-forward)
-(global-set-key [(control shift tab)] 'tabbar-backward)
 
-;;最後の変更箇所にジャンプする
 (require 'goto-chg)
-(global-set-key (kbd "M-{") 'goto-last-change)
-(global-set-key (kbd "M-}") 'goto-last-change-reverse)
 
 (require 'point-undo)
-(global-set-key (kbd "M-[") 'point-undo)
-(global-set-key (kbd "M-]") 'point-redo)
+
+(require 'expand-region)
 
 (require 'key-combo)
 ;; (key-combo-load-default)
@@ -93,8 +93,6 @@
 
 ;; smart-compile
 (require 'smarter-compile)
-(global-set-key (kbd "C-x c") 'smarter-compile)
-(global-set-key (kbd "C-x C-x") (kbd "C-x c C-m"))
 
 (require 'migemo)
 (setq migemo-command "cmigemo")
