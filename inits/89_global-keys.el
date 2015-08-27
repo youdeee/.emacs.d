@@ -40,8 +40,9 @@
 (bind-key* "M-o" 'helm-swoop)
 (bind-key* "C-c r" 'anzu-query-replace-regexp)
 (bind-key* "C-c C-r" 'anzu-query-replace-at-cursor-thing)
-(bind-key* "C-'" 'er/expand-region)
-(bind-key* "C-\"" 'er/contract-region)
+(bind-key* "C-]" 'er/expand-region)
+(bind-key* "C-}" 'er/contract-region)
+
 (bind-key* "C-M-8" 'highlight-symbol-at-point)
 (bind-key* "C-M-*" 'highlight-symbol-remove-all)
 (bind-key* "C-<tab>" 'tabbar-forward)
@@ -58,7 +59,8 @@
 (bind-key* "C-x i e" 'yas-visit-snippet-file)
 (bind-key* "C-:" 'avy-goto-char)
 (bind-key* "C-;" 'avy-goto-char-2)
-(bind-key* "M-g M-g" 'avy-goto-line)
+(bind-key* "C-'" 'avy-goto-line)
+(bind-key* "C-\"" 'goto-line)
 (bind-key* "C-x C-z" 'open-junk-file)
 
 ;; 自作関数
