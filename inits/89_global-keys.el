@@ -25,6 +25,7 @@
 (bind-key* "C-x C-t" 'transpose-lines)
 (bind-key* "C-." 'pop-tag-mark)
 (bind-key* "M-." 'find-tag)
+(bind-key* "M-w" 'easy-kill)
 ;;s- whitespace
 ;; C-= C-` C--  C-]
 ;;C-\調べる

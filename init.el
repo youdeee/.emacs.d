@@ -34,6 +34,7 @@
     dash-at-point
     dired-toggle
     dired-details
+    easy-kill
     editorconfig
     epl
     es-mode
