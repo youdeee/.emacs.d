@@ -109,7 +109,7 @@
     session
     shell-pop
     simple-rtm
-    skewer-mode
+;;    skewer-mode
     slim-mode
     sql-indent
     smarter-compile

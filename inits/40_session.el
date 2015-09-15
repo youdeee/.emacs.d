@@ -9,8 +9,8 @@
 (setq session-initialize '(de-saveplace session menus places keys))
 
 ;; セッション管理する情報の設定
-(setq session-globals-include '((kill-ring 100)            ;; キルリング100件
-                                (session-file-alist 100 t) ;; カーソル位置100箇所
-                                (session-globals-max-size 100000)
-                                (file-name-history 300)))  ;; 開いたファイルのパス300件
-
+(setq session-globals-include
+      '((kill-ring 100)
+        (session-file-alist 100 t) ;; カーソル位置100箇所
+        (session-globals-max-size 100000)
+        (file-name-history 300)))  ;; 開いたファイルのパス300件

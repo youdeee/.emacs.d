@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: DocType
-# key: DocType
+# key: doc
 # binding: 
 # --
 <!DOCTYPE html>

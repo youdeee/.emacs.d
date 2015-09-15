@@ -128,4 +128,3 @@
 ;;   (ignore-errors
 ;;     (with-current-buffer (process-buffer proc)
 ;;       (dired-details-activate))))
-

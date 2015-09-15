@@ -2,22 +2,15 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-mode))
 (setq js2-basic-offset 2)
-(add-hook 'js2-mode-hook 'skewer-mode)
-(add-hook 'css-mode-hook 'skewer-css-mode)
-(add-hook 'html-mode-hook 'skewer-html-mode)
+;;(add-hook 'js2-mode-hook 'skewer-mode)
+;;(add-hook 'css-mode-hook 'skewer-css-mode)
+;;(add-hook 'html-mode-hook 'skewer-html-mode)
 (add-hook 'js2-mode-hook 'ac-js2-mode)
 
 (defun no-line-break ()
   (setq-local electric-layout-rules
               '((?\{ . after) (?\} . before))))
 (add-hook 'js2-mode-hook 'no-line-break)
-;; (add-hook 'js2-mode-hook ()
-;; 	  ;; Disable auto newline insertion after input semi colon (;) at javascript-mode
-;; 	  ;; http://insnvlovn.blogspot.jp/2010/04/emacs-php-mode.html
-;; 	  (setq-local electric-layout-rules
-;; 		      '((?\{ . after) (?\} . before))))
-
-
 
 ;;  ;;js3-mode
 ;;  (custom-set-variables
@@ -96,10 +89,8 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-;; ;;==========================================================
-;; ;;         web-modeの設定
-;; ;;==========================================================
 
+;; web-modeの設定
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
@@ -139,3 +130,22 @@
 (add-hook 'php-mode-hook 'rainbow-mode)
 (add-hook 'emacs-lisp-mode 'rainbow-mode)
 ;;(add-hook 'html-mode-hook 'rainbow-mode)
+
+
+;; C
+(setq-default c-basic-offset 4
+              tab-width 4
+               indent-tabs-mode nil)
+
+;; C++ style
+(defun add-c++-mode-conf ()
+  (c-set-style "stroustrup")  ;スタイルはストラウストラップ
+  (show-paren-mode t))     ;カッコを強調表示する
+(add-hook 'c++-mode-hook 'add-c++-mode-conf)
+
+;; C style
+(defun add-c-mode-common-conf ()
+  (c-set-style "stroustrup") ;;スタイルはストラウストラップ
+  (show-paren-mode t)                         ;;カッコを強調表示する
+  )
+(add-hook 'c-mode-common-hook 'add-c-mode-common-conf)
