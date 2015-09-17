@@ -87,10 +87,10 @@
 
 (defun make-window-when-unsplit ()
   (interactive)
-  (if (one-window-p)
-      (split-window-right)
-    (other-window 1)
-    ))
+  (when (one-window-p)
+    (split-window-right))
+  (other-window 1)
+  )
 
 (defun kill-line-backward (arg)
   "Kill ARG lines backward."
