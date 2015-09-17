@@ -1,8 +1,7 @@
-;;keybind
-
+;; keybind
 (global-set-key (kbd "C-j") 'smart-newline)
 
-;;(global-set-key "H-i" 'indent-for-tab-command)
+;; (global-set-key "H-i" 'indent-for-tab-command)
 (bind-key* "C-h" 'delete-backward-char)
 (bind-key* "C-x k" 'kill-this-buffer)
 (bind-key* "s-&" 'kill-buffer)
@@ -14,7 +13,7 @@
 (bind-key* "C-x t" 'other-frame)
 (bind-key* "s-u" 'browse-url)
 (bind-key* "M-SPC" 'delete-trailing-whitespace)
-;;(bind-key* "C-c C-f" 'fci-mode)
+;; (bind-key* "C-c C-f" 'fci-mode)
 (bind-key* "s-f" 'auto-fill-mode)
 (bind-key* "C-x m" 'kmacro-end-and-call-macro)
 (bind-key* "C-x C-n" 'linum-mode)
@@ -27,8 +26,7 @@
 (bind-key* "M-." 'find-tag)
 (bind-key* "M-w" 'easy-kill)
 ;;s- whitespace
-;; C-= C-` C--  C-]
-;;C-\調べる
+;; C-` C-- C-\
 
 ;; よく使うminormode
 (bind-key* "M-x" 'helm-M-x)
@@ -44,7 +42,6 @@
 (bind-key* "C-c C-r" 'anzu-query-replace-at-cursor-thing)
 (bind-key* "C-]" 'er/expand-region)
 (bind-key* "C-}" 'er/contract-region)
-
 (bind-key* "C-M-8" 'highlight-symbol-at-point)
 (bind-key* "C-M-*" 'highlight-symbol-remove-all)
 (bind-key* "C-<tab>" 'tabbar-forward)
@@ -54,7 +51,6 @@
 (bind-key* "M-[" 'point-undo)
 (bind-key* "M-]" 'point-redo)
 (bind-key* "C-x c" 'smarter-compile)
-;;(bind-key* "C-x C-x" (kbd "C-x c C-m"))
 (global-unset-key (kbd "C-x i"))
 (bind-key* "C-x i i" 'yas-insert-snippet)
 (bind-key* "C-x i n" 'yas-new-snippet)
@@ -64,6 +60,8 @@
 (bind-key* "C-'" 'avy-goto-line)
 (bind-key* "C-\"" 'goto-line)
 (bind-key* "C-x C-z" 'open-junk-file)
+(bind-key* "C-=" 'yafolding-toggle-element)
+(bind-key* "C-+" 'yafolding-show-all)
 
 ;; 自作関数
 (bind-key* "M-," 'full-screen)
