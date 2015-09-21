@@ -18,28 +18,25 @@
 ;; (setq split-height-threshold nil)
 ;; (setq split-width-threshold 0)
 
-;; 時計表示
-(display-time)
-
 ;; 色
 (add-hook 'font-lock-mode-hook '(lambda ()
-;;				  (set-face-foreground 'font-lock-builtin-face "spring green")
-				  (set-face-foreground 'font-lock-comment-face "slate gray")
-;;				  (set-face-foreground 'font-lock-string-face  "spring green")
-;;				  (set-face-foreground 'font-lock-keyword-face "khaki")
-;;				  (set-face-foreground 'font-lock-constant-face "violet")
-;;				  (set-face-foreground 'font-lock-function-name-face "hot pink")
-;;				  (set-face-foreground 'font-lock-variable-name-face "hot pink")
-;;				  (set-face-foreground 'font-lock-type-face "cyan")
-;;				  (set-face-foreground 'font-lock-warning-face "magenta")
-;;				  (set-face-bold-p 'font-lock-function-name-face t)
-;;				  (set-face-bold-p 'font-lock-warning-face nil)
-				  ))
+                                  ;;          (set-face-foreground 'font-lock-builtin-face "spring green")
+                                  (set-face-foreground 'font-lock-comment-face "slate gray")
+                                  ;;          (set-face-foreground 'font-lock-string-face  "spring green")
+                                  ;;          (set-face-foreground 'font-lock-keyword-face "khaki")
+                                  ;;          (set-face-foreground 'font-lock-constant-face "violet")
+                                  ;;          (set-face-foreground 'font-lock-function-name-face "hot pink")
+                                  ;;          (set-face-foreground 'font-lock-variable-name-face "hot pink")
+                                  ;;          (set-face-foreground 'font-lock-type-face "cyan")
+                                  ;;          (set-face-foreground 'font-lock-warning-face "magenta")
+                                  ;;          (set-face-bold-p 'font-lock-function-name-face t)
+                                  ;;          (set-face-bold-p 'font-lock-warning-face nil)
+                                  ))
 
 
 ;; タイトルバーにファイルのフルパス表示
 (setq frame-title-format
-(format "%%f @%s" (system-name)))
+      (format "%%f @%s" (system-name)))
 
 ;; タブの幅
 ;;(setq tab-width 2)

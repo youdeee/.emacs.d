@@ -1,0 +1,1 @@
+("~/.emacs.d/" "~/workspace/rails_projects/sample_app/")

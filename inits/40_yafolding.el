@@ -1,4 +1,4 @@
-(add-hook 'prog-mode-hook 'yafolding-mode)
+;;(add-hook 'prog-mode-hook 'yafolding-mode)
 
 ;; ;;; yafolding.el --- Yet another folding extension for Emacs
 

@@ -62,6 +62,7 @@
 (bind-key* "C-x C-z" 'open-junk-file)
 (bind-key* "C-=" 'yafolding-toggle-element)
 (bind-key* "C-+" 'yafolding-show-all)
+(bind-key* "C-c C-a" 'helm-projectile-grep)
 
 ;; 自作関数
 (bind-key* "M-," 'full-screen)

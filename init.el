@@ -62,6 +62,7 @@
     helm-git-files
     helm-git-grep
     helm-gtags
+    helm-projectile
     helm-ls-git
     helm-migemo
     helm-package
@@ -94,7 +95,7 @@
     point-undo
     popup
     popwin
-    powerline
+    projectile
     python-mode
     rainbow-delimiters
     rainbow-mode

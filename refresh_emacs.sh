@@ -1,5 +1,6 @@
 #!/bin/sh
 
+brew install editorconfig
 brew install cmigemo --HEAD
 
 mv inits/el-get/tomorrow-theme/GNU\Emacs/* inits/el-get/tomorrow-theme/
