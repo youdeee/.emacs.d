@@ -2,7 +2,7 @@
 
 (define-key yas-minor-mode-map (kbd "TAB") nil)
 (define-key yas-minor-mode-map (kbd "<tab>") nil)
-(define-key yas-minor-mode-map (kbd "M-z") 'yas-expand-from-trigger-key)
+(define-key yas-minor-mode-map (kbd "C-q") 'yas-expand-from-trigger-key)
 
 (defun my-yas/prompt (prompt choices &optional display-fn)
   (let* ((names (loop for choice in choices
