@@ -128,7 +128,6 @@
     web-mode
     wget
     vline
-    yafolding ;; これあるとちゃんと開けないかも、package-installで直接入れる
     yaml-mode
     yasnippet))
 (let ((not-installed

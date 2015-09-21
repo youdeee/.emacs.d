@@ -60,8 +60,6 @@
 (bind-key* "C-'" 'avy-goto-line)
 (bind-key* "C-\"" 'goto-line)
 (bind-key* "C-x C-z" 'open-junk-file)
-(bind-key* "C-=" 'yafolding-toggle-element)
-(bind-key* "C-+" 'yafolding-show-all)
 (bind-key* "C-c C-a" 'helm-projectile-grep)
 
 ;; 自作関数

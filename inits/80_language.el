@@ -103,7 +103,7 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.ctp\\'" . web-mode))
 
-(defun web-mode-hook ()
+(defun my-web-mode-hook ()
   (setq web-mode-markup-indent-offset 2) ;; html indent
   (setq web-mode-css-indent-offset 2)    ;; css indent
   (setq web-mode-code-indent-offset 2)   ;; script indent(js,php,etc..)
@@ -122,7 +122,8 @@
    )
   (setq web-mode-enable-heredoc-fontification t)
   )
-(add-hook 'web-mode-hook  'web-mode-hook)
+(define-key web-mode-map "\C-cu" 'web-mode-fold-or-unfold)
+(add-hook 'web-mode-hook  'my-web-mode-hook)
 
 (require 'rainbow-mode)
 (add-hook 'css-mode-hook 'rainbow-mode)
