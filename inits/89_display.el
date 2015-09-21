@@ -9,10 +9,10 @@
 
 ;; アクティブウィンドウと非アクティブウィンドウの透明度
 (when window-system
-  (add-to-list 'default-frame-alist '(alpha . (100 70)))
-  (add-to-list 'default-frame-alist '(foreground-color . "white"))
-  (add-to-list 'default-frame-alist '(background-color . "black"))
-  )
+(add-to-list 'default-frame-alist '(alpha . (100 70)))
+(add-to-list 'default-frame-alist '(foreground-color . "white"))
+(add-to-list 'default-frame-alist '(background-color . "black"))
+)
 
 ;; ;; miniとかを横に表示
 ;; (setq split-height-threshold nil)
@@ -20,23 +20,23 @@
 
 ;; 色
 (add-hook 'font-lock-mode-hook '(lambda ()
-                                  ;;          (set-face-foreground 'font-lock-builtin-face "spring green")
-                                  (set-face-foreground 'font-lock-comment-face "slate gray")
-                                  ;;          (set-face-foreground 'font-lock-string-face  "spring green")
-                                  ;;          (set-face-foreground 'font-lock-keyword-face "khaki")
-                                  ;;          (set-face-foreground 'font-lock-constant-face "violet")
-                                  ;;          (set-face-foreground 'font-lock-function-name-face "hot pink")
-                                  ;;          (set-face-foreground 'font-lock-variable-name-face "hot pink")
-                                  ;;          (set-face-foreground 'font-lock-type-face "cyan")
-                                  ;;          (set-face-foreground 'font-lock-warning-face "magenta")
-                                  ;;          (set-face-bold-p 'font-lock-function-name-face t)
-                                  ;;          (set-face-bold-p 'font-lock-warning-face nil)
-                                  ))
+;;          (set-face-foreground 'font-lock-builtin-face "spring green")
+(set-face-foreground 'font-lock-comment-face "slate gray")
+;;          (set-face-foreground 'font-lock-string-face  "spring green")
+;;          (set-face-foreground 'font-lock-keyword-face "khaki")
+;;          (set-face-foreground 'font-lock-constant-face "violet")
+;;          (set-face-foreground 'font-lock-function-name-face "hot pink")
+;;          (set-face-foreground 'font-lock-variable-name-face "hot pink")
+;;          (set-face-foreground 'font-lock-type-face "cyan")
+;;          (set-face-foreground 'font-lock-warning-face "magenta")
+;;          (set-face-bold-p 'font-lock-function-name-face t)
+;;          (set-face-bold-p 'font-lock-warning-face nil)
+))
 
 
 ;; タイトルバーにファイルのフルパス表示
 (setq frame-title-format
-      (format "%%f @%s" (system-name)))
+(format "%%f @%s" (system-name)))
 
 ;; タブの幅
 ;;(setq tab-width 2)
@@ -90,18 +90,16 @@
 ;; 行末の空白を表示
 ;;(setq-default show-trailing-whitespace t)
 (require 'whitespace)
-(setq whitespace-style '(face           ; faceで可視化
-                         trailing       ; 行末
-                         tabs           ; タブ
-                         empty          ; 先頭/末尾の空行
-                         space-mark     ; 表示のマッピング
-                         tab-mark
-                         ))
+(setq whitespace-style '(face trailing tabs empty space-mark tab-mark))
 
 (setq whitespace-display-mappings
-      '((tab-mark ?\t [?\u00BB ?\t] [?\\ ?\t])))
+'((tab-mark ?\t [?\u00BB ?\t] [?\\ ?\t])))
+
+(set-face-attribute 'whitespace-empty nil
+:background "#2f2f2f")
 
 (global-whitespace-mode 1)
+
 
 ;;現在行を目立たせる
 (global-hl-line-mode t)
