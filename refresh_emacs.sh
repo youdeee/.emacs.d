@@ -9,3 +9,4 @@ rm inits/el-get/tomorrow-theme/.gitignore
 rm inits/el-get/tomorrow-theme/*.md
 
 brew install ctags
+npm install -g cssfmt

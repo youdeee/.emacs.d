@@ -80,11 +80,8 @@
 (setq cua-enable-cua-keys nil)
 
 ;;; スペースとか括弧とか色系
-;;カーソルの色
-(set-cursor-color "white")
-
 ;; リージョン強調
-(setq-default transient-mark-mode t)
+;;(setq-default transient-mark-mode t)
 (set-face-background 'region "#1565C0")
 
 ;; 行末の空白を表示
@@ -95,9 +92,7 @@
 (setq whitespace-display-mappings
 '((tab-mark ?\t [?\u00BB ?\t] [?\\ ?\t])))
 
-(set-face-attribute 'whitespace-empty nil
-:background "#2f2f2f")
-
+(set-face-attribute 'whitespace-empty nil :background "#2f2f2f")
 (global-whitespace-mode 1)
 
 
