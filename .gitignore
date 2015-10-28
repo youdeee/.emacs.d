@@ -15,14 +15,10 @@ history
 .session
 el-get/
 inits/el-get/
-inits/el-get/el-get/
-inits/url/
-inits/eshell/
 inits/idlwave/
 inits/undohist/
 inits/projectile*
 
-ac-*
 undohist/
 /var/
 frame-restore-parameters
@@ -35,10 +31,6 @@ tutorial/
 
 # flymake-mode
 *_flymake.*
-
-# eshell files
-/eshell/history
-/eshell/lastdir
 
 # elpa packages
 /elpa/
