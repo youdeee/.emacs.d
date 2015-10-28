@@ -18,6 +18,7 @@ inits/el-get/
 inits/idlwave/
 inits/undohist/
 inits/projectile*
+ac-*
 
 undohist/
 /var/
