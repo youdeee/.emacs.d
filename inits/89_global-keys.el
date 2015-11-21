@@ -58,7 +58,8 @@
 (bind-key* "C-;" 'avy-goto-char-2)
 (bind-key* "C-'" 'avy-goto-line)
 (bind-key* "C-\"" 'goto-line)
-(bind-key* "C-x C-z" 'open-junk-file)
+(bind-key* "C-x C-z" 'open-dropbox-junk)
+(bind-key* "C-x C-a" 'open-0sec-memo)
 (bind-key* "C-c C-a" 'helm-projectile-grep)
 
 ;; 自作関数
