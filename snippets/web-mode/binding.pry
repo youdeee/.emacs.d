@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: binding.pry
+# key: bi
+# binding: direct-keybinding
+# --
+<% binding.pry %>
