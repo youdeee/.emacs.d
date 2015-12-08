@@ -26,5 +26,5 @@
 ;; 特にtramp時、zshを使わない
 (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
 
-(scroll-bar-mode 0)
+(when window-system (scroll-bar-mode 0))
 (tool-bar-mode 0)
