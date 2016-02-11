@@ -23,6 +23,7 @@
     auto-complete-rst
     auto-dictionary
     auto-indent-mode
+    auto-save-buffers-enhanced
     autopair
     auto-yasnippet
     avy

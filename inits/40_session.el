@@ -14,3 +14,8 @@
         (session-file-alist 100 t) ;; カーソル位置100箇所
         (session-globals-max-size 100000)
         (file-name-history 300)))  ;; 開いたファイルのパス300件
+
+
+;; (require 'auto-save-buffers-enhanced)
+;; (setq auto-save-buffers-enhanced-interval 1) ; 指定のアイドル秒で保存
+;; (auto-save-buffers-enhanced t)
