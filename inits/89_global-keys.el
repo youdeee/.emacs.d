@@ -61,6 +61,7 @@
 (bind-key* "C-x C-z" 'open-dropbox-junk)
 (bind-key* "C-x C-a" 'open-0sec-memo)
 (bind-key* "C-c C-a" 'helm-projectile-grep)
+(bind-key* "M-z" 'zop-to-char)
 
 ;; 自作関数
 (bind-key* "M-," 'full-screen)
@@ -74,7 +75,7 @@
 (bind-key* "C-x @" '(lambda ()
                                  (interactive)
                                  (split-window-vertically-n 3)))
-(bind-key* "M-z" '(lambda ()
+(bind-key* "s-z" '(lambda ()
                                  (interactive)
                                  (split-window-horizontally-n 3)))
 (bind-key* "C-a" 'my-goto-line-beginning-or-indent)

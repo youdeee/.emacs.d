@@ -130,7 +130,8 @@
     wget
     vline
     yaml-mode
-    yasnippet))
+    yasnippet
+    zop-to-char))
 (let ((not-installed
        (loop for package in my-package-list
              when (not (package-installed-p package))
