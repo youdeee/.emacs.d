@@ -34,6 +34,7 @@
     ctags-update
     dash-at-point
     dired-toggle
+    dired-toggle-sudo
     dired-details
     easy-kill
     editorconfig
