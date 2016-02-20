@@ -18,6 +18,11 @@
 (setq max-specpdl-size 6000)
 (setq max-lisp-eval-depth 5000)
 
+;; wdired
+(require 'wdired)
+(setq wdired-allow-to-change-permissions t)
+(define-key dired-mode-map "e" 'wdired-change-to-wdired-mode)
+
 ;; C-i,mをTABから独立
 ;(define-key input-decode-map (kbd "C-i") (kbd "H-i"))
 ;(define-key input-decode-map (kbd "C-m") (kbd "H-m"))

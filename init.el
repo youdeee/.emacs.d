@@ -15,8 +15,9 @@
 (defvar my-package-list
   '(ac-dabbrev
     ac-helm
-;;    ac-ispell
+    ;;    ac-ispell
     ac-js2
+    ac-python
     ag
     anzu
     auto-complete
@@ -60,6 +61,7 @@
     helm-c-moccur
     helm-c-yasnippet
     helm-dash
+    helm-flycheck
     helm-git
     helm-git-files
     helm-git-grep

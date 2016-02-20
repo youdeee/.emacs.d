@@ -1,6 +1,16 @@
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+;; (eval-after-load 'flycheck
+;;   '(custom-set-variables
+;;    '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
+;; (flycheck-add-next-checker 'javascript-jshint
+;;                            'javascript-gjslint)
+
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-jsx-mode))
+(flycheck-add-mode 'javascript-eslint 'js2-jsx-mode)
+(add-hook 'js2-jsx-mode-hook 'flycheck-mode)
 (setq js2-basic-offset 2)
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
@@ -71,15 +81,6 @@
 ;; (add-hook 'haml-mode-hook 'smart-indent-rigidly-mode)
 ;; (add-hook 'coffee-mode-hook 'smart-indent-rigidly-mode)
 ;; (add-hook 'sass-mode-hook 'smart-indent-rigidly-mode)
-
-;; (require 'flycheck)
-;; (add-hook 'after-init-hook #'global-flycheck-mode)
-;; ;; (flycheck-add-next-checker 'javascript-jshint
-;; ;;                            'javascript-gjslint)
-;; ;; Python
-;; (add-hook 'python-mode-hook 'flycheck-mode)
-;; ;; Ruby
-;; (add-hook 'ruby-mode-hook 'flycheck-mode)
 
 
 ;;mardkown-mode
