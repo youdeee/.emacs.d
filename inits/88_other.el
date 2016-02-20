@@ -19,12 +19,16 @@
 (define-key ac-completing-map "\M-/" 'ac-stop)
 (setq ac-ignore-case nil)
 (ac-set-trigger-key "<backtab>")
-(add-to-list 'ac-modes 'text-mode)         ;; text-modeでも自動的に有効にする
-(add-to-list 'ac-modes 'fundamental-mode)  ;; fundamental-mode
+(add-to-list 'ac-modes 'text-mode)
+(add-to-list 'ac-modes 'fundamental-mode)
 (add-to-list 'ac-modes 'org-mode)
 (add-to-list 'ac-modes 'yatex-mode)
 (add-to-list 'ac-modes 'markdown-mode)
 (add-to-list 'ac-modes 'swift-mode)
+(add-hook 'markdown-mode-hook
+          (lambda ()
+            (make-local-variable 'ac-ignore-case)
+            (setq ac-ignore-case 'smart)))
 (setq ac-use-fuzzy t)
 
 (require 'server)
