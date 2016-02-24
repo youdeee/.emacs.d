@@ -24,6 +24,7 @@
 (bind-key* "C-." 'pop-tag-mark)
 (bind-key* "M-." 'find-tag)
 (bind-key* "M-w" 'easy-kill)
+(bind-key* "C-x C-d" 'dired-jump)
 ;;s- whitespace
 ;; C-` C-- C-\
 
