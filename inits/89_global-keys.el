@@ -25,6 +25,7 @@
 (bind-key* "M-." 'find-tag)
 (bind-key* "M-w" 'easy-kill)
 (bind-key* "C-x C-d" 'dired-jump)
+(bind-key* "M-/" 'hippie-expand)
 ;;s- whitespace
 ;; C-` C-- C-\
 

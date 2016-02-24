@@ -33,3 +33,10 @@
 
 (when window-system (scroll-bar-mode 0))
 (tool-bar-mode 0)
+
+(setq hippie-expand-try-functions-list
+      '(try-complete-file-name-partially
+        try-complete-file-name
+        try-expand-dabbrev
+        try-expand-dabbrev-all-buffers
+        try-expand-dabbrev-from-kill))
