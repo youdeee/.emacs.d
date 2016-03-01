@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: binding.pry
-# key: b
+# name: erb_tag
+# key: ,
 # binding: direct-keybinding
 # --
-<% binding.pry %>
+<%= $0 %>
