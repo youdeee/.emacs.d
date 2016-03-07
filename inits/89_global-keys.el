@@ -40,6 +40,7 @@
 (bind-key* "C-c a" 'helm-ag)
 (bind-key* "C-c d" 'ag-dired)
 (bind-key* "M-o" 'helm-swoop)
+(bind-key* "C-M-o" 'helm-multi-swoop-all)
 (bind-key* "C-c r" 'anzu-query-replace-regexp)
 (bind-key* "C-c C-r" 'anzu-query-replace-at-cursor-thing)
 (bind-key* "C-]" 'er/expand-region)
@@ -63,7 +64,7 @@
 (bind-key* "C-\"" 'goto-line)
 (bind-key* "C-x C-z" 'open-dropbox-junk)
 (bind-key* "C-x C-a" 'open-0sec-memo)
-(bind-key* "C-c C-a" 'helm-projectile-grep)
+(bind-key* "C-c C-a" 'helm-projectile-ag)
 (bind-key* "M-z" 'zop-to-char)
 
 ;; 自作関数
