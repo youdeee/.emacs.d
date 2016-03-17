@@ -67,6 +67,25 @@
 (bind-key* "C-c C-a" 'helm-projectile-ag)
 (bind-key* "M-z" 'zop-to-char)
 
+;; multi-cursor
+(global-set-key (kbd "C-|") 'mc/edit-lines);;リージョン全てにカーソルおく
+(global-unset-key "\C-\\")
+(smartrep-define-key global-map "C-\\"
+  '(("C-\\"      . 'mc/mark-next-like-this)
+    ("n"        . 'mc/mark-next-like-this)
+    ("p"        . 'mc/mark-previous-like-this)
+    ("m"        . 'mc/mark-more-like-this-extended)
+    ("u"        . 'mc/unmark-next-like-this)
+    ("U"        . 'mc/unmark-previous-like-this)
+    ("s"        . 'mc/skip-to-next-like-this)
+    ("S"        . 'mc/skip-to-previous-like-this)
+    ("*"        . 'mc/mark-all-like-this)
+    ("d"        . 'mc/mark-all-like-this-dwim)
+    ("i"        . 'mc/insert-numbers)
+    ("o"        . 'mc/sort-regions)
+    ("O"        . 'mc/reverse-regions)))
+
+
 ;; 自作関数
 (bind-key* "M-," 'full-screen)
 (bind-key* "C-t" 'make-window-when-unsplit)
