@@ -1,6 +1,8 @@
 ;; keybind
-(global-set-key (kbd "C-j") 'smart-newline)
+;; s- whitespace
+;; C-` C--
 
+(global-set-key (kbd "C-j") 'smart-newline)
 (bind-key* "C-h" 'delete-backward-char)
 (bind-key* "C-x k" 'kill-this-buffer)
 (bind-key* "s-&" 'kill-buffer)
@@ -27,8 +29,9 @@
 (bind-key* "M-w" 'easy-kill)
 (bind-key* "C-x C-d" 'dired-jump)
 (bind-key* "M-/" 'hippie-expand)
-;;s- whitespace
-;; C-` C-- C-\
+(define-key isearch-mode-map (kbd "C-h") 'isearch-del-char)
+;; (bind-key* "M-n" (lambda () (interactive) (scroll-up 1)))
+;; (bind-key* "M-p" (lambda () (interactive) (scroll-down 1)))
 
 ;; よく使うminormode
 (bind-key* "M-x" 'helm-M-x)
