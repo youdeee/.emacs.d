@@ -10,7 +10,7 @@
 
 ;; セッション管理する情報の設定
 (setq session-globals-include
-      '((kill-ring 100)
+      '((kill-ring 1000)
         (session-file-alist 100 t) ;; カーソル位置100箇所
         (session-globals-max-size 100000)
         (file-name-history 300)))  ;; 開いたファイルのパス300件

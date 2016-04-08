@@ -72,3 +72,20 @@
       (split-window-horizontally
        (- (window-width) (/ (window-width) num_wins)))
       (split-window-horizontally-n (- num_wins 1)))))
+
+(defun add-file-name-to-kill-ring-and-yank (arg)
+  (interactive "p")
+  (if (equal arg 4)
+      (kill-new buffer-file-name)
+    (kill-new (file-name-nondirectory buffer-file-name))
+    )
+  (yank)
+  )
+
+(defun insert-file-name (arg)
+  (interactive "p")
+  (if (equal arg 4)
+      (insert buffer-file-name)
+    (insert (file-name-nondirectory buffer-file-name))
+    )
+  )
