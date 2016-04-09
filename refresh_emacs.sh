@@ -5,6 +5,7 @@ if [ "$(uname)" == 'Darwin' ]; then
     brew install cmigemo --HEAD
     brew install ctags
     npm install -g cssfmt
+    brew install mono
     echo "darwin!!"
 elif [ "$(uname)" == 'Linux' ]; then
     sudo apt-get install cmigemo

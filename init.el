@@ -32,6 +32,7 @@
     coffee-mode
     color-theme
     color-moccur
+    csharp-mode
     ctags-update
     dash-at-point
     dired-toggle
@@ -93,6 +94,7 @@
     multi-term
     multiple-cursors
     neotree
+    omnisharp
     open-junk-file
     php-completion
     php-mode
