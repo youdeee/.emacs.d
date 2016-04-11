@@ -14,7 +14,7 @@
              (c-set-offset 'arglist-intro '+)
              (c-set-offset 'arglist-close 0)
              (auto-complete-mode)
-             (flymake-mode)
+;;             (flymake-mode)
              )
           )
 
