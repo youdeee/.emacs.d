@@ -94,7 +94,7 @@
     multi-term
     multiple-cursors
     neotree
-    omnisharp
+;;    omnisharp
     open-junk-file
     php-completion
     php-mode
