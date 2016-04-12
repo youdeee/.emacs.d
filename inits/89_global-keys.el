@@ -30,6 +30,8 @@
 (bind-key* "C-x C-d" 'dired-jump)
 (bind-key* "M-/" 'hippie-expand)
 (define-key isearch-mode-map (kbd "C-h") 'isearch-del-char)
+(bind-key* "s-r" 'revert-buffer)
+(bind-key* "s-e" 'eval-buffer)
 ;; (bind-key* "M-n" (lambda () (interactive) (scroll-up 1)))
 ;; (bind-key* "M-p" (lambda () (interactive) (scroll-down 1)))
 
