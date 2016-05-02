@@ -9,10 +9,10 @@
 
 ;; アクティブウィンドウと非アクティブウィンドウの透明度
 (when window-system
-(add-to-list 'default-frame-alist '(alpha . (90 80)))
-(add-to-list 'default-frame-alist '(foreground-color . "white"))
-(add-to-list 'default-frame-alist '(background-color . "black"))
-)
+  (add-to-list 'default-frame-alist '(alpha . (90 80)))
+  (add-to-list 'default-frame-alist '(foreground-color . "white"))
+  (add-to-list 'default-frame-alist '(background-color . "black"))
+  )
 
 ;; ;; miniとかを横に表示
 ;; (setq split-height-threshold nil)
@@ -97,9 +97,11 @@
 
 
 ;;現在行を目立たせる
-(global-hl-line-mode t)
-(set-face-background 'hl-line "#424242")
-(set-face-foreground 'hl-line nil)
+(when window-system
+  (global-hl-line-mode t)
+  (set-face-background 'hl-line "#424242")
+  (set-face-foreground 'hl-line nil)
+  )
 
 ;; 括弧
 (show-paren-mode t)
