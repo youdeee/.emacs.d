@@ -22,6 +22,7 @@
 (require 'wdired)
 (setq wdired-allow-to-change-permissions t)
 (define-key dired-mode-map "e" 'wdired-change-to-wdired-mode)
+(setq delete-by-moving-to-trash t)
 
 ;; C-i,mをTABから独立
 ;(define-key input-decode-map (kbd "C-i") (kbd "H-i"))
@@ -40,3 +41,6 @@
         try-expand-dabbrev
         try-expand-dabbrev-all-buffers
         try-expand-dabbrev-from-kill))
+
+;; GCを減らして軽くする
+(setq gc-cons-threshold (* 128 1024 1024))

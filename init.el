@@ -29,6 +29,7 @@
     auto-yasnippet
     avy
     bind-key
+    cake2
     coffee-mode
     color-theme
     color-moccur
@@ -81,6 +82,7 @@
     js2-mode
     json-mode
     jump
+;;    key-chord
     key-combo
     less-css-mode
     lispxmp
@@ -126,10 +128,12 @@
     sticky
     swift-mode
     tabbar
+    thingopt
     ucs-utils
     unicode-fonts
     undo-tree
     undohist
+;;    viewer
     w3m
     web-mode
     wget
