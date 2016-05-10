@@ -82,7 +82,7 @@
     js2-mode
     json-mode
     jump
-;;    key-chord
+    key-chord
     key-combo
     less-css-mode
     lispxmp

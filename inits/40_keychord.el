@@ -1,12 +1,14 @@
-;; (require 'key-chord)
-;; (setq key-chord-two-keys-delay 0.01)
-;; (key-chord-mode 1)
-;; (key-chord-define-global "jk" 'view-mode)            ;;jk同時押しでview-modeのトグル
-;; (key-chord-define-global "df" 'helm-descbinds)       ;;df同時押しでhelm-descbinds起動
-;; (key-chord-define-global "kk" 'mark-filename)        ;;ファイルパスを選択
-;; (key-chord-define-global "uu" '(lambda ()            ;;直前に開いていたバッファに戻る
-;;                                  (interactive)
-;;                                  (switch-to-buffer nil)))
+(require 'key-chord)
+(setq key-chord-two-keys-delay 0.05)
+(key-chord-mode 1)
+(key-chord-define-global "jk" 'view-mode)            ;;jk同時押しでview-modeのトグル
+(key-chord-define-global "df" 'helm-descbinds)       ;;df同時押しでhelm-descbinds起動
+(key-chord-define-global "sl" 'switch-to-last-buffer)
+
+(defun switch-to-last-buffer ()
+  (interactive)
+  (switch-to-buffer nil)
+  )
 
 ;; ;; key-chord.el の input-method-function が勝手に nil にされることがあるので修正
 ;; ;; http://d.hatena.ne.jp/grandVin/20080917/1221653750
