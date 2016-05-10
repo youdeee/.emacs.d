@@ -15,14 +15,6 @@
 ;;     ad-do-it
 ;;     (setq input-method-function input-method-function-save)))
 
-;; ;; view-modeのモードライン設定
-;; (require 'viewer)
-;; (viewer-stay-in-setup)
-;; (setq viewer-modeline-color-unwritable "tomato"
-;;       viewer-modeline-color-view "orange"
-;;       viewer-modeline-color-default "#5C5F63")
-;; (viewer-change-modeline-color-setup)
-
 ;; ;; 書き込み不能なファイルはview-modeで開くように
 ;; (defadvice find-file
 ;;     (around find-file-switch-to-view-file (file &optional wild) activate)

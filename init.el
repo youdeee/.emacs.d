@@ -133,7 +133,7 @@
     unicode-fonts
     undo-tree
     undohist
-;;    viewer
+    viewer
     w3m
     web-mode
     wget
