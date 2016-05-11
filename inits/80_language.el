@@ -110,6 +110,7 @@
   (setq web-mode-code-indent-offset 2)   ;; script indent(js,php,etc..)
   (setq web-mode-comment-style 2)
   (setq web-mode-script-padding 2)
+  (setq web-mode-block-padding 2)
   ;; 終了タグの自動補完をしない
   ;; (setq web-mode-disable-auto-pairing t)
   ;; (setq web-mode-disable-css-colorization t)
