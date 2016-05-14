@@ -7,8 +7,7 @@
 
 (defun switch-to-last-buffer ()
   (interactive)
-  (switch-to-buffer nil)
-  )
+  (switch-to-buffer nil))
 
 ;; ;; key-chord.el の input-method-function が勝手に nil にされることがあるので修正
 ;; ;; http://d.hatena.ne.jp/grandVin/20080917/1221653750

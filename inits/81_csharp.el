@@ -13,10 +13,7 @@
              (c-set-offset 'case-label '+)
              (c-set-offset 'arglist-intro '+)
              (c-set-offset 'arglist-close 0)
-             (auto-complete-mode)
-;;             (flymake-mode)
-             )
-          )
+             (auto-complete-mode)))
 
 ;; ;; Gtags設定
 ;; (require 'gtags)

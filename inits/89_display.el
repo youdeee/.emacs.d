@@ -79,10 +79,11 @@
 (cua-mode t)
 (setq cua-enable-cua-keys nil)
 
+
 ;;; スペースとか括弧とか色系
-;; リージョン強調
+
 ;;(setq-default transient-mark-mode t)
-(set-face-background 'region "#1565C0")
+(set-face-background 'region "#113B67")
 
 ;; 行末の空白を表示
 ;;(setq-default show-trailing-whitespace t)
@@ -92,16 +93,22 @@
 (setq whitespace-display-mappings
 '((tab-mark ?\t [?\u00BB ?\t] [?\\ ?\t])))
 
-(set-face-attribute 'whitespace-empty nil :background "#2f2f2f")
+(set-face-attribute 'whitespace-empty nil :background "#2F2F2F")
 (global-whitespace-mode 1)
 
 
 ;;現在行を目立たせる
-(when window-system
-  (global-hl-line-mode t)
-  (set-face-background 'hl-line "#424242")
-  (set-face-foreground 'hl-line nil)
-  )
+(require 'hl-line)
+(defun global-hl-line-timer-function ()
+  (global-hl-line-unhighlight-all)
+  (let ((global-hl-line-mode t))
+    (global-hl-line-highlight)))
+(setq global-hl-line-timer
+      (run-with-idle-timer 0.03 t 'global-hl-line-timer-function))
+;; (cancel-timer global-hl-line-timer)
+;;   (global-hl-line-mode t)
+;;   (set-face-background 'hl-line "#191919")
+;;   (set-face-foreground 'hl-line nil)
 
 ;; 括弧
 (show-paren-mode t)
@@ -109,7 +116,9 @@
 (setq show-paren-priority 0)
 (setq show-paren-style 'expression)
 (set-face-foreground 'show-paren-match-face nil)
-(set-face-background 'show-paren-match-face "#B71C1C")
+(set-face-background 'show-paren-match-face "#4C4067")
+
+(set-cursor-color "#EA0825")
 
 ;; (require 'auto-highlight-symbol)
 ;; (global-auto-highlight-symbol-mode t )

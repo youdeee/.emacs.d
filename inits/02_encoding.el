@@ -42,6 +42,7 @@
                   (font-spec :family "Ricty" :size 17)
                   nil
                   'append)
+
 (add-to-list 'default-frame-alist '(font . "fontset-ricty"))
 
 ;; ;; Google日本語入力

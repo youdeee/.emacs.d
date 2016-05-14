@@ -1,8 +1,8 @@
 ;; keybind
 ;; s- whitespace
-;; C-` C--
+;; C- ` - o q z = -
 
-(global-set-key (kbd "C-j") 'smart-newline)
+(bind-key* "C-j" 'smart-newline)
 (bind-key* "C-h" 'delete-backward-char)
 (bind-key* "C-x k" 'kill-this-buffer)
 (bind-key* "s-&" 'kill-buffer)
@@ -32,10 +32,14 @@
 (define-key isearch-mode-map (kbd "C-h") 'isearch-del-char)
 (bind-key* "s-r" 'revert-buffer)
 (bind-key* "s-e" 'eval-buffer)
+(bind-key* "M-0" 'suspend-frame)
+
+;;(bind-key* "C-z" 'mode-specific-command-prefix)
+ (global-unset-key (kbd "C-z"))
 ;; (bind-key* "M-n" (lambda () (interactive) (scroll-up 1)))
 ;; (bind-key* "M-p" (lambda () (interactive) (scroll-down 1)))
 
-;; よく使うminormode
+;; helm
 (bind-key* "M-x" 'helm-M-x)
 (bind-key* "C-x f" 'helm-mini)
 (bind-key* "C-c f" 'helm-find-files)
@@ -43,34 +47,28 @@
 (bind-key* "M-y"     'helm-show-kill-ring)
 (bind-key* "C-c i"   'helm-imenu)
 (bind-key* "C-c a" 'helm-ag)
-(bind-key* "C-c d" 'ag-dired)
 (bind-key* "M-o" 'helm-swoop)
 (bind-key* "C-M-o" 'helm-multi-swoop-all)
-(bind-key* "C-c r" 'anzu-query-replace-regexp)
-(bind-key* "C-c C-r" 'anzu-query-replace-at-cursor-thing)
-(bind-key* "C-]" 'er/expand-region)
-(bind-key* "C-}" 'er/contract-region)
-(bind-key* "C-M-8" 'highlight-symbol-at-point)
-(bind-key* "C-M-*" 'highlight-symbol-remove-all)
-(bind-key* "C-<tab>" 'tabbar-forward)
-(bind-key* "C-S-<tab>" 'tabbar-backward)
-(bind-key* "M-{" 'goto-last-change)
-(bind-key* "M-}" 'goto-last-change-reverse)
-(bind-key* "M-[" 'point-undo)
-(bind-key* "M-]" 'point-redo)
-(bind-key* "C-x c" 'smarter-compile)
+(bind-key* "C-c C-a" 'helm-projectile-ag)
+(define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
+(define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
+(define-key helm-map (kbd "C-h") 'delete-backward-char)
+(define-key helm-find-files-map (kbd "C-h") 'delete-backward-char)
+
+;; bm
+(bind-key* "C-0" 'bm-toggle)
+(bind-key* "C-M-0" 'bm-next)
+(bind-key* "C-)" 'bm-previous)
+(bind-key* "C-M-)" 'bm-remove-all-current-buffer)
+
+;; yasnippet
 (global-unset-key (kbd "C-x i"))
 (bind-key* "C-x i i" 'yas-insert-snippet)
 (bind-key* "C-x i n" 'yas-new-snippet)
 (bind-key* "C-x i e" 'yas-visit-snippet-file)
-(bind-key* "C-:" 'avy-goto-char)
-(bind-key* "C-;" 'avy-goto-char-2)
-(bind-key* "C-'" 'avy-goto-line)
-(bind-key* "C-\"" 'goto-line)
-(bind-key* "C-x C-z" 'open-dropbox-junk)
-(bind-key* "C-x C-a" 'open-0sec-memo)
-(bind-key* "C-c C-a" 'helm-projectile-ag)
-(bind-key* "M-z" 'zop-to-char)
+(define-key yas-minor-mode-map (kbd "TAB") nil)
+(define-key yas-minor-mode-map (kbd "<tab>") nil)
+(define-key yas-minor-mode-map (kbd "C-9") 'yas-expand-from-trigger-key)
 
 ;; multi-cursor
 (global-set-key (kbd "C-|") 'mc/edit-lines);;リージョン全てにカーソルおく
@@ -90,6 +88,34 @@
     ("o"        . 'mc/sort-regions)
     ("O"        . 'mc/reverse-regions)))
 
+;; ohter
+(bind-key* "C-c d" 'ag-dired)
+(bind-key* "C-c r" 'anzu-query-replace-regexp)
+(bind-key* "C-c C-r" 'anzu-query-replace-at-cursor-thing)
+(bind-key* "C-]" 'er/expand-region)
+(bind-key* "C-}" 'er/contract-region)
+(bind-key* "C-M-8" 'highlight-symbol-at-point)
+(bind-key* "C-M-*" 'highlight-symbol-remove-all)
+(bind-key* "C-<tab>" 'tabbar-forward)
+(bind-key* "C-S-<tab>" 'tabbar-backward)
+(bind-key* "M-{" 'goto-last-change)
+(bind-key* "M-}" 'goto-last-change-reverse)
+(bind-key* "M-[" 'point-undo)
+(bind-key* "M-]" 'point-redo)
+(bind-key* "C-x c" 'smarter-compile)
+(bind-key* "C-:" 'avy-goto-char)
+(bind-key* "C-;" 'avy-goto-char-2)
+(bind-key* "C-'" 'avy-goto-line)
+(bind-key* "C-\"" 'goto-line)
+(bind-key* "C-x C-z" 'open-dropbox-junk)
+(bind-key* "C-x C-a" 'open-0sec-memo)
+(bind-key* "M-z" 'zop-to-char)
+(define-key web-mode-map "\C-cu" 'web-mode-fold-or-unfold)
+(define-key ac-menu-map "\C-n" 'ac-next)
+(define-key ac-menu-map "\C-p" 'ac-previous)
+(define-key ac-completing-map "\M-/" 'ac-stop)
+(define-key emacs-lisp-mode-map (kbd "C-c C-d") 'lispxmp)
+(ac-set-trigger-key "<backtab>")
 
 ;; 自作関数
 (bind-key* "M-," 'full-screen)
@@ -100,10 +126,5 @@
 (bind-key* "M-m" 'start-and-end-macro)
 (bind-key* "s-k" 'kill-*-buffer)
 (bind-key* "C-x a k" 'kill-all-buffer)
-(bind-key* "C-x @" '(lambda ()
-                                 (interactive)
-                                 (split-window-vertically-n 3)))
-(bind-key* "s-z" '(lambda ()
-                                 (interactive)
-                                 (split-window-horizontally-n 3)))
-(bind-key* "C-a" 'my-goto-line-beginning-or-indent)
+(bind-key* "s-z" 'split-window-3)
+(bind-key* "C-a" 'goto-line-beginning-or-indent)

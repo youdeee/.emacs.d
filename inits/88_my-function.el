@@ -1,4 +1,4 @@
-(defun my-goto-line-beginning-or-indent (&optional $position)
+(defun goto-line-beginning-or-indent (&optional $position)
   (interactive)
   (or $position (setq $position (point)))
   (let (($starting-position (progn (back-to-indentation) (point))))
@@ -7,15 +7,13 @@
 
 (defun full-screen ()
   (interactive)
-  (set-frame-parameter nil 'fullscreen 'maximized)
-  )
+  (set-frame-parameter nil 'fullscreen 'maximized))
 
 (defun make-window-when-unsplit ()
   (interactive)
   (when (one-window-p)
     (split-window-right))
-  (other-window 1)
-  )
+  (other-window 1))
 
 (defun kill-line-backward (arg)
   "Kill ARG lines backward."
@@ -77,15 +75,16 @@
   (interactive "p")
   (if (equal arg 4)
       (kill-new buffer-file-name)
-    (kill-new (file-name-nondirectory buffer-file-name))
-    )
-  (yank)
-  )
+    (kill-new (file-name-nondirectory buffer-file-name)))
+  (yank))
 
 (defun insert-file-name (arg)
   (interactive "p")
   (if (equal arg 4)
       (insert buffer-file-name)
-    (insert (file-name-nondirectory buffer-file-name))
-    )
-  )
+    (insert (file-name-nondirectory buffer-file-name))))
+
+(defun split-window-3 ()
+  (interactive)
+  (split-window-horizontally-n 3))
+

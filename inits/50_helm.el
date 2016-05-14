@@ -10,11 +10,6 @@
 (setq helm-locate-fuzzy-match t)
 ;;(setq helm-autoresize-mode 1)
 
-(define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
-(define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
-(define-key helm-map (kbd "C-h") 'delete-backward-char)
-(define-key helm-find-files-map (kbd "C-h") 'delete-backward-char)
-
 (setq helm-gtags-auto-update t)
 
 ;;(define-key helm-map (kbd "C-c C-a") 'all-from-helm-occur)

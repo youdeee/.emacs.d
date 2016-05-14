@@ -115,17 +115,7 @@
   ;; (setq web-mode-disable-auto-pairing t)
   ;; (setq web-mode-disable-css-colorization t)
   (setq web-mode-enable-block-faces t)
-  (custom-set-faces
-   '(web-mode-server-face
-     ((t (:background "grey"))))                  ; template Blockの背景色
-   '(web-mode-css-face
-     ((t (:background "grey18"))))                ; CSS Blockの背景色
-   '(web-mode-javascript-face
-     ((t (:background "grey36"))))                ; javascript Blockの背景色
-   )
-  (setq web-mode-enable-heredoc-fontification t)
-  )
-(define-key web-mode-map "\C-cu" 'web-mode-fold-or-unfold)
+  (setq web-mode-enable-heredoc-fontification t))
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
 (require 'rainbow-mode)
@@ -135,21 +125,7 @@
 (add-hook 'emacs-lisp-mode 'rainbow-mode)
 ;;(add-hook 'html-mode-hook 'rainbow-mode)
 
-
 ;; C
-(setq-default c-basic-offset 4
-              tab-width 4
-               indent-tabs-mode nil)
-
-;; C++ style
-(defun add-c++-mode-conf ()
-  (c-set-style "stroustrup")  ;スタイルはストラウストラップ
-  (show-paren-mode t))     ;カッコを強調表示する
-(add-hook 'c++-mode-hook 'add-c++-mode-conf)
-
-;; C style
-(defun add-c-mode-common-conf ()
-  (c-set-style "stroustrup") ;;スタイルはストラウストラップ
-  (show-paren-mode t)                         ;;カッコを強調表示する
-  )
-(add-hook 'c-mode-common-hook 'add-c-mode-common-conf)
+;; (setq-default c-basic-offset 4
+;;               tab-width 4
+;;               indent-tabs-mode nil)

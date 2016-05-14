@@ -13,12 +13,8 @@
 (setq ac-modes (append ac-modes '(objc-mode)))
 (auto-complete 'ac-persist-help)
 (setq ac-use-menu-map t)
-(define-key ac-menu-map "\C-n" 'ac-next)
-(define-key ac-menu-map "\C-p" 'ac-previous)
 (setq ac-auto-show-menu 0.8)
-(define-key ac-completing-map "\M-/" 'ac-stop)
 (setq ac-ignore-case nil)
-(ac-set-trigger-key "<backtab>")
 (add-to-list 'ac-modes 'text-mode)
 (add-to-list 'ac-modes 'fundamental-mode)
 (add-to-list 'ac-modes 'org-mode)
@@ -42,8 +38,6 @@
 ;;(setq indent-guide-recursive t)
 
 (require 'lispxmp)
-(define-key emacs-lisp-mode-map (kbd "C-c C-d") 'lispxmp)
-
 
 (require 'flex-autopair)
 (flex-autopair-mode 1)
@@ -72,7 +66,6 @@
 ;;M-(C-)/    C-x u :show tree   d:details
 ;;(global-set-key (kbd "M-/") 'undo-tree-redo)
 
-;;tab mode
 (when (require 'tabbar nil t)
   (tabbar-mode))
 (setq tabbar-buffer-groups-function nil)
@@ -83,9 +76,11 @@
 
 (require 'expand-region)
 
-(require 'key-combo)
-;; (key-combo-load-default)
-(key-combo-define-global (kbd "<") '("<"))
+(require 'foreign-regexp)
+
+;; (require 'key-combo)
+;; ;; (key-combo-load-default)
+;; (key-combo-define-global (kbd "<") '("<"))
 
 ;; smart-compile
 (require 'smarter-compile)

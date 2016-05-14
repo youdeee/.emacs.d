@@ -29,6 +29,7 @@
     auto-yasnippet
     avy
     bind-key
+    bm
     cake2
     coffee-mode
     color-theme
@@ -58,6 +59,7 @@
     haml-mode
     helm
     helm-ag
+    helm-bm
     helm-descbinds
     helm-css-scss
     helm-c-moccur
@@ -195,7 +197,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(foreign-regexp/regexp-type (quote ruby))
  '(org-agenda-files nil)
+ '(projectile-enable-caching t)
+ '(reb-re-syntax (quote foreign-regexp))
  '(session-use-package t nil (session))
  '(yas-prompt-functions (quote (my-yas/prompt))))
 (custom-set-faces
@@ -203,7 +208,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(helm-selection ((t (:background "gray50" :distant-foreground "black"))))
+ '(bm-face ((t (:background "gray13" :foreground "White"))))
+ '(helm-selection ((t (:background "gray20" :distant-foreground "black"))))
  '(web-mode-comment-face ((t (:foreground "#D9333F"))))
  '(web-mode-css-at-rule-face ((t (:foreground "#FF7F00"))))
  '(web-mode-css-pseudo-class-face ((t (:foreground "#FF7F00"))))
@@ -212,5 +218,9 @@
  '(web-mode-html-attr-name-face ((t (:foreground "#C97586"))))
  '(web-mode-html-attr-value-face ((t (:foreground "#82AE46"))))
  '(web-mode-html-tag-face ((t (:foreground "#E6B422" :weight bold))))
- '(web-mode-server-comment-face ((t (:foreground "#D9333F")))))
+ '(web-mode-server-comment-face ((t (:foreground "#D9333F"))))
+ '(whitespace-tab ((t (:background "gray5" :foreground "#969896"))))
+ '(web-mode-server-face ((t (:background "grey"))))
+ '(web-mode-css-face ((t (:background "grey18"))))
+ '(web-mode-javascript-face ((t (:background "grey36")))))
 (put 'upcase-region 'disabled nil)
