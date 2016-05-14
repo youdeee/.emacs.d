@@ -36,6 +36,7 @@
     color-moccur
     csharp-mode
     ctags-update
+    dash
     dash-at-point
     dired-toggle
     dired-toggle-sudo
@@ -209,18 +210,19 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(bm-face ((t (:background "gray13" :foreground "White"))))
+ '(helm-ff-directory ((t (:background "dark red" :foreground "white"))))
  '(helm-selection ((t (:background "gray20" :distant-foreground "black"))))
  '(web-mode-comment-face ((t (:foreground "#D9333F"))))
  '(web-mode-css-at-rule-face ((t (:foreground "#FF7F00"))))
+ '(web-mode-css-face ((t (:background "grey18"))))
  '(web-mode-css-pseudo-class-face ((t (:foreground "#FF7F00"))))
  '(web-mode-css-rule-face ((t (:foreground "#A0D8EF"))))
  '(web-mode-doctype-face ((t (:foreground "#82AE46"))))
  '(web-mode-html-attr-name-face ((t (:foreground "#C97586"))))
  '(web-mode-html-attr-value-face ((t (:foreground "#82AE46"))))
  '(web-mode-html-tag-face ((t (:foreground "#E6B422" :weight bold))))
+ '(web-mode-javascript-face ((t (:background "grey36"))))
  '(web-mode-server-comment-face ((t (:foreground "#D9333F"))))
- '(whitespace-tab ((t (:background "gray5" :foreground "#969896"))))
  '(web-mode-server-face ((t (:background "grey"))))
- '(web-mode-css-face ((t (:background "grey18"))))
- '(web-mode-javascript-face ((t (:background "grey36")))))
+ '(whitespace-tab ((t (:background "gray5" :foreground "#969896")))))
 (put 'upcase-region 'disabled nil)

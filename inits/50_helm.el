@@ -4,19 +4,13 @@
 
 (helm-mode 1)
 (helm-descbinds-mode 1)
-;;(setq helm-split-window-default-side 'right)
 (setq helm-recentf-fuzzy-match t)
 (setq helm-buffers-fuzzy-matching t)
 (setq helm-locate-fuzzy-match t)
-;;(setq helm-autoresize-mode 1)
-
 (setq helm-gtags-auto-update t)
-
-;;(define-key helm-map (kbd "C-c C-a") 'all-from-helm-occur)
-;;(global-set-key (kbd "C-x b")   'helm-buffers-list)
+;;(setq helm-autoresize-mode 1)
+;;(setq helm-split-window-default-side 'right)
 ;;(setq helm-css-scss-split-direction 'split-window-horizontally)
-;;(global-set-key (kbd "C-c C-;") 'ac-complete-with-helm)
-;;(define-key ac-complete-mode-map (kbd "C-c C-;") 'ac-complete-with-helm)
 
 ;; (require 'helm-migemo)
 ;; (eval-after-load "helm-migemo"

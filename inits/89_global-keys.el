@@ -2,7 +2,6 @@
 ;; s- whitespace
 ;; C- ` - o q z = -
 
-(bind-key* "C-j" 'smart-newline)
 (bind-key* "C-h" 'delete-backward-char)
 (bind-key* "C-x k" 'kill-this-buffer)
 (bind-key* "s-&" 'kill-buffer)
@@ -14,11 +13,9 @@
 (bind-key* "C-x t" 'other-frame)
 (bind-key* "s-u" 'browse-url)
 (bind-key* "M-SPC" 'delete-trailing-whitespace)
-;; (bind-key* "C-c C-f" 'fci-mode)
 (bind-key* "s-f" 'auto-fill-mode)
 (bind-key* "C-x m" 'kmacro-end-and-call-macro)
 (bind-key* "C-x C-n" 'linum-mode)
-;;(bind-key* "C-q" 'back-to-indentation)
 (bind-key* "M-q" 'quoted-insert)
 (bind-key* "M-k" 'kill-whole-line)
 (bind-key* "M-t" 'transpose-chars)
@@ -29,15 +26,19 @@
 (bind-key* "M-w" 'easy-kill)
 (bind-key* "C-x C-d" 'dired-jump)
 (bind-key* "M-/" 'hippie-expand)
-(define-key isearch-mode-map (kbd "C-h") 'isearch-del-char)
 (bind-key* "s-r" 'revert-buffer)
 (bind-key* "s-e" 'eval-buffer)
 (bind-key* "M-0" 'suspend-frame)
-
 ;;(bind-key* "C-z" 'mode-specific-command-prefix)
- (global-unset-key (kbd "C-z"))
+(global-unset-key (kbd "C-z"))
+;;(bind-key* "C-q" 'back-to-indentation)
+;; (bind-key* "C-c C-f" 'fci-mode)
 ;; (bind-key* "M-n" (lambda () (interactive) (scroll-up 1)))
 ;; (bind-key* "M-p" (lambda () (interactive) (scroll-down 1)))
+
+(bind-key "C-j" 'smart-newline)
+(bind-keys :map isearch-mode-map
+           ("C-h" . isearch-del-char))
 
 ;; helm
 (bind-key* "M-x" 'helm-M-x)
@@ -50,10 +51,12 @@
 (bind-key* "M-o" 'helm-swoop)
 (bind-key* "C-M-o" 'helm-multi-swoop-all)
 (bind-key* "C-c C-a" 'helm-projectile-ag)
-(define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
-(define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
-(define-key helm-map (kbd "C-h") 'delete-backward-char)
-(define-key helm-find-files-map (kbd "C-h") 'delete-backward-char)
+(bind-keys :map helm-find-files-map
+           ("TAB" . helm-execute-persistent-action))
+(bind-keys :map helm-read-file-map
+           ("TAB" . helm-execute-persistent-action))
+;;(define-key helm-map (kbd "C-h") 'delete-backward-char)
+;;(define-key helm-find-files-map (kbd "C-h") 'delete-backward-char)
 
 ;; bm
 (bind-key* "C-0" 'bm-toggle)
@@ -66,12 +69,13 @@
 (bind-key* "C-x i i" 'yas-insert-snippet)
 (bind-key* "C-x i n" 'yas-new-snippet)
 (bind-key* "C-x i e" 'yas-visit-snippet-file)
-(define-key yas-minor-mode-map (kbd "TAB") nil)
-(define-key yas-minor-mode-map (kbd "<tab>") nil)
-(define-key yas-minor-mode-map (kbd "C-9") 'yas-expand-from-trigger-key)
+(bind-keys :map yas-minor-mode-map
+           ("TAB" . nil)
+           ("<tab>" . nil)
+           ("C-9" . yas-expand-from-trigger-key))
 
 ;; multi-cursor
-(global-set-key (kbd "C-|") 'mc/edit-lines);;リージョン全てにカーソルおく
+(bind-key* "C-|" 'mc/edit-lines) ;;リージョン全てにカーソルおく
 (global-unset-key "\C-\\")
 (smartrep-define-key global-map "C-\\"
   '(("C-\\"      . 'mc/mark-next-like-this)
@@ -110,11 +114,16 @@
 (bind-key* "C-x C-z" 'open-dropbox-junk)
 (bind-key* "C-x C-a" 'open-0sec-memo)
 (bind-key* "M-z" 'zop-to-char)
-(define-key web-mode-map "\C-cu" 'web-mode-fold-or-unfold)
-(define-key ac-menu-map "\C-n" 'ac-next)
-(define-key ac-menu-map "\C-p" 'ac-previous)
-(define-key ac-completing-map "\M-/" 'ac-stop)
-(define-key emacs-lisp-mode-map (kbd "C-c C-d") 'lispxmp)
+
+(bind-keys :map ac-menu-map
+           ("C-n" . ac-next)
+           ("C-p" . ac-previous))
+(bind-keys :map web-mode-map
+           ("C-c u" . web-mode-fold-or-unfold))
+(bind-keys :map ac-completing-map
+           ("M-/" . ac-stop))
+(bind-keys :map emacs-lisp-mode-map
+           ("C-c C-d" . lispxmp))
 (ac-set-trigger-key "<backtab>")
 
 ;; 自作関数
