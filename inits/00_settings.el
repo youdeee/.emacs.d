@@ -32,7 +32,7 @@
 ;; 特にtramp時、zshを使わない
 (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
 
-(when window-system (scroll-bar-mode 0))
+(when window-system (scroll-bar-mode -1))
 (tool-bar-mode 0)
 
 (setq hippie-expand-try-functions-list
@@ -47,3 +47,5 @@
 
 ;; マウス選択箇所を自動コピー
 (setq mouse-drag-copy-region t)
+
+(require 'generic-x)

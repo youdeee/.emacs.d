@@ -83,7 +83,7 @@
 ;;; スペースとか括弧とか色系
 
 ;;(setq-default transient-mark-mode t)
-(set-face-background 'region "#113B67")
+(set-face-background 'region "#225A92")
 
 ;; 行末の空白を表示
 ;;(setq-default show-trailing-whitespace t)
@@ -104,11 +104,12 @@
   (let ((global-hl-line-mode t))
     (global-hl-line-highlight)))
 (setq global-hl-line-timer
-      (run-with-idle-timer 0.03 t 'global-hl-line-timer-function))
-;; (cancel-timer global-hl-line-timer)
-;;   (global-hl-line-mode t)
-;;   (set-face-background 'hl-line "#191919")
-;;   (set-face-foreground 'hl-line nil)
+      (run-with-idle-timer 0.05 t 'global-hl-line-timer-function))
+
+;;  (cancel-timer global-hl-line-timer)
+  ;; (global-hl-line-mode t)
+  ;; (set-face-background 'hl-line "#191919")
+  ;; (set-face-foreground 'hl-line nil)
 
 ;; 括弧
 (show-paren-mode t)

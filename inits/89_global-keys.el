@@ -1,6 +1,7 @@
 ;; keybind
 ;; s- whitespace
-;; C- ` - o q z = -
+;; C- ` - o q z = - 2~8
+;; M- 1~9 
 
 (bind-key* "C-h" 'delete-backward-char)
 (bind-key* "C-x k" 'kill-this-buffer)
@@ -137,3 +138,5 @@
 (bind-key* "C-x a k" 'kill-all-buffer)
 (bind-key* "s-z" 'split-window-3)
 (bind-key* "C-a" 'goto-line-beginning-or-indent)
+
+(bind-key* "M-t" 'custom-transpose-char)

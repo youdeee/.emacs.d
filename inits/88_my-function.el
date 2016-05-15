@@ -3,7 +3,7 @@
   (or $position (setq $position (point)))
   (let (($starting-position (progn (back-to-indentation) (point))))
     (if (eq $starting-position $position)
-      (move-beginning-of-line 1))))
+        (move-beginning-of-line 1))))
 
 (defun full-screen ()
   (interactive)
@@ -88,3 +88,14 @@
   (interactive)
   (split-window-horizontally-n 3))
 
+(defun custom-transpose-char ()
+  (interactive)
+  (let ((tmp-char (char-to-string (following-char))))
+    (save-excursion
+      (forward-char 2)
+      (insert tmp-char)
+      (forward-char -3)
+      (delete-char 1)
+      )))
+
+(define-derived-mode washiwashi-mode nil "WashiWashi" "わしわしモード！")

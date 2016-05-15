@@ -1,5 +1,5 @@
 (require 'key-chord)
-(setq key-chord-two-keys-delay 0.05)
+(setq key-chord-two-keys-delay 0.01)
 (key-chord-mode 1)
 (key-chord-define-global "jk" 'view-mode)            ;;jk同時押しでview-modeのトグル
 (key-chord-define-global "df" 'helm-descbinds)       ;;df同時押しでhelm-descbinds起動
