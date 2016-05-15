@@ -8,9 +8,27 @@
 (setq helm-buffers-fuzzy-matching t)
 (setq helm-locate-fuzzy-match t)
 (setq helm-gtags-auto-update t)
+(setq helm-M-x-fuzzy-match t)
+(setq helm-semantic-fuzzy-match t)
+(setq helm-imenu-fuzzy-match t)
+(setq helm-apropos-fuzzy-match t)
+(setq helm-lisp-fuzzy-completion t)
+
 ;;(setq helm-autoresize-mode 1)
 ;;(setq helm-split-window-default-side 'right)
 ;;(setq helm-css-scss-split-direction 'split-window-horizontally)
+
+;; mini bufferでもkill ring使えるように
+(setq helm-delete-minibuffer-contents-from-point t)
+(add-to-list 'helm-completing-read-handlers-alist '(find-alternate-file . nil))
+(defadvice helm-delete-minibuffer-contents (before helm-emulate-kill-line activate)
+  (kill-new (buffer-substring (point) (field-end))))
+
+;; find fileのときにTAB押すと新しいファイル作るの防ぐ
+(defadvice helm-ff-kill-or-find-buffer-fname (around execute-only-if-exist activate)
+  "Execute command only if CANDIDATE exists"
+  (when (file-exists-p candidate)
+    ad-do-it))
 
 ;; (require 'helm-migemo)
 ;; (eval-after-load "helm-migemo"
@@ -25,18 +43,6 @@
 ;;                              (helm-candidates-in-buffer (helm-get-current-source)))))
 ;;                    (volatile) (match identity)))
 ;;        source)))
-
-;; mini bufferでもkill ring使えるように
-(setq helm-delete-minibuffer-contents-from-point t)
-(add-to-list 'helm-completing-read-handlers-alist '(find-alternate-file . nil))
-(defadvice helm-delete-minibuffer-contents (before helm-emulate-kill-line activate)
-  (kill-new (buffer-substring (point) (field-end))))
-
-;; find fileのときにTAB押すと新しいファイル作るの防ぐ
-(defadvice helm-ff-kill-or-find-buffer-fname (around execute-only-if-exist activate)
-  "Execute command only if CANDIDATE exists"
-  (when (file-exists-p candidate)
-    ad-do-it))
 
 ;; フィルタリング2のロジックをいい感じ
 ;; (defadvice helm-ff-transform-fname-for-completion (around my-transform activate)

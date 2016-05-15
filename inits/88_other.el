@@ -15,6 +15,7 @@
 (setq ac-use-menu-map t)
 (setq ac-auto-show-menu 0.8)
 (setq ac-ignore-case nil)
+(setq ac-use-fuzzy t)
 (add-to-list 'ac-modes 'text-mode)
 (add-to-list 'ac-modes 'fundamental-mode)
 (add-to-list 'ac-modes 'org-mode)
@@ -25,7 +26,6 @@
           (lambda ()
             (make-local-variable 'ac-ignore-case)
             (setq ac-ignore-case 'smart)))
-(setq ac-use-fuzzy t)
 
 (require 'server)
 (unless (server-running-p)
@@ -49,6 +49,10 @@
 ;; (smartparens-global-mode t)
 ;; (show-smartparens-global-mode t)
 ;; (sp-pair "<%" "%>")
+
+;; (require 'key-combo)
+;; ;; (key-combo-load-default)
+;; (key-combo-define-global (kbd "<") '("<"))
 
 (require 'color-moccur)
 ;;(global-set-key (kbd "M-o") 'occur-by-moccur)
@@ -78,18 +82,11 @@
 
 (require 'foreign-regexp)
 
-;; (require 'key-combo)
-;; ;; (key-combo-load-default)
-;; (key-combo-define-global (kbd "<") '("<"))
-
-;; smart-compile
 (require 'smarter-compile)
 
 (require 'migemo)
 (setq migemo-command "cmigemo")
 (setq migemo-options '("-q" "--emacs"))
-
-;; Set your installed path
 (setq migemo-dictionary "/usr/local/Cellar/cmigemo/HEAD/share/migemo/utf-8/migemo-dict")
 (setq migemo-user-dictionary nil)
 (setq migemo-regex-dictionary nil)
