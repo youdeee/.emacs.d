@@ -152,16 +152,10 @@
     (package-refresh-contents)
     (dolist (package not-installed)
       (package-install package))))
-    ;; rinari
-    ;; rspec-mode
-    ;; ruby-compilation
+;; rinari
+;; rspec-mode
+;; ruby-compilation
 ;; inf-ruby
-
-;; ;; php-completion
-;; ;; (depends-on "php-completion"
-;; ;;         :git "https://github.com/suzuki/php-completion.git"
-;; ;;         :branch "develop"
-;; ;;         :files ("*.el" "phpcmp-index-of-*"))
 
 (unless (package-installed-p 'init-loader)
   (package-refresh-contents)
@@ -202,8 +196,7 @@
  '(org-agenda-files nil)
  '(projectile-enable-caching t)
  '(reb-re-syntax (quote foreign-regexp))
- '(session-use-package t nil (session))
- '(yas-prompt-functions (quote (my-yas/prompt))))
+ '(session-use-package t nil (session)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

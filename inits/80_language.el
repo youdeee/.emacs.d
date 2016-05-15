@@ -91,12 +91,11 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 
-;; web-modeの設定
+;; web-mode
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-;;(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.[gj]sp\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
@@ -104,7 +103,7 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.ctp\\'" . web-mode))
 
-(defun my-web-mode-hook ()
+(defun custom-web-mode-hook ()
   (setq web-mode-markup-indent-offset 2) ;; html indent
   (setq web-mode-css-indent-offset 2)    ;; css indent
   (setq web-mode-code-indent-offset 2)   ;; script indent(js,php,etc..)
@@ -115,8 +114,9 @@
   ;; (setq web-mode-disable-auto-pairing t)
   ;; (setq web-mode-disable-css-colorization t)
   (setq web-mode-enable-block-faces t)
-  (setq web-mode-enable-heredoc-fontification t))
-(add-hook 'web-mode-hook  'my-web-mode-hook)
+  (setq web-mode-enable-heredoc-fontification t)
+  (setq indent-tabs-mode nil))
+(add-hook 'web-mode-hook  'custom-web-mode-hook)
 
 (require 'rainbow-mode)
 (add-hook 'css-mode-hook 'rainbow-mode)
@@ -125,7 +125,10 @@
 (add-hook 'emacs-lisp-mode 'rainbow-mode)
 ;;(add-hook 'html-mode-hook 'rainbow-mode)
 
-;; C
+;; cc-mode
+(defun custom-c-mode-hook ()
+  (define-key c-mode-base-map ";" nil))
+(add-hook 'c-mode-hook 'custom-c-mode-hook)
 ;; (setq-default c-basic-offset 4
 ;;               tab-width 4
 ;;               indent-tabs-mode nil)

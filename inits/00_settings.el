@@ -49,3 +49,5 @@
 (setq mouse-drag-copy-region t)
 
 (require 'generic-x)
+
+(setq kill-ring-max 500)
