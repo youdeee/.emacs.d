@@ -47,6 +47,7 @@
 (bind-key* "M-o" 'helm-swoop)
 (bind-key* "C-M-o" 'helm-multi-swoop-all)
 (bind-key* "C-c C-a" 'helm-projectile-ag)
+(bind-key* "C-x d" 'helm-dired-recent-dirs-view)
 (bind-keys :map helm-find-files-map
            ("TAB" . helm-execute-persistent-action))
 (bind-keys :map helm-read-file-map

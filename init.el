@@ -25,7 +25,7 @@
     auto-dictionary
     auto-indent-mode
     auto-save-buffers-enhanced
-    autopair
+;;    autopair
     auto-yasnippet
     avy
     bind-key
@@ -62,6 +62,7 @@
     helm-ag
     helm-bm
     helm-descbinds
+    helm-dired-recent-dirs
     helm-css-scss
     helm-c-moccur
     helm-c-yasnippet
@@ -126,7 +127,7 @@
     sql-indent
     smarter-compile
     smart-newline
-    smartparens
+    ;;smartparens
     smartrep
     sticky
     swift-mode

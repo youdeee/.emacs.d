@@ -30,7 +30,7 @@
 ;(define-key input-decode-map (kbd "C-S-m") (kbd "H-S-m"))
 
 ;; 特にtramp時、zshを使わない
-(eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
+(eval-after-load 'tramp '(setenv "SHELL" "/bin/zsh"))
 
 (when window-system (scroll-bar-mode -1))
 (tool-bar-mode 0)
