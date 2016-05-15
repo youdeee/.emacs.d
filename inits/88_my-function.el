@@ -97,5 +97,3 @@
       (forward-char -3)
       (delete-char 1)
       )))
-
-(define-derived-mode washiwashi-mode nil "WashiWashi" "わしわしモード！")

@@ -14,9 +14,7 @@
     ("q" . backward-word)
     ("[" . point-undo)
     ("]" . point-redo)
-    ;; bm-easy
     ("." . bm-toggle)
-    ;; ("[" . bm-previous)
     ("x" . bm-next)
     ("X" . bm-show-all)
     (">" . bm-remove-all-current-buffer)
