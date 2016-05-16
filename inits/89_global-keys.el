@@ -1,8 +1,17 @@
-;; keybind
+;; 残り
 ;; s- whitespace
-;; C- ` - o q z = - 5~8
+;; C- ` - o q = - 5~8
 ;; C-x x
-;; M- 2~9
+;; M- 2~9 z i s g | ' " / ? - + _ ^ & * ( )
+
+;; 便利
+;; M系
+;; j コメント付き改行
+;; \ 空白削除
+;; C系
+;; C-M系
+;; w インデント削除
+
 
 (bind-key* "C-h" 'delete-backward-char)
 (bind-key* "C-x k" 'kill-this-buffer)
@@ -27,8 +36,9 @@
 (bind-key* "s-r" 'revert-buffer)
 (bind-key* "s-e" 'eval-buffer)
 (bind-key* "M-0" 'suspend-frame)
+(bind-key* "C-M-w" 'delete-indentation)
 ;;(bind-key* "C-z" 'mode-specific-command-prefix)
-(global-unset-key (kbd "C-z"))
+;(global-unset-key (kbd "C-z"))
 ;;(bind-key* "C-q" 'back-to-indentation)
 ;; (bind-key* "C-c C-f" 'fci-mode)
 ;; (bind-key* "M-n" (lambda () (interactive) (scroll-up 1)))
@@ -81,8 +91,8 @@
   '(("C-\\"      . 'mc/mark-next-like-this)
     ("n"        . 'mc/mark-next-like-this)
     ("p"        . 'mc/unmark-next-like-this)
-    ("N"        . 'mc/mark-previous-like-this)
-    ("P"        . 'mc/unmark-previous-like-this)
+    ("P"        . 'mc/mark-previous-like-this)
+    ("N"        . 'mc/unmark-previous-like-this)
     ("s"        . 'mc/skip-to-next-like-this)
     ("S"        . 'mc/skip-to-previous-like-this)
     ("m"        . 'mc/mark-more-like-this-extended)
@@ -113,7 +123,7 @@
 (bind-key* "C-\"" 'goto-line)
 (bind-key* "C-x C-z" 'open-dropbox-junk)
 (bind-key* "C-x C-a" 'open-0sec-memo)
-(bind-key* "M-z" 'zop-to-char)
+(bind-key* "C-z" 'zop-to-char)
 (bind-key* "C-." 'pop-tag-mark)
 (bind-key* "M-." 'find-tag)
 (bind-key* "C-M-." 'helm-etags-select)
@@ -142,7 +152,6 @@
 (bind-key* "C-x a k" 'kill-all-buffer)
 (bind-key* "s-z" 'split-window-3)
 (bind-key* "C-a" 'goto-line-beginning-or-indent)
-
 (bind-key* "M-t" 'custom-transpose-char)
 
 (bind-key* "C-1" 'exchange-point-and-mark)
