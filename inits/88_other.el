@@ -10,12 +10,20 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/dict")
 (ac-config-default)
+(setq ac-use-menu-map t)
+
+(setq ac-auto-start 2)
+(setq ac-use-fuzzy t)
+(setq ac-ignore-case nil)
 (setq ac-modes (append ac-modes '(objc-mode)))
 (auto-complete 'ac-persist-help)
-(setq ac-use-menu-map t)
-(setq ac-auto-show-menu 0.8)
-(setq ac-ignore-case nil)
-(setq ac-use-fuzzy t)
+
+(setq ac-delay 0.05)  ;; 0
+(setq ac-use-comphist t)  ;; 補完推測機能有効
+(setq ac-auto-show-menu 0.05)  ;; 0.8
+(setq ac-quick-help-delay 0.5)  ;; n秒後にクイックヘルプを表示
+(setq popup-use-optimized-column-computation nil) ;; 最適化無効でメニュー表示崩れ回避
+
 (add-to-list 'ac-modes 'text-mode)
 (add-to-list 'ac-modes 'fundamental-mode)
 (add-to-list 'ac-modes 'org-mode)

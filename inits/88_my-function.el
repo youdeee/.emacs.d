@@ -97,3 +97,12 @@
       (forward-char -3)
       (delete-char 1)
       )))
+
+(defadvice kill-region (around kill-word-or-kill-region activate)
+  (cond ((and (interactive-p) transient-mark-mode (not mark-active))
+         ;(backward-word 1)
+         ;(kill-word 1)
+         (er/expand-region 1)
+         ad-do-it)
+        (t
+         ad-do-it)))
