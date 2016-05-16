@@ -1,7 +1,8 @@
 ;; keybind
 ;; s- whitespace
-;; C- ` - o q z = - 2~8
-;; M- 1~9 
+;; C- ` - o q z = - 5~8
+;; C-x x
+;; M- 2~9
 
 (bind-key* "C-h" 'delete-backward-char)
 (bind-key* "C-x k" 'kill-this-buffer)
@@ -49,6 +50,7 @@
 (bind-key* "C-M-o" 'helm-multi-swoop-all)
 (bind-key* "C-c C-a" 'helm-projectile-ag)
 (bind-key* "C-x d" 'helm-dired-recent-dirs-view)
+(bind-key* "<f1> a" 'helm-apropos)
 (bind-keys :map helm-find-files-map
            ("TAB" . helm-execute-persistent-action))
 (bind-keys :map helm-read-file-map
@@ -142,3 +144,24 @@
 (bind-key* "C-a" 'goto-line-beginning-or-indent)
 
 (bind-key* "M-t" 'custom-transpose-char)
+
+(bind-key* "C-1" 'exchange-point-and-mark)
+(bind-key* "C-2" 'mark-word)
+(bind-key* "C-3" 'mark-paragraph)
+(bind-key* "C-4" 'mark-defun)
+
+(require 'thingopt)
+(define-thing-commands)
+(bind-key* "M-3" 'mark-word*)
+(bind-key* "M-4" 'mark-string)
+(bind-key* "M-5" 'mark-up-list)
+
+;; |M-b| 矩形をスペースで埋める
+;; |M-f| 矩形を入力された1文字で埋める
+;; |M-i| 矩形の各行の数値をインクリメントする
+;; |M-k| 矩形をキルする
+;; |M-n| 矩形の各行にインクリメントされた数値をフォーマットして挿入する
+;; |M-r| 矩形を置換する
+;; |M-t| 矩形を入力された文字列で埋める
+;; |M-|| 矩形を入力としてシェルコマンドを実行する。引数が指定されている場合はシェルコマンドの結果が矩形に埋まる
+;; |M-/| 矩形の正規表現にマッチする行をハイライト
