@@ -1,9 +1,19 @@
 (require 'key-chord)
-(setq key-chord-two-keys-delay 0.01)
+(setq key-chord-two-keys-delay 0.02)
 (key-chord-mode 1)
-(key-chord-define-global "jk" 'view-mode)            ;;jk同時押しでview-modeのトグル
-(key-chord-define-global "df" 'helm-descbinds)       ;;df同時押しでhelm-descbinds起動
-(key-chord-define-global "sl" 'switch-to-last-buffer)
+
+(key-chord-define-global "jk" 'view-mode)
+(key-chord-define-global "df" 'helm-descbinds)
+(key-chord-define-global "sb" 'switch-to-last-buffer)
+(key-chord-define-global "sl" 'mark-word*)
+(key-chord-define-global "so" 'mark-paragraph)
+(key-chord-define-global "s." 'mark-sexp*)
+(key-chord-define-global "wl" 'copy-word)
+(key-chord-define-global "wo" 'copy-paragraph)
+(key-chord-define-global "w." 'copy-sexp)
+(key-chord-define-global "xl" 'kill-word*)
+(key-chord-define-global "xo" 'kill-paragraph*)
+(key-chord-define-global "x." 'kill-sexp*)
 
 (defun switch-to-last-buffer ()
   (interactive)

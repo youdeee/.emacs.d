@@ -2,7 +2,7 @@
 ;; s- whitespace
 ;; C- ` - o q = - 5~8
 ;; C-x x
-;; M- 2~9 z i s g | ' " / ? - + _ ^ & * ( )
+;; M- 2~9 z xw s g | ' " / ? - + _ ^ & * ( )
 
 ;; 便利
 ;; M系
@@ -10,7 +10,7 @@
 ;; \ 空白削除
 ;; C系
 ;; C-M系
-;; w インデント削除
+;; i インデント削除
 
 
 (bind-key* "C-h" 'delete-backward-char)
@@ -36,7 +36,7 @@
 (bind-key* "s-r" 'revert-buffer)
 (bind-key* "s-e" 'eval-buffer)
 (bind-key* "M-0" 'suspend-frame)
-(bind-key* "C-M-w" 'delete-indentation)
+(bind-key* "C-M-i" 'delete-indentation)
 ;;(bind-key* "C-z" 'mode-specific-command-prefix)
 ;(global-unset-key (kbd "C-z"))
 ;;(bind-key* "C-q" 'back-to-indentation)
