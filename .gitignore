@@ -35,7 +35,7 @@ tutorial/
 *_flymake.*
 
 # elpa packages
-#/elpa/
+/elpa/
 
 # reftex files
 *.rel
