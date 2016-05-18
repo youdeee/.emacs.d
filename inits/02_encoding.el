@@ -35,11 +35,11 @@
 ;; 	  ("-cdac$" . 1.3)))
 ;; )
 
-(create-fontset-from-ascii-font "Ricty-17:weight=normal:slant=normal" nil "ricty")
+(create-fontset-from-ascii-font "Ricty-16:weight=normal:slant=normal" nil "ricty")
 
 (set-fontset-font "fontset-ricty"
                   'unicode
-                  (font-spec :family "Ricty" :size 17)
+                  (font-spec :family "Ricty" :size 16)
                   nil
                   'append)
 
