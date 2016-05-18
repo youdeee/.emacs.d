@@ -98,15 +98,6 @@
       (delete-char 1)
       )))
 
-;; (defadvice kill-region (around kill-word-or-kill-region activate)
-;;   (cond ((and (interactive-p) transient-mark-mode (not mark-active))
-;;          (backward-word 1)
-;;          (kill-word 1)
-;;          ;(er/expand-region 1)
-;;          )
-;;         (t
-;;          ad-do-it)))
-
 (defun kill-region-or-word (kill-region &rest args)
   (cond ((and (called-interactively-p 'interactive) transient-mark-mode (not mark-active))
          (backward-word 1)
@@ -115,4 +106,4 @@
          )
         (t
          (apply kill-region args))))
-(advice-add #'kill-region :around #'kill-region-or-word)
+(advice-add 'kill-region :around 'kill-region-or-word)
