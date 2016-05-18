@@ -120,10 +120,3 @@
 (set-face-background 'show-paren-match-face "#4C4067")
 
 (set-cursor-color "#EA0825")
-
-;; (require 'auto-highlight-symbol)
-;; (global-auto-highlight-symbol-mode t )
-
-(require 'highlight-symbol)
-(setq highlight-symbol-colors '("#D500F9" "#3D5AFE" "#76FF03" "#FF9100" "#ff1744" "#00E5FF"))
-;;("DarkOrange" "DodgerBlue1" "DeepPink1"))
