@@ -102,8 +102,6 @@
     neotree
 ;;    omnisharp
     open-junk-file
-    php-completion
-    php-mode
     point-undo
     popup
     popwin
@@ -144,7 +142,10 @@
     vline
     yaml-mode
     yasnippet
-    zop-to-char))
+    zop-to-char
+    php-mode
+    php-completion
+    ))
 (let ((not-installed
        (loop for package in my-package-list
              when (not (package-installed-p package))
