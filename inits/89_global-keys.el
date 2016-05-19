@@ -35,7 +35,6 @@
 (bind-key* "C-x C-d" 'dired-jump)
 (bind-key* "s-r" 'revert-buffer)
 (bind-key* "s-e" 'eval-buffer)
-(bind-key* "M-0" 'suspend-frame)
 (bind-key* "C-M-i" 'delete-indentation)
 ;;(bind-key* "C-z" 'mode-specific-command-prefix)
 ;(global-unset-key (kbd "C-z"))
@@ -69,10 +68,10 @@
 ;;(define-key helm-find-files-map (kbd "C-h") 'delete-backward-char)
 
 ;; bm
-(bind-key* "C-0" 'bm-toggle)
-(bind-key* "C-M-0" 'bm-next)
-(bind-key* "C-)" 'bm-previous)
-(bind-key* "C-M-)" 'bm-remove-all-current-buffer)
+(bind-key* "M-0" 'bm-toggle)
+(bind-key* "C-0" 'bm-next)
+(bind-key* "C-M-)" 'bm-previous)
+(bind-key* "M-)" 'bm-remove-all-current-buffer)
 
 ;; yasnippet
 (global-unset-key (kbd "C-x i"))
@@ -109,8 +108,8 @@
 (bind-key* "C-]" 'er/expand-region)
 (bind-key* "C-}" 'er/contract-region)
 (bind-key* "M-8" 'highlight-symbol-at-point)
-(bind-key* "C-M-8" 'my-highlight-symbol-input)
-(bind-key* "M-*" 'highlight-symbol-remove-all)
+(bind-key* "M-*" 'my-highlight-symbol-input)
+(bind-key* "C-M-*" 'highlight-symbol-remove-all)
 (bind-key* "C-<tab>" 'tabbar-forward)
 (bind-key* "C-S-<tab>" 'tabbar-backward)
 (bind-key* "M-{" 'goto-last-change)
