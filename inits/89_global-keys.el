@@ -1,6 +1,6 @@
 ;; 残り
 ;; s- whitespace
-;; C- ` - o q = - 5~8
+;; C- ` - o = - 5~9
 ;; C-x x
 ;; M- 2~9 z xw s g | ' " / ? - + _ ^ & * ( )
 
@@ -81,7 +81,7 @@
 (bind-keys :map yas-minor-mode-map
            ("TAB" . nil)
            ("<tab>" . nil)
-           ("C-9" . yas-expand-from-trigger-key))
+           ("C-q" . yas-expand-from-trigger-key))
 
 ;; multi-cursor
 (bind-key* "C-|" 'mc/edit-lines) ;;リージョン全てにカーソルおく
@@ -117,8 +117,8 @@
 (bind-key* "M-[" 'point-undo)
 (bind-key* "M-]" 'point-redo)
 (bind-key* "C-x c" 'smarter-compile)
-(bind-key* "C-:" 'avy-goto-char)
-(bind-key* "C-;" 'avy-goto-char-2)
+(bind-key* "C-;" 'avy-goto-char)
+(bind-key* "C-:" 'avy-goto-char-2)
 (bind-key* "C-'" 'avy-goto-line)
 (bind-key* "C-\"" 'goto-line)
 (bind-key* "C-x C-z" 'open-dropbox-junk)
