@@ -51,3 +51,5 @@
 (require 'generic-x)
 
 (setq kill-ring-max 500)
+
+(setq truncate-partial-width-windows nil)
