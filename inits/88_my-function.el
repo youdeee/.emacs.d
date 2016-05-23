@@ -100,9 +100,10 @@
 
 (defun kill-region-or-word (kill-region &rest args)
   (cond ((and (called-interactively-p 'interactive) transient-mark-mode (not mark-active))
-         (backward-word 1)
-         (kill-word 1)
-         ;;(er/expand-region 1)
+         ;;(backward-word 1)
+         ;;(kill-word 1)
+         (er/expand-region 1)
+         (apply kill-region args)
          )
         (t
          (apply kill-region args))))
