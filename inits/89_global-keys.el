@@ -17,8 +17,6 @@
 (bind-key* "C-x k" 'kill-this-buffer)
 (bind-key* "s-&" 'kill-buffer)
 (bind-key* "C-S-v" 'scroll-down-command)
-(bind-key* "M-p" 'backward-paragraph)
-(bind-key* "M-n" 'forward-paragraph)
 (bind-key* "M-h" 'backward-kill-word)
 (bind-key* "C-x 5 o" 'transpose-words)
 (bind-key* "C-x t" 'other-frame)
@@ -43,6 +41,8 @@
 ;; (bind-key* "M-n" (lambda () (interactive) (scroll-up 1)))
 ;; (bind-key* "M-p" (lambda () (interactive) (scroll-down 1)))
 
+(bind-key "M-p" 'backward-paragraph)
+(bind-key "M-n" 'forward-paragraph)
 (bind-key "C-j" 'smart-newline)
 (bind-keys :map isearch-mode-map
            ("C-h" . isearch-del-char))
@@ -153,11 +153,7 @@
 (bind-key* "s-z" 'split-window-3)
 (bind-key* "C-a" 'goto-line-beginning-or-indent)
 (bind-key* "M-t" 'custom-transpose-char)
-
-(bind-key* "C-1" 'exchange-point-and-mark)
-(bind-key* "C-2" 'mark-word)
-(bind-key* "C-3" 'mark-paragraph)
-(bind-key* "C-4" 'mark-defun)
+(bind-key* "C-1" 'replace-symbol-from-kill-ring)
 
 (require 'thingopt)
 (define-thing-commands)

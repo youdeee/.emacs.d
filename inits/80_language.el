@@ -132,3 +132,12 @@
 ;; (setq-default c-basic-offset 4
 ;;               tab-width 4
 ;;               indent-tabs-mode nil)
+
+(setq inferior-lisp-program "clisp")
+(require 'slime)
+(slime-setup '(slime-repl slime-fancy slime-banner))
+(require 'ac-slime)
+(add-hook 'slime-mode-hook 'set-up-slime-ac)
+;;(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+
+;;(add-hook emacs-lisp-mode-hook 'turn-on-eldoc-mode)

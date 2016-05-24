@@ -145,6 +145,8 @@
     zop-to-char
     php-mode
     php-completion
+    slime
+    ac-slime
     ))
 (let ((not-installed
        (loop for package in my-package-list

@@ -53,3 +53,6 @@
 (setq kill-ring-max 500)
 
 (setq truncate-partial-width-windows nil)
+
+(setq save-interprogram-paste-before-kill t)
+(setq yank-pop-change-selection t)
