@@ -30,7 +30,7 @@
 (bind-key* "M-k" 'kill-whole-line)
 (bind-key* "M-t" 'transpose-chars)
 (bind-key* "C-x C-t" 'transpose-lines)
-(bind-key* "C-x C-d" 'dired-jump)
+(bind-key* "C-x d" 'dired-jump)
 (bind-key* "s-r" 'revert-buffer)
 (bind-key* "s-e" 'eval-buffer)
 (bind-key* "C-M-i" 'delete-indentation)
@@ -58,7 +58,7 @@
 (bind-key* "M-o" 'helm-swoop)
 (bind-key* "C-M-o" 'helm-multi-swoop-all)
 (bind-key* "C-c C-a" 'helm-projectile-ag)
-(bind-key* "C-x d" 'helm-dired-recent-dirs-view)
+(bind-key* "C-x C-d" 'helm-dired-recent-dirs-view)
 (bind-key* "<f1> a" 'helm-apropos)
 (bind-keys :map helm-find-files-map
            ("TAB" . helm-execute-persistent-action))
