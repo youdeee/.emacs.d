@@ -14,7 +14,6 @@
 (package-initialize)
 (defvar my-package-list
   '(ac-dabbrev
-    ac-helm
     ;;    ac-ispell
     ac-js2
     ac-python
@@ -58,25 +57,6 @@
     google-translate
     goto-chg
     haml-mode
-    helm
-    helm-ag
-    helm-bm
-    helm-descbinds
-    helm-dired-recent-dirs
-    helm-css-scss
-    helm-c-moccur
-    helm-c-yasnippet
-    helm-dash
-    helm-flycheck
-    helm-git
-    helm-git-files
-    helm-git-grep
-    helm-gtags
-    helm-projectile
-    helm-ls-git
-    helm-migemo
-    helm-package
-    helm-swoop
     highlight
     highlight-symbol
     hive
@@ -147,6 +127,25 @@
     php-completion
     slime
     ac-slime
+    helm
+    helm-package
+    helm-swoop
+    helm-ag
+    helm-bm
+    helm-descbinds
+    helm-dired-recent-dirs
+    helm-css-scss
+    helm-c-yasnippet
+    helm-dash
+    helm-flycheck
+    helm-gtags
+    helm-projectile
+    helm-git
+    helm-git-files
+    helm-git-grep
+    helm-ls-git
+    ac-helm
+;;    helm-migemo
     ))
 (let ((not-installed
        (loop for package in my-package-list
