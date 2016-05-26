@@ -1,8 +1,10 @@
 (require 'helm)
 (require 'helm-config)
 (require 'helm-ag)
+(require 'migemo)
 
 (helm-mode 1)
+(helm-migemo-mode 1)
 (helm-descbinds-mode 1)
 (setq helm-recentf-fuzzy-match t)
 (setq helm-buffers-fuzzy-matching t)
