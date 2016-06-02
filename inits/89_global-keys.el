@@ -1,6 +1,6 @@
 ;; 残り
 ;; s- whitespace
-;; C- ` - o = - 5~9
+;; C- ` - = - 5~9
 ;; C-x x
 ;; M- 2~9 z xw s g | ' " / ? - + _ ^ & * ( )
 
@@ -34,6 +34,8 @@
 (bind-key* "s-r" 'revert-buffer)
 (bind-key* "s-e" 'eval-buffer)
 (bind-key* "C-M-i" 'delete-indentation)
+(global-unset-key (kbd "C-o"))
+(bind-key* "C-o" 'mode-specific-command-prefix)
 ;;(bind-key* "C-z" 'mode-specific-command-prefix)
 ;(global-unset-key (kbd "C-z"))
 ;;(bind-key* "C-q" 'back-to-indentation)
@@ -154,6 +156,8 @@
 (bind-key* "C-a" 'goto-line-beginning-or-indent)
 (bind-key* "M-t" 'custom-transpose-char)
 (bind-key* "C-1" 'replace-symbol-from-kill-ring)
+(bind-key* "C-o C-k" 'replace-forward-from-kill-ring)
+(bind-key* "C-o C-," 'replace-backward-from-kill-ring)
 
 (require 'thingopt)
 (define-thing-commands)

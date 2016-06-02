@@ -69,7 +69,7 @@
     (progn
       (split-window-horizontally
        (- (window-width) (/ (window-width) num_wins)))
-      (split-window-horizontally-n (- num_wins 1)))))
+      (Split-window-horizontally-n (- num_wins 1)))))
 
 (defun add-file-name-to-kill-ring-and-yank (arg)
   (interactive "p")
@@ -95,8 +95,7 @@
       (forward-char 2)
       (insert tmp-char)
       (forward-char -3)
-      (delete-char 1)
-      )))
+      (delete-char 1))))
 
 (defun kill-region-or-word (kill-region &rest args)
   (cond ((and (called-interactively-p 'interactive) transient-mark-mode (not mark-active))
@@ -104,8 +103,7 @@
          ;;(kill-word 1)
          ;;(er/expand-region 1)
          ;;(apply kill-region args)
-         (kill-symbol)
-         )
+         (kill-symbol))
         (t
          (apply kill-region args))))
 (advice-add 'kill-region :around 'kill-region-or-word)
@@ -115,4 +113,14 @@
   (kill-symbol)
   ;;(let ((copied (cadr kill-ring)))
   ;;    (kill-new copied)
+  (insert (cadr kill-ring)))
+
+(defun replace-backward-from-kill-ring ()
+  (interactive)
+  (kill-line-backward 1)
+  (insert (cadr kill-ring)))
+
+(defun replace-forward-from-kill-ring ()
+  (interactive)
+  (kill-line)
   (insert (cadr kill-ring)))
