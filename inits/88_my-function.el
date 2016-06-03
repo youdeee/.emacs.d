@@ -69,7 +69,7 @@
     (progn
       (split-window-horizontally
        (- (window-width) (/ (window-width) num_wins)))
-      (Split-window-horizontally-n (- num_wins 1)))))
+      (split-window-horizontally-n (- num_wins 1)))))
 
 (defun add-file-name-to-kill-ring-and-yank (arg)
   (interactive "p")
