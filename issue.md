@@ -15,6 +15,9 @@
 
 - 一気にsave-pointまでundo/redoする
 
+- yank-popをいい感じに。前後2,3個のkill-ringを素早く表示させたい。ポインタだけ移動させるイメージ。https://www.emacswiki.org/emacs/download/browse-kill-ring.el
+
+- やっぱC-1とかの挙動微妙。前のコピーを引き継ぎたい
 
 
 ## 気になったelisp
