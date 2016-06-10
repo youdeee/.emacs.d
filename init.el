@@ -145,6 +145,7 @@
     helm-git-grep
     helm-ls-git
     ac-helm
+    csv-mode
 ;;    helm-migemo
     ))
 (let ((not-installed
