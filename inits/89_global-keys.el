@@ -174,3 +174,21 @@
 ;; |M-t| 矩形を入力された文字列で埋める
 ;; |M-|| 矩形を入力としてシェルコマンドを実行する。引数が指定されている場合はシェルコマンドの結果が矩形に埋まる
 ;; |M-/| 矩形の正規表現にマッチする行をハイライト
+
+;; C-u C-s isearch-regexp
+
+;; helm-map
+;; <C-M-down>      helm-scroll-other-window
+;; <C-M-up>        helm-scroll-other-window-down
+;; M-m             helm-toggle-all-marks
+;; M-n             next-history-element
+;; M-p             previous-history-element
+;; C-s		Run Grep (C-u Recursive).
+;; M-g a		Run AG grep on current directory.
+;; M-g g		Run git-grep on current directory.
+;; M-g i		Run gid (id-utils).
+;; M-.		Run Etags (C-u use thing-at-point `C-u C-u' reload cache)
+;; M-%		Query replace on marked files.
+;; M-C		Copy File (C-u Follow).
+;; C-]		Toggle basename/fullpath.
+;; C-c C-y		Yank current selection into pattern.
