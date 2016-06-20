@@ -19,6 +19,9 @@
 
 - やっぱC-1とかの挙動微妙。前のコピーを引き継ぎたい
 
+- C-tしたときにsmartrepとかで二回目にjkhl押したらその方向に進みたい
+
+
 
 ## 気になったelisp
 - aggressive-indent
