@@ -125,7 +125,7 @@
 (bind-key "C-\"" 'goto-line)
 (bind-key* "C-x C-z" 'open-dropbox-junk)
 (bind-key "C-x C-a" 'open-0sec-memo)
-(bind-key "C-z" 'zop-to-char)
+(bind-key "M-z" 'zop-to-char)
 (bind-key "C-." 'pop-tag-mark)
 (bind-key "M-." 'find-tag)
 (bind-key "C-M-." 'helm-etags-select)
