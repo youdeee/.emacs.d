@@ -2,6 +2,6 @@
 # name: <div>
 # key: di
 # --
-<div ${1:class="$2"}>
+<div${1: class="$2"}>
   $0
 </div>
