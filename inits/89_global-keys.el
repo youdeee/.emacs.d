@@ -145,7 +145,8 @@
 
 ;; 自作関数
 (bind-key "M-," 'full-screen)
-(bind-key* "C-t" 'make-window-when-unsplit)
+(bind-key* "C-t" 'move-window)
+(bind-key* "C-M-t" 'move-window-opposite)
 (bind-key "C-," 'kill-line-backward)
 (bind-key "C-M-k" 'kill-all-line-forward)
 (bind-key "C-M-," 'kill-all-line-backward)

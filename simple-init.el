@@ -212,11 +212,18 @@
   (interactive)
   (set-frame-parameter nil 'fullscreen 'maximized))
 
-(defun make-window-when-unsplit ()
+(defun move-window ()
   (interactive)
+  (make-window-when-unsplit 1))
+
+(defun move-window-opposite ()
+  (interactive)
+  (make-window-when-unsplit -1))
+
+(defun make-window-when-unsplit (n)
   (when (one-window-p)
     (split-window-right))
-  (other-window 1))
+  (other-window n))
 
 (defun kill-line-backward (arg)
   "Kill ARG lines backward."
@@ -341,7 +348,8 @@
 
 ;; 自作関数
 (gkey "M-," 'full-screen)
-(gkey "C-t" 'make-window-when-unsplit)
+(gkey "C-t" 'move-window)
+(gkey "C-M-t" 'move-window-opposite)
 (gkey "C-," 'kill-line-backward)
 (gkey "C-M-k" 'kill-all-line-forward)
 (gkey "C-M-," 'kill-all-line-backward)
