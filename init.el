@@ -146,7 +146,8 @@
     helm-ls-git
     ac-helm
     csv-mode
-;;    helm-migemo
+    ;;    helm-migemo
+    package-utils
     ))
 (let ((not-installed
        (loop for package in my-package-list
