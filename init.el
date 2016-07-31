@@ -148,6 +148,7 @@
     csv-mode
     ;;    helm-migemo
     package-utils
+    minimap
     ))
 (let ((not-installed
        (loop for package in my-package-list
