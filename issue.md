@@ -1,36 +1,23 @@
 # emacs周りでやりたいこと
 
 ## 欲しいコマンド
-- my-functionをデフォルトとelpaのやつわけて、simple-initからはデフォルトのほうのmyだけ参照させたい（現在コピペで運用してるからそれをさけたい）
-
-- git add push add issueを自動化（コマンド一発でやりたい）or saveしたらpushするとか
-
-- keychord周り見直す、普通に英語２つは辛い
-
-- helm-M-xで[]とか記号系入力すると死ぬ
-
+- 特定の拡張子のファイルだけkill-bufferする
+- simple-initからmy-function参照するようにしたい
 - sqlまわりなんとかしたい
-
 - helm-all-swoopとかでtagファイルとか省きたい
-
 - カーソル上・下の段落前削除
-
 - 一気にsave-pointまでundo/redoする
-
-- yank-popをいい感じに。前後2,3個のkill-ringを素早く表示させたい。ポインタだけ移動させるイメージ。https://www.emacswiki.org/emacs/download/browse-kill-ring.el
-
+- C-tしたときにsmartrepとかで二回目にjkhl押したらその方向に進みたい
+- C-w、C-1的なことを、例えば今は"を囲い文字としてカットします、的なことをしたい。expand-regionで囲い文字洗濯できる的な
 - やっぱC-1とかの挙動微妙。前のコピーを引き継ぎたい
 
-- C-tしたときにsmartrepとかで二回目にjkhl押したらその方向に進みたい
-
-- C-w、C-1的なことを、例えば今は"を囲い文字としてカットします、的なことをしたい。expand-regionで囲い文字洗濯できる的な
-
+- git add push add issueを自動化（コマンド一発でやりたい）or saveしたらpushするとか
+- keychord周り見直す、普通に英語２つは辛い
+- helm-M-xで[]とか記号系入力すると死ぬ
 
 
 ## 気になったelisp
 - aggressive-indent
-
-
 
 
 
@@ -69,5 +56,10 @@ http://d.hatena.ne.jp/syohex/20121221/1356081771
 git-modesは、Gitの.gitattribute, .gitignore, .gitconfig, コミット、リベースのそれぞれのメジャーモードを提供します（[参考]（https://github.com/magit/git-modes））。
 URLからもわかるとおり、magitと同じ所が作っていますが、コミット、リベース以外のモードはmagitに入っていないようなので入れてみました。
 
+
 ### sequential-command
 http://d.hatena.ne.jp/rubikitch/20090219/sequential_comtmand
+
+
+### 過去に欲しいと思ったコマンド
+- yank-popをいい感じに。前後2,3個のkill-ringを素早く表示させたい。ポインタだけ移動させるイメージ。https://www.emacswiki.org/emacs/download/browse-kill-ring.el
