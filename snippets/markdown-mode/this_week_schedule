@@ -1,0 +1,24 @@
+# -*- mode: snippet -*-
+# name: this_week_schedule
+# key: w
+# --
+## 今週の計画
+### Mon
+$0
+### Tue
+
+### Wed
+
+### Thu
+
+### Fri
+
+### Sat
+
+### Sun
+
+
+## tmp
+
+## 実際
+

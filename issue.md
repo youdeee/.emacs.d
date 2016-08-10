@@ -3,15 +3,13 @@
 ## 欲しいコマンド
 - 特定の拡張子のファイルだけkill-bufferする
 - simple-initからmy-function参照するようにしたい
-- sqlまわりなんとかしたい
 - helm-all-swoopとかでtagファイルとか省きたい
 - カーソル上・下の段落前削除
 - 一気にsave-pointまでundo/redoする
-- C-tしたときにsmartrepとかで二回目にjkhl押したらその方向に進みたい
 - C-w、C-1的なことを、例えば今は"を囲い文字としてカットします、的なことをしたい。expand-regionで囲い文字洗濯できる的な
 - やっぱC-1とかの挙動微妙。前のコピーを引き継ぎたい
 
-- git add push add issueを自動化（コマンド一発でやりたい）or saveしたらpushするとか
+- sqlまわりなんとかしたい
 - keychord周り見直す、普通に英語２つは辛い
 - helm-M-xで[]とか記号系入力すると死ぬ
 

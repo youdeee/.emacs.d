@@ -119,8 +119,8 @@
 (bind-key "M-[" 'point-undo)
 (bind-key "M-]" 'point-redo)
 (bind-key "C-x c" 'smarter-compile)
-(bind-key* "C-;" 'avy-goto-char)
-(bind-key* "C-:" 'avy-goto-char-2)
+(bind-key* "C-;" 'avy-migemo-goto-char)
+(bind-key* "C-:" 'avy-migemo-goto-char-2)
 (bind-key* "C-'" 'avy-goto-line)
 (bind-key "C-\"" 'goto-line)
 (bind-key* "C-x C-z" 'open-dropbox-junk)
@@ -142,6 +142,9 @@
 (bind-keys :map emacs-lisp-mode-map
            ("C-c C-d" . lispxmp))
 (ac-set-trigger-key "<backtab>")
+(bind-keys :map isearch-mode-map
+           ("C-;" . avy-migemo-isearch))
+
 
 ;; 自作関数
 (bind-key "M-," 'full-screen)
