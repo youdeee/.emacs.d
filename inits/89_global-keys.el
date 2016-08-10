@@ -159,6 +159,7 @@
 (bind-key "C-1" 'replace-symbol-from-kill-ring)
 (bind-key "C-o C-k" 'replace-forward-from-kill-ring)
 (bind-key "C-o C-," 'replace-backward-from-kill-ring)
+(bind-key "s-w" 'window-resizer)
 
 (require 'thingopt)
 (define-thing-commands)
