@@ -1,14 +1,16 @@
 # emacs周りでやりたいこと
 
 ## 欲しいコマンド
-- 特定の拡張子のファイルだけkill-bufferする
-- simple-initからmy-function参照するようにしたい
-- helm-all-swoopとかでtagファイルとか省きたい
-- カーソル上・下の段落前削除
+- avyっぽいbuffer切り替え
 - 一気にsave-pointまでundo/redoする
+- simple-initからmy-function参照するようにしたい
+- 検索、git まわり強化したい
 - C-w、C-1的なことを、例えば今は"を囲い文字としてカットします、的なことをしたい。expand-regionで囲い文字洗濯できる的な
 - やっぱC-1とかの挙動微妙。前のコピーを引き継ぎたい
+- カーソル上・下の段落前削除
+- helm-all-swoopとかでtagファイルとか省きたい
 
+- 特定の拡張子のファイルだけkill-bufferする
 - sqlまわりなんとかしたい
 - keychord周り見直す、普通に英語２つは辛い
 - helm-M-xで[]とか記号系入力すると死ぬ
