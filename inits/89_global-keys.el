@@ -39,7 +39,7 @@
 ;;(bind-key "C-z" 'mode-specific-command-prefix)
 ;(global-unset-key (kbd "C-z"))
 ;;(bind-key "C-q" 'back-to-indentation)
-;; (bind-key "C-c C-f" 'fci-mode)
+;; (bind-key "C-o C-f" 'fci-mode)
 ;; (bind-key "M-n" (lambda () (interactive) (scroll-up 1)))
 ;; (bind-key "M-p" (lambda () (interactive) (scroll-down 1)))
 
@@ -52,14 +52,14 @@
 ;; helm
 (bind-key* "M-x" 'helm-M-x)
 (bind-key* "C-x f" 'helm-mini)
-(bind-key* "C-c f" 'helm-find-files)
-(bind-key "C-c C-f" 'helm-ls-git-ls)
+(bind-key* "C-o f" 'helm-find-files)
+(bind-key "C-o C-f" 'helm-ls-git-ls)
 (bind-key "M-y"     'helm-show-kill-ring)
-(bind-key "C-c i"   'helm-imenu)
-(bind-key "C-c a" 'helm-ag)
+(bind-key "C-o i"   'helm-imenu)
+(bind-key "C-o a" 'helm-ag)
 (bind-key* "M-o" 'helm-swoop)
 (bind-key* "C-M-o" 'helm-multi-swoop-all)
-(bind-key "C-c C-a" 'helm-projectile-ag)
+(bind-key "C-o C-a" 'helm-projectile-ag)
 (bind-key "C-x C-d" 'helm-dired-recent-dirs-view)
 (bind-key "<f1> a" 'helm-apropos)
 (bind-keys :map helm-find-files-map
@@ -104,9 +104,9 @@
     ("O"        . 'mc/reverse-regions)))
 
 ;; ohter
-(bind-key "C-c d" 'ag-dired)
-(bind-key* "C-c r" 'anzu-query-replace-regexp)
-(bind-key* "C-c C-r" 'anzu-query-replace-at-cursor-thing)
+(bind-key "C-o d" 'ag-dired)
+(bind-key* "C-o r" 'anzu-query-replace-regexp)
+(bind-key* "C-o C-r" 'anzu-query-replace-at-cursor-thing)
 (bind-key* "C-]" 'er/expand-region)
 (bind-key* "C-}" 'er/contract-region)
 (bind-key "M-8" 'highlight-symbol-at-point)
@@ -160,8 +160,8 @@
 (bind-key "C-a" 'goto-line-beginning-or-indent)
 (bind-key "M-t" 'custom-transpose-char)
 (bind-key "C-1" 'replace-symbol-from-kill-ring)
-(bind-key "C-o C-k" 'replace-forward-from-kill-ring)
-(bind-key "C-o C-," 'replace-backward-from-kill-ring)
+(bind-key "C-o k" 'replace-forward-from-kill-ring)
+(bind-key "C-o ," 'replace-backward-from-kill-ring)
 (bind-key "s-w" 'window-resizer)
 
 (require 'thingopt)

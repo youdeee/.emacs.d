@@ -5,10 +5,12 @@
 - 一気にsave-pointまでundo/redoする
 - simple-initからmy-function参照するようにしたい
 - 検索、git まわり強化したい
+- 簡単なexpand/region的なの実装して、textObjectをいい感じに選択できるようにしたい
 - C-w、C-1的なことを、例えば今は"を囲い文字としてカットします、的なことをしたい。expand-regionで囲い文字洗濯できる的な
 - やっぱC-1とかの挙動微妙。前のコピーを引き継ぎたい
 - カーソル上・下の段落前削除
 - helm-all-swoopとかでtagファイルとか省きたい
+- いい感じのcsv-mode(余力あればフルスクラッチ)列に色つけたり、対応separator増やしたり、もっと簡単に入れ替えしたり、このmode用のkill-ring作ったり、空白列足す
 
 - 特定の拡張子のファイルだけkill-bufferする
 - sqlまわりなんとかしたい
