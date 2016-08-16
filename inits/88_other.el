@@ -101,6 +101,8 @@
 (setq migemo-coding-system 'utf-8-unix)
 (migemo-init)
 
+(require 'editorconfig)
+(editorconfig-mode 1)
 
 ;; ;;ac-ispell
 ;; (eval-after-load "auto-complete"
