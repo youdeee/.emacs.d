@@ -65,7 +65,11 @@
 ;;  ;;    '(lambda ()
 ;;  ;;       (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
-;; (require 'scss-mode)
+(require 'scss-mode)
+(add-hook 'scss-mode-hook 'custom-scss-mode-hook)
+(defun custom-scss-mode-hook ()
+  (setq indent-tabs-mode nil)
+  (setq css-indent-offset 2))
 ;; (add-to-list 'ac-modes 'scss-mode) ;; coffee-modeでACを使えるようにする
 ;; (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
 ;; (defun scss-custom ()

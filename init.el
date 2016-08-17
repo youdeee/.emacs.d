@@ -149,6 +149,7 @@
     ;;    helm-migemo
     package-utils
     avy-migemo
+    fuzzy
     ))
 (let ((not-installed
        (loop for package in my-package-list
