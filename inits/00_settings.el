@@ -66,4 +66,4 @@
 
 ;; tramp
 (require 'tramp-cache)
-(setq tramp-persistency-file-name "~/.emacs.d/tramp")
+(setq tramp-persistency-file-name "~/.emacs.d/.tramp")
