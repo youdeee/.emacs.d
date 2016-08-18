@@ -36,6 +36,8 @@
 (bind-key "C-M-i" 'delete-indentation)
 (global-unset-key (kbd "C-o"))
 (bind-key "C-o" 'mode-specific-command-prefix)
+(global-unset-key (kbd "s-q"))
+
 ;;(bind-key "C-z" 'mode-specific-command-prefix)
 ;(global-unset-key (kbd "C-z"))
 ;;(bind-key "C-q" 'back-to-indentation)

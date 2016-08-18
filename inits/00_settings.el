@@ -63,3 +63,7 @@
 (setq dired-recursive-copies 'always)
 ;; diredバッファでC-sした時にファイル名だけにマッチするように
 (setq dired-isearch-filenames t)
+
+;; tramp
+(require 'tramp-cache)
+(setq tramp-persistency-file-name "~/.emacs.d/tramp")
