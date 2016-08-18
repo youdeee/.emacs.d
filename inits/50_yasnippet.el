@@ -1,7 +1,5 @@
 (require 'yasnippet)
-(setq yas-snippet-dirs
-      '("~/.emacs.d/snippets"
-        yas-installed-snippets-dir))
+(setq yas-snippet-dirs '("~/.emacs.d/snippets" yas-installed-snippets-dir))
 
 (require 'helm-c-yasnippet)
 (setq helm-yas-space-match-any-greedy t)

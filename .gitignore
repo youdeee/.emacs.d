@@ -6,27 +6,30 @@
 /.emacs.desktop
 /.emacs.desktop.lock
 *.elc
-auto-save-list/
-.tramp
-.recentf
 .\#*
 history
 .DS_Store
 .cask/
-.session
 el-get/
 inits/el-get/
 inits/idlwave/
 inits/undohist/
 inits/projectile*
 inits/games/
+tutorial/
 ac-*
-
-undohist/
 /var/
 frame-restore-parameters
+
+cache/
+undohist/
+.session
 .mc-lists.el
-tutorial/
+auto-save-list/
+.tramp
+.recentf
+eshell/
+projectile-bookmarks.eld
 
 # Org-mode
 .org-id-locations
@@ -46,6 +49,3 @@ tutorial/
 
 TAGS
 inits/url/
-projectile-bookmarks.eld
-/url/
-eshell/

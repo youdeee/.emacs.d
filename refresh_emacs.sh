@@ -14,6 +14,8 @@ elif [ "$(uname)" == 'Linux' ]; then
     brew install clisp
 fi
 
+mkdir cache
+
 mv inits/el-get/tomorrow-theme/GNU\ Emacs/* inits/el-get/tomorrow-theme/
 sudo rm -r inits/el-get/tomorrow-theme/*/
 rm inits/el-get/tomorrow-theme/.gitignore

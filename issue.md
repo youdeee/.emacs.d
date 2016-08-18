@@ -12,6 +12,7 @@
 - helm-all-swoopとかでtagファイルとか省きたい
 - いい感じのcsv-mode(余力あればフルスクラッチ)列に色つけたり、対応separator増やしたり、もっと簡単に入れ替えしたり、このmode用のkill-ring作ったり、空白列足す
 
+- androidstudioとかみたいなfuzzy completionをつけたい
 - 特定の拡張子のファイルだけkill-bufferする
 - sqlまわりなんとかしたい
 - keychord周り見直す、普通に英語２つは辛い

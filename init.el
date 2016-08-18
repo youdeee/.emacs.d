@@ -172,6 +172,7 @@
 (setq init-loader-show-log-after-init 'error-only)
 (init-loader-load)
 
+(setq user-emacs-directory "~/.emacs.d/")
 ;; ;; load-path
 ;; (defun add-to-load-path (&rest paths)
 ;;   (let (path)

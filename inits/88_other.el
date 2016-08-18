@@ -8,7 +8,9 @@
 (setq magit-last-seen-setup-instructions "1.4.0")
 
 (require 'auto-complete-config)
+(require 'fuzzy)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/dict")
+(custom-set-variables '(ac-comphist-file "~/.emacs.d/cache/ac-comphist.dat"))
 (ac-config-default)
 (setq ac-use-menu-map t)
 
@@ -34,6 +36,12 @@
           (lambda ()
             (make-local-variable 'ac-ignore-case)
             (setq ac-ignore-case 'smart)))
+
+;; (require 'company)
+;; (global-company-mode)
+;; (setq company-idle-delay 0.05) ; デフォルトは0.5
+;; (setq company-minimum-prefix-length 2) ; デフォルトは4
+;; (setq company-selection-wrap-around t) ; 候補の一番下でさらに下に行こうとすると一番上に戻る
 
 (require 'server)
 (unless (server-running-p)
@@ -71,7 +79,9 @@
 ;;(require 'moccur-edit nil t)
 
 (require 'undohist)
+(custom-set-variables '(undohist-directory "~/.emacs.d/cache/undohist"))
 (undohist-initialize)
+
 
 (require 'undo-tree)
 (global-undo-tree-mode t)
@@ -103,6 +113,17 @@
 
 (require 'editorconfig)
 (editorconfig-mode 1)
+
+;; caches
+(setq eshell-directory-name "~/.emacs.d/cache/eshell/")
+
+(custom-set-variables '(projectile-known-projects-file "~/.emacs.d/cache/projectile-bookmarks.eld"))
+
+(setq migemo-pattern-alist-file "~/.emacs.d/cache/migemo-pattern")
+(setq migemo-frequent-pattern-alist-file "~/.emacs.d/cache/migemo-frequent")
+
+;(setq auto-save-file-name-transforms '((".*" ,my-backup-dir t)))
+(custom-set-variables '(auto-save-list-file-prefix "~/.emacs.d/cache/auto-save-list/.saves-"))
 
 ;; ;;ac-ispell
 ;; (eval-after-load "auto-complete"
