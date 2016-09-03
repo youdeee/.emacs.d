@@ -150,6 +150,7 @@
     package-utils
     avy-migemo
     fuzzy
+    evil
     ))
 (let ((not-installed
        (loop for package in my-package-list
