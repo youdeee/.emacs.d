@@ -67,3 +67,5 @@
 ;; tramp
 (require 'tramp-cache)
 (setq tramp-persistency-file-name "~/.emacs.d/.tramp")
+
+(setq ring-bell-function 'ignore)
