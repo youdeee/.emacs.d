@@ -11,8 +11,7 @@
 (when window-system
   (add-to-list 'default-frame-alist '(alpha . (90 80)))
   (add-to-list 'default-frame-alist '(foreground-color . "white"))
-  (add-to-list 'default-frame-alist '(background-color . "black"))
-  )
+  (add-to-list 'default-frame-alist '(background-color . "black")))
 
 ;; ;; miniとかを横に表示
 ;; (setq split-height-threshold nil)
@@ -88,14 +87,18 @@
 ;; 行末の空白を表示
 ;;(setq-default show-trailing-whitespace t)
 (require 'whitespace)
+(global-whitespace-mode 1)
 (setq whitespace-style '(face trailing tabs empty space-mark tab-mark))
 
 (setq whitespace-display-mappings
 '((tab-mark ?\t [?\u00BB ?\t] [?\\ ?\t])))
 
-(set-face-attribute 'whitespace-empty nil :background "#2F2F2F")
-(global-whitespace-mode 1)
-
+(defvar my/bg-color "#2F2F2F")
+(set-face-attribute 'whitespace-empty nil :background my/bg-color)
+(set-face-attribute 'whitespace-trailing nil
+                    :background "#111111"
+                    :foreground "DeepPink"
+                    :underline t)
 
 ;;現在行を目立たせる
 (require 'hl-line)
