@@ -35,6 +35,9 @@ projectile-bookmarks.eld
 .org-id-locations
 *_archive
 
+# local files
+99*
+
 # flymake-mode
 *_flymake.*
 
