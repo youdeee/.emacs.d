@@ -38,8 +38,8 @@
 (bind-key "C-o" 'mode-specific-command-prefix)
 (global-unset-key (kbd "s-q"))
 (bind-key* "s-q" 'auto-complete)
-(bind-key* "C-<right>" 'tabbar-forward)
-(bind-key* "C-<left>" 'tabbar-backward)
+(bind-key* "s-<right>" 'tabbar-forward)
+(bind-key* "s-<left>" 'tabbar-backward)
 
 ;;(bind-key "C-z" 'mode-specific-command-prefix)
 ;(global-unset-key (kbd "C-z"))
