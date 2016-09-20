@@ -129,14 +129,6 @@
 (add-hook 'emacs-lisp-mode 'rainbow-mode)
 ;;(add-hook 'html-mode-hook 'rainbow-mode)
 
-;; cc-mode
-(defun custom-c-mode-hook ()
-  (define-key c-mode-base-map ";" nil))
-(add-hook 'c-mode-hook 'custom-c-mode-hook)
-;; (setq-default c-basic-offset 4
-;;               tab-width 4
-;;               indent-tabs-mode nil)
-
 (setq inferior-lisp-program "clisp")
 (require 'slime)
 (slime-setup '(slime-repl slime-fancy slime-banner))

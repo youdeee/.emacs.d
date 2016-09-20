@@ -20,6 +20,7 @@ tutorial/
 ac-*
 /var/
 frame-restore-parameters
+image-dired/
 
 cache/
 undohist/

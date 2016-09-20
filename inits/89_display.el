@@ -39,7 +39,7 @@
 
 ;; タブの幅
 ;;(setq tab-width 2)
-;;(setq-default tab-width 2 indent-tabs-mode nil)
+(setq-default tab-width 2 indent-tabs-mode nil)
 
 ;;前の行とインデントをあわせる
 (setq indent-line-function 'indent-relative-maybe)
