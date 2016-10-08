@@ -20,7 +20,7 @@
 (bind-key "M-h" 'backward-kill-word)
 (bind-key "C-x 5 o" 'transpose-words)
 (bind-key "C-x t" 'other-frame)
-(bind-key "s-u" 'browse-url)
+(bind-key "s-u" 'browse-url-of-file)
 (bind-key "M-SPC" 'delete-trailing-whitespace)
 ;;(bind-key "s-f" 'auto-fill-mode)
 (bind-key "s-f" 'toggle-truncate-lines)
