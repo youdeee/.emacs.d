@@ -3,7 +3,7 @@
 ;;; Author: youdeee
 
 ;;; Code:
-(eval-when-compile (require 'cl))
+(eval-when-compile (require 'cl-lib))
 
 ;;新しいバイトコンパイルファイルを読み込む
 (setq load-prefer-newer t)

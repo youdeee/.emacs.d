@@ -1,4 +1,4 @@
-(eval-when-compile (require 'cl))
+(eval-when-compile (require 'cl-lib))
 
 (setq load-prefer-newer t)
 (setq backup-inhibited t)
