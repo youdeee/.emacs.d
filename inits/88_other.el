@@ -98,8 +98,6 @@
 
 (require 'expand-region)
 
-(require 'foreign-regexp)
-
 (require 'smarter-compile)
 
 (require 'migemo)
