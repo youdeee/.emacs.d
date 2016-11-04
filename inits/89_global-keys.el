@@ -92,7 +92,7 @@
 
 ;; multi-cursor
 (bind-key "C-|" 'mc/edit-lines) ;;リージョン全てにカーソルおく
-(global-unset-key "\C-\\")
+(global-unset-key (kbd "C-\\"))
 (smartrep-define-key global-map "C-\\"
   '(("C-\\"      . 'mc/mark-next-like-this)
     ("n"        . 'mc/mark-next-like-this)

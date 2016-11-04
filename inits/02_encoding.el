@@ -51,3 +51,6 @@
 ;; (mac-set-input-method-parameter "com.google.inputmethod.Japanese.Roman" `cursor-color "blue")
 
 (setenv "LC_ALL" "ja_JP.UTF-8")
+
+;; (when (functionp 'mac-auto-ascii-mode)
+;;   (mac-auto-ascii-mode 1))

@@ -31,6 +31,8 @@ auto-save-list/
 .recentf
 eshell/
 projectile-bookmarks.eld
+network-security.data
+#request/
 
 # Org-mode
 .org-id-locations
