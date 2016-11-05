@@ -43,7 +43,7 @@
         try-expand-dabbrev-from-kill))
 
 ;; GCを減らして軽くする
-(setq gc-cons-threshold (* 128 1024 1024))
+ (setq gc-cons-threshold (* 128 1024 1024))
 (setq garbage-collection-messages t)
 
 ;; マウス選択箇所を自動コピー
