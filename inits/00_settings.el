@@ -42,9 +42,13 @@
         try-expand-dabbrev-all-buffers
         try-expand-dabbrev-from-kill))
 
-;; GCを減らして軽くする
- (setq gc-cons-threshold (* 128 1024 1024))
-(setq garbage-collection-messages t)
+;; GC
+(defun my-minibuffer-setup-hook ()
+  (setq gc-cons-threshold most-positive-fixnum))
+(defun my-minibuffer-exit-hook ()
+  (setq gc-cons-threshold 800000))
+(add-hook 'minibuffer-setup-hook #'my-minibuffer-setup-hook)
+(add-hook 'minibuffer-exit-hook #'my-minibuffer-exit-hook)
 
 ;; マウス選択箇所を自動コピー
 (setq mouse-drag-copy-region t)
