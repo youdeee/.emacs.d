@@ -154,7 +154,7 @@
     fish-mode
     ))
 (let ((not-installed
-       (loop for package in my-package-list
+       (cl-loop for package in my-package-list
              when (not (package-installed-p package))
              collect package)))
   (when not-installed
@@ -223,6 +223,7 @@
  '(bm-face ((t (:background "gray13"))))
  '(helm-ff-directory ((t (:background "dark red" :foreground "white"))))
  '(helm-selection ((t (:background "gray20" :distant-foreground "black"))))
+ '(hl-line ((t (:background "gray25"))))
  '(web-mode-comment-face ((t (:foreground "#D9333F"))))
  '(web-mode-css-at-rule-face ((t (:foreground "#FF7F00"))))
  '(web-mode-css-face ((t (:background "grey18"))))

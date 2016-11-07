@@ -9,7 +9,7 @@
 
 ;; アクティブウィンドウと非アクティブウィンドウの透明度
 (when window-system
-  (add-to-list 'default-frame-alist '(alpha . (90 80)))
+  ;; (add-to-list 'default-frame-alist '(alpha . (90 80)))
   (add-to-list 'default-frame-alist '(foreground-color . "white"))
   (add-to-list 'default-frame-alist '(background-color . "black")))
 
