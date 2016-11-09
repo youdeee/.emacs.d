@@ -15,7 +15,7 @@
 (defvar my-package-list
   '(ac-dabbrev
     ;;    ac-ispell
-    ac-js2
+    ;; ac-js2
     ac-python
     ag
     anzu
