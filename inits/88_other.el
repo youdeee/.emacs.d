@@ -89,9 +89,40 @@
 ;;M-(C-)/    C-x u :show tree   d:details
 ;;(global-set-key (kbd "M-/") 'undo-tree-redo)
 
-(when (require 'tabbar nil t)
-  (tabbar-mode))
+(setq elscreen-prefix-key (kbd "C-z"))
+(elscreen-start)
+(setq elscreen-tab-display-kill-screen nil)
+(setq elscreen-tab-display-control nil)
+(setq elscreen-buffer-to-nickname-alist
+      '(("^dired-mode$" .
+         (lambda ()
+           (format "Dired(%s)" dired-directory)))
+        ("^Info-mode$" .
+         (lambda ()
+           (format "Info(%s)" (file-name-nondirectory Info-current-file))))
+        ("^mew-draft-mode$" .
+         (lambda ()
+           (format "Mew(%s)" (buffer-name (current-buffer)))))
+        ("^mew-" . "Mew")
+        ("^irchat-" . "IRChat")
+        ("^liece-" . "Liece")
+        ("^lookup-" . "Lookup")))
+(setq elscreen-mode-to-nickname-alist
+      '(("[Ss]hell" . "shell")
+        ("compilation" . "compile")
+        ("-telnet" . "telnet")
+        ("dict" . "OnlineDict")
+        ("*WL:Message*" . "Wanderlust")))
+(elscreen-separate-buffer-list-mode 1)
+
+(tabbar-mode 1)
+(setq tabbar-use-images nil)
 (setq tabbar-buffer-groups-function nil)
+(dolist (btn '(tabbar-buffer-home-button
+               tabbar-scroll-left-button
+               tabbar-scroll-right-button))
+  (set btn (cons (cons "" nil)
+                 (cons "" nil))))
 
 (require 'goto-chg)
 

@@ -153,6 +153,9 @@
     evil
     fish-mode
     go-mode
+    elscreen
+    elscreen-persist
+    elscreen-separate-buffer-list
     ))
 (let ((not-installed
        (cl-loop for package in my-package-list
@@ -209,7 +212,7 @@
  '(org-agenda-restore-windows-after-quit t)
  '(package-selected-packages
    (quote
-    (go-mode fish-mode evil fuzzy avy-migemo package-utils csv-mode ac-helm helm-ls-git helm-git-grep helm-git-files helm-git helm-projectile helm-gtags helm-flycheck helm-dash helm-c-yasnippet helm-css-scss helm-dired-recent-dirs helm-descbinds helm-bm helm-ag helm-swoop helm-package helm ac-slime slime php-completion php-mode zop-to-char yasnippet yaml-mode vline wget web-mode w3m viewer undohist undo-tree unicode-fonts ucs-utils thingopt tabbar swift-mode sticky smartrep smart-newline smarter-compile sql-indent slim-mode skewer-mode simple-rtm shell-pop session scss-mode sass-mode rvm ruby-end ruby-block review-mode recentf-ext rainbow-mode rainbow-delimiters python-mode projectile popwin popup point-undo open-junk-file neotree multiple-cursors multi-term multi mkdown migemo mew markdown-mode magit-tramp magit lispxmp less-css-mode key-combo key-chord jump json-mode js2-mode init-loader indent-guide hive highlight-symbol highlight haml-mode goto-chg google-translate gitignore-mode gitconfig-mode git-gutter-fringe git flycheck flex-autopair fill-column-indicator expand-region exec-path-from-shell es-mode epl editorconfig easy-kill dired-details dired-toggle-sudo dired-toggle dash-at-point dash ctags-update csharp-mode color-moccur color-theme coffee-mode cake2 bm bind-key avy auto-yasnippet auto-save-buffers-enhanced auto-indent-mode auto-dictionary auto-complete-rst auto-complete anzu ag ac-python ac-js2 ac-dabbrev)))
+    (avy-menu elscreen go-mode fish-mode evil fuzzy avy-migemo package-utils csv-mode ac-helm helm-ls-git helm-git-grep helm-git-files helm-git helm-projectile helm-gtags helm-flycheck helm-dash helm-c-yasnippet helm-css-scss helm-dired-recent-dirs helm-descbinds helm-bm helm-ag helm-swoop helm-package helm ac-slime slime php-completion php-mode zop-to-char yasnippet yaml-mode vline wget web-mode w3m viewer undohist undo-tree unicode-fonts ucs-utils thingopt tabbar swift-mode sticky smartrep smart-newline smarter-compile sql-indent slim-mode skewer-mode simple-rtm shell-pop session scss-mode sass-mode rvm ruby-end ruby-block review-mode recentf-ext rainbow-mode rainbow-delimiters python-mode projectile popwin popup point-undo open-junk-file neotree multiple-cursors multi-term multi mkdown migemo mew markdown-mode magit-tramp magit lispxmp less-css-mode key-combo key-chord jump json-mode js2-mode init-loader indent-guide hive highlight-symbol highlight haml-mode goto-chg google-translate gitignore-mode gitconfig-mode git-gutter-fringe git flycheck flex-autopair fill-column-indicator expand-region exec-path-from-shell es-mode epl editorconfig easy-kill dired-details dired-toggle-sudo dired-toggle dash-at-point dash ctags-update csharp-mode color-moccur color-theme coffee-mode cake2 bm bind-key avy auto-yasnippet auto-save-buffers-enhanced auto-indent-mode auto-dictionary auto-complete-rst auto-complete anzu ag ac-python ac-js2 ac-dabbrev)))
  '(projectile-enable-caching t)
  '(projectile-known-projects-file "~/.emacs.d/cache/projectile-bookmarks.eld")
  '(recentf-save-file "~/.emacs.d/cache/.recentf")
@@ -237,5 +240,5 @@
  '(web-mode-javascript-face ((t (:background "grey36"))))
  '(web-mode-server-comment-face ((t (:foreground "#D9333F"))))
  '(web-mode-server-face ((t (:background "grey"))))
- '(whitespace-tab ((t (:background "gray5" :foreground "#969896")))))
+ '(whitespace-tab ((t (:background "gray5" :foreground "gray25")))))
 (put 'upcase-region 'disabled nil)
