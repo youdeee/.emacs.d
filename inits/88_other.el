@@ -25,6 +25,7 @@
 (setq ac-auto-show-menu 0.05)  ;; 0.8
 (setq ac-quick-help-delay 0.5)  ;; n秒後にクイックヘルプを表示
 (setq popup-use-optimized-column-computation nil) ;; 最適化無効でメニュー表示崩れ回避
+(setq ac-auto-start 1)
 
 (add-to-list 'ac-modes 'text-mode)
 (add-to-list 'ac-modes 'fundamental-mode)
@@ -142,3 +143,5 @@
 ;;       (dired-details-activate))))
 
 (require 'evil)
+
+(setq-default ac-sources (push 'ac-source-yasnippet ac-sources))
