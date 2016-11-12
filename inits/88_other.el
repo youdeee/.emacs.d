@@ -89,6 +89,7 @@
 ;;M-(C-)/    C-x u :show tree   d:details
 ;;(global-set-key (kbd "M-/") 'undo-tree-redo)
 
+
 (setq elscreen-prefix-key (kbd "C-z"))
 (elscreen-start)
 (setq elscreen-tab-display-kill-screen nil)
@@ -114,8 +115,6 @@
         ("dict" . "OnlineDict")
         ("*WL:Message*" . "Wanderlust")))
 (elscreen-separate-buffer-list-mode 1)
-(elscreen-persist-mode 1)
-;; (custom-set-variables '(elscreen-persist-file "~/.emacs.d/cache/elscreen"))
 
 (tabbar-mode 1)
 (setq tabbar-use-images nil)
@@ -125,6 +124,9 @@
                tabbar-scroll-right-button))
   (set btn (cons (cons "" nil)
                  (cons "" nil))))
+
+(desktop-save-mode 1)
+
 
 (require 'goto-chg)
 

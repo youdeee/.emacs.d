@@ -154,7 +154,6 @@
     fish-mode
     go-mode
     elscreen
-    elscreen-persist
     elscreen-separate-buffer-list
     ))
 (let ((not-installed
@@ -208,7 +207,8 @@
  ;; If there is more than one, they won't work right.
  '(ac-comphist-file "~/.emacs.d/cache/ac-comphist.dat")
  '(auto-save-list-file-prefix "~/.emacs.d/cache/auto-save-list/.saves-")
- '(elscreen-persist-file "~/.emacs.d/cache/elscreen")
+ '(desktop-path (quote ("~/.emacs.d/cache/" "~")))
+ '(desktop-save-mode t)
  '(image-dired-db-file "~/.emacs.d/cache/image-dired/.image-dired_db")
  '(org-agenda-files nil)
  '(org-agenda-restore-windows-after-quit t)
