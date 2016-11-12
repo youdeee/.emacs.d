@@ -208,6 +208,8 @@
  ;; If there is more than one, they won't work right.
  '(ac-comphist-file "~/.emacs.d/cache/ac-comphist.dat")
  '(auto-save-list-file-prefix "~/.emacs.d/cache/auto-save-list/.saves-")
+ '(elscreen-persist-file "~/.emacs.d/cache/elscreen")
+ '(image-dired-db-file "~/.emacs.d/cache/image-dired/.image-dired_db")
  '(org-agenda-files nil)
  '(org-agenda-restore-windows-after-quit t)
  '(package-selected-packages
@@ -218,7 +220,9 @@
  '(recentf-save-file "~/.emacs.d/cache/.recentf")
  '(session-save-file "~/.emacs.d/cache/.session")
  '(session-use-package t nil (session))
- '(undohist-directory "~/.emacs.d/cache/undohist"))
+ '(tramp-persistency-file-name "~/.emacs.d/cache/.tramp")
+ '(undohist-directory "~/.emacs.d/cache/undohist")
+ '(url-cache-directory "~/.emacs.d/cache/url/cache"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

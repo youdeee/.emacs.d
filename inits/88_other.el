@@ -10,7 +10,7 @@
 (require 'auto-complete-config)
 (require 'fuzzy)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/dict")
-(custom-set-variables '(ac-comphist-file "~/.emacs.d/cache/ac-comphist.dat"))
+;; (custom-set-variables '(ac-comphist-file "~/.emacs.d/cache/ac-comphist.dat"))
 (ac-config-default)
 (setq ac-use-menu-map t)
 
@@ -80,7 +80,7 @@
 ;;(require 'moccur-edit nil t)
 
 (require 'undohist)
-(custom-set-variables '(undohist-directory "~/.emacs.d/cache/undohist"))
+;; (custom-set-variables '(undohist-directory "~/.emacs.d/cache/undohist"))
 (undohist-initialize)
 
 
@@ -115,6 +115,7 @@
         ("*WL:Message*" . "Wanderlust")))
 (elscreen-separate-buffer-list-mode 1)
 (elscreen-persist-mode 1)
+;; (custom-set-variables '(elscreen-persist-file "~/.emacs.d/cache/elscreen"))
 
 (tabbar-mode 1)
 (setq tabbar-use-images nil)
@@ -148,13 +149,13 @@
 ;; caches
 (setq eshell-directory-name "~/.emacs.d/cache/eshell/")
 
-(custom-set-variables '(projectile-known-projects-file "~/.emacs.d/cache/projectile-bookmarks.eld"))
+;; (custom-set-variables '(projectile-known-projects-file "~/.emacs.d/cache/projectile-bookmarks.eld"))
 
-(setq migemo-pattern-alist-file "~/.emacs.d/cache/migemo-pattern")
-(setq migemo-frequent-pattern-alist-file "~/.emacs.d/cache/migemo-frequent")
+;; (setq migemo-pattern-alist-file "~/.emacs.d/cache/migemo-pattern")
+;; (setq migemo-frequent-pattern-alist-file "~/.emacs.d/cache/migemo-frequent")
 
 ;(setq auto-save-file-name-transforms '((".*" ,my-backup-dir t)))
-(custom-set-variables '(auto-save-list-file-prefix "~/.emacs.d/cache/auto-save-list/.saves-"))
+;; (custom-set-variables '(auto-save-list-file-prefix "~/.emacs.d/cache/auto-save-list/.saves-"))
 
 ;; ;;ac-ispell
 ;; (eval-after-load "auto-complete"

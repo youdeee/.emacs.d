@@ -15,7 +15,7 @@
         (session-globals-max-size 100000)
         (file-name-history 300)))  ;; 開いたファイルのパス300件
 
-(custom-set-variables '(session-save-file "~/.emacs.d/cache/.session"))
+;; (custom-set-variables '(session-save-file "~/.emacs.d/cache/.session"))
 
 ;; (require 'auto-save-buffers-enhanced)
 ;; (setq auto-save-buffers-enhanced-interval 1) ; 指定のアイドル秒で保存
