@@ -3,8 +3,8 @@
 # -*- mode: gitignore; -*-
 *~
 \#*\#
-/.emacs.desktop
-/.emacs.desktop.lock
+.emacs.desktop
+.emacs.desktop.lock
 *.elc
 .\#*
 history
@@ -55,3 +55,6 @@ network-security.data
 
 TAGS
 inits/url/
+
+.emacs.desktop
+elscreen
