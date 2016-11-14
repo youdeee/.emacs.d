@@ -115,6 +115,7 @@
         ("dict" . "OnlineDict")
         ("*WL:Message*" . "Wanderlust")))
 (elscreen-separate-buffer-list-mode 1)
+(elscreen-persist-mode 1)
 
 (tabbar-mode 1)
 (setq tabbar-use-images nil)

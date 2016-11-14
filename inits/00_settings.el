@@ -76,3 +76,6 @@
 (setq ring-bell-function 'ignore)
 
 (setq initial-scratch-message "")
+
+(setq set-mark-command-repeat-pop t)
+(setq mark-ring-max 32)
