@@ -137,6 +137,10 @@
 (bind-key "C-M-." 'helm-etags-select)
 (bind-key "M-w" 'easy-kill)
 (bind-key "M-/" 'hippie-expand)
+(bind-key "C-o C-c" 'elscreen-create)
+(bind-key "C-o C-k" 'elscreen-kill)
+(bind-key "C-o C-n" 'elscreen-next)
+(bind-key "C-o C-p" 'elscreen-previous)
 
 (bind-keys :map ac-menu-map
            ("C-n" . ac-next)
