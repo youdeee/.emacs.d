@@ -66,19 +66,22 @@
 ;;  ;;       (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
 (require 'scss-mode)
+(add-to-list 'auto-mode-alist '("\\.\\(scss\\|css\\)\\'" . scss-mode))
 (add-hook 'scss-mode-hook 'custom-scss-mode-hook)
+;; (add-hook 'scss-mode-hook 'ac-css-mode-setup)
+;; (add-hook 'scss-mode-hook 'auto-complete-mode)
+;; (add-to-list 'ac-modes 'scss-mode)
+
 (defun custom-scss-mode-hook ()
   (setq indent-tabs-mode nil)
-  (setq css-indent-offset 2))
-;; (add-to-list 'ac-modes 'scss-mode) ;; coffee-modeでACを使えるようにする
-;; (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
+  (setq css-indent-offset 2)
+ (setq scss-compile-at-save nil))
+
 ;; (defun scss-custom ()
 ;;   "scss-mode-hook"
 ;;   (and
 ;;    (set (make-local-variable 'css-indent-offset) 2)
-;;    (set (make-local-variable 'scss-compile-at-save) nil)
-;;    )
-;;   )
+;;    (set (make-local-variable 'scss-compile-at-save) nil)))
 ;; (add-hook 'scss-mode-hook
 ;;   '(lambda() (scss-custom)))
 ;; ;;smart-indent-rigid
