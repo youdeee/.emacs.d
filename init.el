@@ -212,6 +212,7 @@
  '(desktop-save-mode t)
  '(elscreen-persist-file "~/.emacs.d/cache/elscreen")
  '(image-dired-db-file "~/.emacs.d/cache/image-dired/.image-dired_db")
+ '(js-indent-level 2)
  '(org-agenda-files nil)
  '(org-agenda-restore-windows-after-quit t)
  '(package-selected-packages
