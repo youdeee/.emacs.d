@@ -1,5 +1,7 @@
 (require 'recentf)
 
+(require 'recentf-ext)
+
 (recentf-mode t)
 (setq recentf-max-menu-items 500)
 (setq recentf-max-saved-items 3000)
@@ -8,4 +10,8 @@
 (setq recentf-auto-cleanup 'never)
 (setq recentf-auto-save-timer (run-with-idle-timer 30 t 'recentf-save-list))
 
-(require 'recentf-ext)
+(defmacro with-suppressed-message (&rest body)
+  "Suppress new messages temporarily in the echo area and the `*Messages*' buffer while BODY is evaluated."
+  (declare (indent 0))
+  (let ((message-log-max nil))
+    `(with-temp-message (or (current-message) "") ,@body)))
