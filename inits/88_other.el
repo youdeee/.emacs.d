@@ -181,3 +181,6 @@
 (require 'evil)
 
 (setq-default ac-sources (push 'ac-source-yasnippet ac-sources))
+
+(require 'discover)
+(global-discover-mode 1)
